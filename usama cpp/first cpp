@@ -1,5 +1,6 @@
 #include<iostream>
 using namespace std;
 int main(){
-    cout<<"hellow world";
+    cout<<"hellow world;
+    cour<<"hello Usama";
 }
