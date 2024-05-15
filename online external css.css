@@ -1,0 +1,15 @@
+body{
+    background-color: rgba(128, 128, 128, 0);
+}
+#box{
+    background-color:hwb(125 16% 23% / 0.445);
+    color: navy;
+}
+.head{
+    background-color: rgba(128, 128, 128, 0.212);
+    color: black;
+}
+button{
+
+    background-color: gray;
+}
