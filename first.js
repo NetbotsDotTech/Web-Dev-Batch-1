@@ -42,3 +42,7 @@ myfunction()
 z = 20
 
 console.log(z)
+
+const x = [3,4,5,6]
+x[3] = 1
+console.log(x)
