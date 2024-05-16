@@ -1,6 +1,6 @@
 let a=4
-let b=3.7
-let c=a+b
+let b=3
+let c=--a
 
 if(a<b){
     console.log("true")
