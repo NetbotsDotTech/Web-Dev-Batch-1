@@ -1,6 +1,6 @@
 
-//    Question=Agr hum $ ma value string store kry to output ma $ b string ma ata hy
-//    Qurstion= Agr hm ek a ka koy variable bna k koy value save kry or b ma undifined kry
+//    Question == Agr hum $ ma value string store kry to output ma $ b string ma ata hy
+//    Qurstion = Agr hm ek a ka koy variable bna k koy value save kry or b ma undifined kry
  //          or c ma a+b kry to NaN output ma NaN ata hy wo q ata hy
        
        //Varible 
@@ -54,7 +54,7 @@
  b=undefined
 
 c=a+b;
-
+ 
 console.log(c)
 
 
