@@ -39,3 +39,22 @@ let Info={
 
 Info.email="check@gmail.com";
 console.log(Info)
+
+const StdInfo={
+    age:100,
+    name:"Wali",
+    email:"wali@gmail.com"
+}
+
+StdInfo.email="wali.19@gmail.com";
+console.log(StdInfo)
+
+console.log(typeof(StdInfo))
+
+var students =["a","b"];
+console.log(typeof(students))
+$ =12;
+console.log(typeof($))
+
+name =12;
+console.log(typeof(name))
