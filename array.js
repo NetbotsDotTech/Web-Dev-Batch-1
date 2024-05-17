@@ -4,5 +4,5 @@ console.log(numbers[0],numbers[4])
 
 numbers[1] = 12
 numbers.push(30)
-numbers.append(0,0)
+numbers.unshift(0)
 console.log(numbers)
