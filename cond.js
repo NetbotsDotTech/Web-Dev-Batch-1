@@ -29,3 +29,7 @@ if (hour < 18) {
   else {
     greeting = "Good evening";
   }
+
+let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let length = text.length;
+console.log(length)
