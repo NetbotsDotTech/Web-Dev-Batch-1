@@ -31,24 +31,32 @@ function mul(x,y,z)
 {
     return(x*y*z)
 }
-c=mul(2,3,4)
-console.log(c)
 
+mul(2*3*4)
+ ////////////
 
-// Function is called, the return value will end up in x
-let x = myFunction(8, 3);
+ function add1(x,y)
+ {
+    console.log(x*y)
+ }
 
-function myFunction(a, b) {
-// Function returns the product of a and b
-  return a * b;
+ add1(20,20)
+
+let add2=function(a,b)
+{
+    console.log(a+b)
 }
+add2(1,2)
+ 
+let add3=(x,y)=>
+{
+console.log(x,y)
+}
+add3(80,90)
 
-console.log(x)
+const cars = new Array("Saab", "Volvo", "BMW");
+console.log(cars)
 
+const person = ["John", "Doe", 46];
+console.log(person)
 
-
-// Arrow function
-const multiply = (x, y) =>
-
-console.log(x*y)
-multiply(5,6)
