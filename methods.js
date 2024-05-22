@@ -84,5 +84,4 @@ console.log("Flat (concatenated new with sub array:)",newArr)
 myArr.splice(1, 0, [3, 4]);
 console.log("Spice (add new elements to the array:)",myArr)
 
-let tosplice=myArr.toSpliced(1, 1, [3, 4]);
-console.log("Spice (add new elements to the array:)",tosplice)
+
