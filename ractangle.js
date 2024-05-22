@@ -6,4 +6,4 @@ let perimeter = (a,b) => {
 }
 
 console.log(area(4,5))
-console.log(perimeter(4,5))
+console.log(perimeter(4,5))sdfmk
