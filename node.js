@@ -1,0 +1,1 @@
+consolse.log(123)
