@@ -7,3 +7,9 @@ console.log(array1)
 let result = 34 - "dskfj"
 
 console.log(result)
+
+
+
+
+
+
