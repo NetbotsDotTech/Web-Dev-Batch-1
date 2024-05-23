@@ -1,3 +1,4 @@
+
 // string charAt()
 const str = "Hello World";
 const char = str.charAt(0);
@@ -135,9 +136,9 @@ const result23 = str28.padEnd(10, "World");
 console.log(result23);
 
 // string fromCharCode()
-const str29 = "Hello";
-const result24 = str29.charCodeAt(0);
-console.log(result24);
+// const str29 = "Hello";
+// const result24 = str29.charCodeAt(0);
+// console.log(result24);
 
 // string repeat()
 const str30 = "Hello";
@@ -150,8 +151,8 @@ const result26 = str31.replace("Hello", "JavaScript");
 console.log(result26);
 
 // string replaceAll()
-const str30 = "Hello";
-const result25 = str31.replaceAll("Hello", "JavaScript");
+const str29 = "Hello";
+const resul29 = str31.replaceAll("Hello", "JavaScript");
 console.log(result26);
 
 // string search()
