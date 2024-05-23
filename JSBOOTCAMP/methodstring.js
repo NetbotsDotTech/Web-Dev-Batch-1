@@ -42,3 +42,47 @@ console.log(part3)
 let nam="banana,kivi,apply";
 let part4=nam.substr(7,7)
 console.log(part4)
+//toUppercase method
+let text11="banana,kivi,apply"
+let text12=text11.toUpperCase()
+console.log(text12)
+//toLowercase method
+let text13="Banana,Kivi,Apply"
+let text14=text13.toLowerCase()
+console.log(text14)
+//concat method
+let a="nadeem"
+let b="ashraf"
+let c=a.concat(' ',b)
+console.log(c)
+//trim method
+let s="    hello world!    "
+let r=s.trim()
+console.log(r)
+//trimstart and trimend method
+let s1="    hello world!.........    "
+let s2="     ....hello world   ...     "
+let r1=s1.trimStart()
+let r2=s2.trimEnd()
+console.log(r1)
+console.log(r2)
+//padstart and padend method
+let y="8"
+let v="9"
+let z=y.padStart(4,"11")
+let x=v.padEnd(4,"11")
+console.log(z)
+console.log(x)
+//repeat stringmethod
+let y1="nadeem ashraf"
+let v1=y1.repeat(10)
+console.log(v1)
+//replace stringmethod
+let y2="Please Visit our software house uuuu"
+let v2=y2.replace("uuuu","Netbotstech campany")
+console.log(v2)
+// split string method
+let txt="hello world,nadeem,ashraf,muhammad,najm ul hassan,afzal,shahid"
+let prt=txt.split()
+console.log(prt)
+//string are being completed here and i im so acxited about the next tasked..allhamdullellah
