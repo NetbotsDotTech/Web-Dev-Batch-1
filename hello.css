@@ -1,0 +1,21 @@
+body{
+    background-color: black;
+   }
+    nav ul{
+        
+
+    margin: 1;
+    padding: 0;
+    list-style:none;
+    display: flex;
+    gap: 40px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+    }
+    
+
+    nav.before .active-element {
+    
+    transform: rotateY (180deg)
