@@ -15,6 +15,16 @@ let obj = {
     // console.log(arr1.length)
     // console.log(obj.length)
   
-    console.log(text.at(-2))
+    // console.log(text.charAt(2))
+    // console.log(text.at(-2))
+    // console.log("Code of a is:",text.charCodeAt(1))
+    // console.log("Code of s is:",text.charCodeAt(2))
+    // console.log("Code of d is:",text.charCodeAt(3))
+    // console.log(text.slice(2,5));
+    // console.log(text.slice(-5,-1));
+
+    console.log(text.substring(-3, 5))
+
+
     console.log(arr1.length)
     console.log(obj.length)
