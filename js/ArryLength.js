@@ -91,5 +91,12 @@ let Arry5=["najm","ali","hussain","hassan","wali"]
 pos=Arry5.indexOf("hussain") + 1;
 console.log(pos)
 
+//      lastindexOf()
+let Arry6=["najm","ali","hussain","hassan","wali"]
+let po=Arry6.lastIndexOf("hussain") + 0;
+console.log(po)
 
-
+//      includes()
+let Arry7=["najm","ali","hussain","hassan","wali"]
+let poo=Arry7.includes("hussain");
+console.log(poo)
