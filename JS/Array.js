@@ -42,6 +42,12 @@
 // const arr3 = ["Robin", "Morgan"];
 // console.table( myChildren = arr1.concat(arr2, arr3));
 
-const fruits = ["Banana", "Orange", "Apple", "Mango", "Kiwi"];
-fruits.copyWithin(2, 0);
-console.log(fruits)
+// const fruits = ["Banana", "Orange", "Apple", "Mango", "Kiwi"];
+// fruits.copyWithin(2, 0);
+// console.log(fruits)
+
+// Flatting An Array.apply
+
+const myArr = [[1,2],[3,4],[5,6]];
+console.log(const newArr = myArr.flat())
+
