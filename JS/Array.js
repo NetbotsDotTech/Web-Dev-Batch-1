@@ -43,11 +43,43 @@
 // console.table( myChildren = arr1.concat(arr2, arr3));
 
 // const fruits = ["Banana", "Orange", "Apple", "Mango", "Kiwi"];
-// fruits.copyWithin(2, 0);
+// fruits.copyWithin(2, 0,2);
 // console.log(fruits)
 
 // Flatting An Array.apply
 
-const myArr = [[1,2],[3,4],[5,6]];
-console.log(const newArr = myArr.flat())
+// const myArr = [[1,2],[3,4],[5,6]];
+// const newArr = myArr.flat()
+// console.log(newArr)
 
+// Splicing And slicing...fruits
+
+// const fruits = ["Banana", "Orange", "Apple", "Mango"];
+// fruits.splice(2, 0, "Lemon", "Kiwi")
+// console.log(fruits)
+
+// const fruits = ["Banana", "Orange", "Apple", "Mango"];
+// fruits.splice(2, 2, "Lemon", "Kiwi");
+// console.log(fruits)
+
+// Using splice() to remove element
+
+// const fruits = ["Banana", "Orange", "Apple", "Mango"];
+// fruits.splice(0, 1);
+// console.log(fruits)
+
+// Array unchanged.
+
+// const months = ["Jan", "Feb", "Mar", "Apr"];
+// const spliced = months.toSpliced(0, 1)
+// console.log(months)
+
+// Array Slice.
+
+// const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+// const citrus = fruits.slice(1);
+// console.log(citrus)
+
+const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(1, 3);
+console.log(citrus)
