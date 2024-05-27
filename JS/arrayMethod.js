@@ -72,3 +72,11 @@ const words = ['spray','apple', 'elite', 'exuberant', 'destruction', 'present'];
 const results = words.filter((word) => word.length > 6);
 
 console.log("Words length is greater than 6:",results);
+
+
+const age1 =['5','6','7']
+const age2 =['15','16','17']
+const age3 =['25','26','27']
+
+const total = age1.concat(age2,age3)
+console.log("concate 3 arrays:",total)

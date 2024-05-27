@@ -7,21 +7,21 @@ const person1 = {
   
   // Create Source Object
   const person2 = {firstName: "Anne",lastName: "Smith"};
+  const person3 = {heights: "7 feets",chest: "33 inch"};
   
   // Assign Source to Target
-  let object = Object.assign(person1, person2);
+  let object = Object.assign(person1, person2,person3);
   console.log("Object=",object)
 
+  let text = Object.entries(person1);
 
-  const studInfo=[
-    "Ali",
-    "Wali",
-    "Naima",
-    "Fatima",
-    "Farman",
-    "Hasina"
-  ]
+  console.log("Entries=",text)
 
-  console.table(studInfo)
+  let values = Object.values(person1);
+  console.log("Values=",values)
 
-  
+  let keys = Object.keys(person1);
+  console.log("Keys=",keys)
+
+  let Create = Object.create(person1);
+  console.log("Keys=",Create)
