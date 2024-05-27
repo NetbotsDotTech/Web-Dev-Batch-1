@@ -34,7 +34,7 @@ myArr.splice(1, 0, [3, 4]);
 console.log("Spice (add new elements to the array:)",myArr)
 
 let sum = 0;
-const numbers = [65, 44, 12, 4];
+const numbers = [64, 44, 16, 4];
 numbers.forEach(addFunction);
 
 function addFunction(item) {
@@ -54,6 +54,8 @@ function multipleFun(item) {
   console.log("Original Array =",numbers)
   console.log("Multiple by 5 of each item in the array =",multipliedNumbers)
 
+  const roots = numbers.map((num) => Math.sqrt(num));
+  console.log('After apply Squre root :',roots)
 
 const ages = [32, 33, 16, 40,12,17];
 const result = ages.filter(checkAdult);
@@ -63,3 +65,10 @@ function checkAdult(age) {
 }
 
 console.log("Greater then 17 : ",result)
+
+
+const words = ['spray','apple', 'elite', 'exuberant', 'destruction', 'present'];
+
+const results = words.filter((word) => word.length > 6);
+
+console.log("Words length is greater than 6:",results);
