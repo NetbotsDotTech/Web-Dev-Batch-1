@@ -101,7 +101,7 @@ const user1 = {
 // Seal the object
 const newUser1 = Object.seal(user1); 
 
-newUser1.password = 'pakistan';
+newUser1.password = 'india';
 newUser1.active = true;
 
 console.log(newUser1);
