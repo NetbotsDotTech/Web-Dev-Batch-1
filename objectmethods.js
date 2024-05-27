@@ -99,7 +99,7 @@ const user1 = {
 };
 
 // Seal the object
-const newUser1 = Object.seal(user1);
+const newUser1 = Object.seal(user1); 
 
 newUser1.password = 'pakistan';
 newUser1.active = true;
