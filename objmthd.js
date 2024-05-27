@@ -29,13 +29,14 @@
 // }
 // console.log(subs)
 
-let cars = {first : "BMW",
-scnd : "Volvo",
-thrd : "Mini"
+let cars = {
+    first: "BMW",
+    scnd: "Volvo",
+    thrd: "Mini"
 };
-let entry=Object.entries(cars);
+let entry = Object.entries(cars);
 let text = "";
 for (let x of entry) {
-    text += x+"\n ";
+    text += x + "\n ";
 }
 console.log(text)
