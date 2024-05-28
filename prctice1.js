@@ -13,7 +13,7 @@ const person = {
         return this.fname+" "+this.lname;
     }
 };
-// let text = Object.entries(person);
-// console.log(text)
-// console.log(person.objct)
+let text = Object.entries(person);
+console.log(text)
+console.log(person.objct)
 console.log(person.fullname())
