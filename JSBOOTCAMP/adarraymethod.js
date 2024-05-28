@@ -2,7 +2,7 @@
 let arr=[34,23,21]
 let a=arr.map((value, index , array)=>{
     console.log(value , index, array)
-    return value+1
+    return value
 })
 console.log(a)
 //array for filter method
@@ -17,3 +17,5 @@ let a3=arr2.reduce((v1,v2)=>{
     return v1+v2
 })
 console.log(a3)
+//array foreach method
+let arr3=[1]
