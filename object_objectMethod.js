@@ -12,7 +12,7 @@ console.log(person);
 
 //Nested Object
 
-myObj = {
+ myObj = {
     name:"John",
     age:30,
     myCars: {
@@ -23,3 +23,16 @@ myObj = {
   };
   console.log(myObj);
   console.log(myObj.myCars);
+
+  //example assign method
+  let Myobj2 = {
+    name: "ali",
+    age: 22,
+    DOB: 2005
+};
+
+let newObject = Object.assign({}, Myobj2);
+console.log(newObject);
+
+ 
+
