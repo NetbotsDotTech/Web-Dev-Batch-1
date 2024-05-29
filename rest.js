@@ -16,6 +16,6 @@
 
 const numbers =[1,2,3,4,5,6];
 console.log("numbers",numbers)
-const[num1,num2,...others]=numbers;
+const[num1,num2,num3,...others]=numbers;
 console.log("value",others)
 
