@@ -1,9 +1,13 @@
-let a =['5','5','10']
-let b=['4','5','6']
+let a = ['5', '5', '10', '7', '9'];
 
-c = [...a, ...b];
+let [first, second, third, fourth, fifth] = a;
 
-console.log(c)
+
+let firstThree = [first, second, third];
+
+console.log("First three",firstThree); 
+console.log("forth value",fourth); 
+console.log('Fifth value',fifth); 
 
 function multiply(multiplier, ...numbers) {
     let mul= numbers.map(num => num * multiplier);
@@ -37,5 +41,5 @@ function multiply(multiplier, ...numbers) {
   console.log(name); 
   console.log('FirstMember',firstMember);
   console.log('RestMember',restMembers); 
-  console.log('OtherMember',otherTeams); 
+ 
   
