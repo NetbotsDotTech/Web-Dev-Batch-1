@@ -18,4 +18,4 @@ let a3=arr2.reduce((v1,v2)=>{
 })
 console.log(a3)
 //array foreach method
-let arr3=[1]
+let arr3=[1   ]
