@@ -14,9 +14,8 @@
 // console.log(name); 
 // console.log(rest);  
 
+const numbers =[1,2,3,4,5,6];
+console.log("numbers",numbers)
+const[num1,num2,...others]=numbers;
+console.log("value",others)
 
-const obj1 = { a: 1, b: 2 };
-const obj2 = { c: 3, d: 4 };
-
-const mergedObject = { ...obj1, ...obj2 };
-console.log(mergedObject); 

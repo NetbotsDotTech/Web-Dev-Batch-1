@@ -1,2 +1,2 @@
-let colors =['red,'blue,'yellow,purplr'];
+let colors =['red,'blue,'yellow','purplr'];
 HTMLFormControlsCollection.console.log(0);
