@@ -34,8 +34,8 @@ function multiply(multiplier, ...numbers) {
   console.log("others :",otherTeams)
   const { name, members: [firstMember, ...restMembers] } = teamA;
   
-  console.log(name); // Output: Team A
-  console.log('FirstMember',firstMember); // Output: Alice
-  console.log('RestMember',restMembers); // Output: [Bob, Charlie]
-  console.log('OtherMember',otherTeams); // Output: [{ name: "Team B", members: ["Dave", "Eve", "Frank"] }, { name: "Team C", members: ["Grace", "Hank", "Ivy"] }]
+  console.log(name); 
+  console.log('FirstMember',firstMember);
+  console.log('RestMember',restMembers); 
+  console.log('OtherMember',otherTeams); 
   
