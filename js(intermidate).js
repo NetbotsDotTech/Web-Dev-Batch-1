@@ -64,5 +64,11 @@ function MyFunc(first,second)
 MyFunc("Shahid","Noori")
 
 //Objects
+let Std=
+{
+    name: "Shahid Hussain",
+    age: 19
 
+}
+console.log(Std)
 
