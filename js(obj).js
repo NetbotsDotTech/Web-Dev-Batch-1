@@ -4,4 +4,4 @@ let Std=
     age: 19
 
 }
-console.log(Std)
+console.log(Std.name)
