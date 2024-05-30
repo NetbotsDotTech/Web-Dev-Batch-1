@@ -30,13 +30,13 @@ barista.showDetails();
    }
    console.log(course)
    course.enrolment()
-// // factory function
+ // factory function
   function createCuores(){
      const course1={
          lecture :10,
        section:3,
          title:"javascript",
-         // nested object 
+// nested object 
          notes: {
            introduction: "wellcome to JS course"
       },
