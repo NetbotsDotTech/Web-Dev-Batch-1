@@ -236,12 +236,112 @@
         height: 400px;
         background-image: url(images/61LSMvvo+OL._SX3000_.jpg);
         background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        
+
         
 
     }
 
-   .contaner{
+   .parag{
+    height: 38px;
+    width: 85%;
+    background-color: white;
+    font-size: 14px;
+    color: black;
     display: flex;
-    height: 400px;
-    justify-content: space-around;
+    align-items:center;
+    justify-content: center;
+    margin-bottom: 25px;
+    
    }
+   .parag a{
+   color:  #19c736;
+   font-size: 14px;
+   font-weight: 700;
+
+   }
+
+   /* shop section */
+
+   .shop-section{
+    display: flex;
+    background-color:rgba(224, 95, 21, 0.411);
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    
+   }
+   .box{
+    height: 300px;
+    width: 23%;
+    background-color: white;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 20px 0px 15px;
+    
+   }
+   .box h4{
+    margin-left: 10px;
+   }
+   .back-img{
+    height: 265px;
+    background-size: cover;
+    margin-top: 2px;
+    margin-bottom: 10px;
+    display: flex;
+    margin-left: 15px;
+    margin-right: 15px;
+   }
+   .angTag{
+    font-weight: 700;
+    font-size: 14px;
+    color: #19c736;
+    margin-bottom: 8px;
+    
+   }
+
+   /* Footer section */
+
+   .back{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#1b232c;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    
+   
+   }
+
+   .footer{
+    height: 400px;
+    width: 100%;
+    background-color:#0f1111;
+    display: flex;
+  
+
+   }
+   .list1{
+    height: 250px;
+    color: white;
+    display: flex;
+    padding: 20px;
+
+    
+   }
+   .item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+
+   }
+   
+   /* logo */
+
+  
