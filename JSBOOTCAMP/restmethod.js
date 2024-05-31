@@ -33,3 +33,7 @@ function calculateTotalAgeOfGuest(hostAge, ...guestAges) {
         console.log("ky :" ,ky);
  }
  myFun('one','two','tree','four','five','six')
+ // print last element from array by using rest operator
+ const array = [1, 2, 3, 4, 5];
+const [lastElement,secondlast,] = [...array].reverse();
+console.log(lastElement,secondlast);
