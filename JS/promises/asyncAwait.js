@@ -25,7 +25,7 @@ console.log(2);
 function fun1() {
     
     let promise = 
-        new Promise((resolve, reject) => {
+        new Promise((resolve) => {
         setTimeout(() => {
             resolve(" Ali..");
         }, 1000);
@@ -40,3 +40,41 @@ async function display() {
 
 }
 display();
+
+
+
+
+// Simulate an asynchronous operation using a Promise
+function Fun(value, delay) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (value) {
+          resolve(`Success: ${value}`);
+        } else {
+          reject('Error: No value provided');
+        }
+      }, delay);
+    });
+  }
+  
+  // Async function that uses the simulateAsyncOperation function
+  async function performOperations() {
+    try {
+      console.log('Operation 1 started...');
+      let result1 =  Fun('Operation 1', 1000);
+      console.log(result1);
+  
+      console.log('Operation 2 started...');
+      let result2 = await Fun('Operation 2', 3000);
+      console.log(result2);
+  
+      console.log('Operation 3 started...');
+      let result3 = await Fun(null, 5000); // This will cause an error
+      console.log(result3);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
+  performOperations();
+  
