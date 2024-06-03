@@ -38,7 +38,7 @@ function calSum(v1,v2,v3,v4){
 
 console.log(calSum(...arr5));
 
-//
+// //Task
 
 let arr7 = [3, 4, 5, 6, 7];
 let [f, g, h, ...res] = arr7;
@@ -48,4 +48,28 @@ let [j, e] = res;
 console.log(firstThree); // [3, 4, 5]
 console.log(j);          // 6
 console.log(e);          
+
+// //Task
+
+let arr8 = [1,2,3,4,5,6];
+let [ k,l,...m] = arr8;
+let newarr = arr8.slice(0,4);
+console.log("New arr : ",newarr);
+ k = arr8.slice(4,5);
+ l = arr8.slice(5)
+console.log("value of k : ",...k," value of l : ",...l);
+
+
+//Task
+
+let detail = {
+    title: "Mern stack course",
+    auther: "Saqlain shah"
+};
+
+let {title: courseTitle, auther: name} = detail;
+
+console.log(courseTitle);
+console.log(name);
+
 
