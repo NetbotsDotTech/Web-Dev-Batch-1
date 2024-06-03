@@ -138,7 +138,7 @@ GetData(5).then((res)=>{
     })
 })
 
-//Example 8 async await
+//Example 8 async await in javaScript
 
 function Dataget(dataA){
     return new Promise((resolve, rejected)=>{
