@@ -19,10 +19,30 @@
  
 //   console.log()
 
-const myFather = new Person("John", "Doe", 50, "blue");
-const myMother = new Person("Sally", "Rally", 48, "green");
-const mySister = new Person("Anna", "Rally", 18, "green");
+// const myFather = new Person("John", "Doe", 50, "blue");
+// const myMother = new Person("Sally", "Rally", 48, "green");
+// const mySister = new Person("Anna", "Rally", 18, "green");
 
-const mySelf = new Person("Johnny", "Rally", 22, "green");
+// const mySelf = new Person("Johnny", "Rally", 22, "green");
 
-console.log(myFather)
+// console.log(myFather)
+
+// let detail = {
+//     title: "Mern stack Course",
+//     auther: "Saqlain Shah"
+// };
+
+// let { courseTitle, name } = detail;
+
+// console.log("Name", courseTitle)
+// console.log("course Title", name)
+
+let detail = {
+    title: "Mern stack Course",
+    auther: "Saqlain Shah"
+};
+
+let { title: courseTitle, auther: name } = detail;
+
+console.log("Name:", name);
+console.log("Course Title:", courseTitle);

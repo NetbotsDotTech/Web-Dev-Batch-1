@@ -18,7 +18,7 @@
 
 const numbers = [1,2,3,4,5,6];
 console.log("numbers",numbers);
-const [one,two,...third] = numbers;
-console.log(third)
+const [...sixth] = numbers;
+console.log(sixth)
 // const value = [one,two,...third];
 // console.log("value",value)
