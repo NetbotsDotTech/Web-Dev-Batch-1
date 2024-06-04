@@ -1,13 +1,13 @@
-let a = ['5', '5', '10', '7', '9'];
+// let a = ['5', '5', '10', '7', '9'];
 
-let [first, second, third, fourth, fifth] = a;
+// let [first, second, third, fourth, fifth] = a;
 
 
-let firstThree = [first, second, third];
+// let firstThree = [first, second, third];
 
-console.log("First three",firstThree); 
-console.log("forth value",fourth); 
-console.log('Fifth value',fifth); 
+// console.log("First three",firstThree); 
+// console.log("forth value",fourth); 
+// console.log('Fifth value',fifth); 
 
 function multiply(multiplier, ...numbers) {
     let mul= numbers.map(num => num * multiplier);
@@ -43,3 +43,12 @@ function multiply(multiplier, ...numbers) {
   console.log('RestMember',restMembers); 
  
   
+
+  let a = ['5', '5', '10', '7', '9'];
+
+let [...firstThree] = a.splice(0, 3);
+let [fourth, fifth] = a;
+
+console.log("Store first three in array using rest ",firstThree); 
+console.log('forth value',fourth); 
+console.log('fift value',fifth); 

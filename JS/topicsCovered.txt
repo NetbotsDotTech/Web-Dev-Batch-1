@@ -1,0 +1,28 @@
+variables
+array 
+operators
+objects
+functions
+loops
+conditions
+array methods   
+object methods 
+string methods
+template literals
+destructuring  
+scope
+rest and spread 
+callback
+callback hell 
+promises
+async/await
+fetch api
+try catch 
+closure/[hoisting]
+event listeners
+json
+
+
+
+
+
