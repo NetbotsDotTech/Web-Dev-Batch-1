@@ -22,3 +22,6 @@ const [...sixth] = numbers;
 console.log(sixth)
 // const value = [one,two,...third];
 // console.log("value",value)
+let arr7 = [2,3,4,5,6]
+let [f,g,h, ...res] = arr7
+let firstthree

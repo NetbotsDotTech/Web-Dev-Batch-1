@@ -8,7 +8,7 @@ async function myDisplayer(){
 }
 const FirstFunction = function(){
   const result = myDisplayer();
-  awaitconsole.log("FirstFunction:",result);
+  console.log("FirstFunction:",result);
 }
 
 const SecondFunction = function(){
