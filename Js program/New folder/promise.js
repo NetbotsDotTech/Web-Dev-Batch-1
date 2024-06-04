@@ -57,7 +57,7 @@
 const promisefive=new Promise((resolve,reject)=>{
     setTimeout(() => {
         let password=12345
-        if(password==1234){
+        if(password==12345){
             console.log("Your password Match........")
             resolve({
                 fatherName:"Ali",
@@ -73,9 +73,7 @@ const promisefive=new Promise((resolve,reject)=>{
 })
 
 promisefive.then((obj)=>{
-    console.log(obj)
-}).then((value)=>{
-    console.log(value.fatherName)
+    console.log(obj.fatherName)
 }).catch((obj)=>{
     console.log(obj)
 })
