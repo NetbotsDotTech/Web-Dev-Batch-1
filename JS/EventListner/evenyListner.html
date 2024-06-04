@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event Listeners with HTML Form</title>
+    <script>
+      function handleButtonClick() {
+        console.log("Button clicked!");
+      }
+
+      
+      function handleMouseOver() {
+        console.log("Mouse over the element!");
+      }
+
+      function handleMouseOut() {
+        console.log("Mouse left the element!");
+      }
+
+      function handleKeyDown(event) {
+        console.log("Key pressed:", event.key);
+      }
+
+      function handleKeyUp(event) {
+        console.log("Key released:", event.key);
+      }
+
+      function handleSubmit(event) {
+        event.preventDefault();
+        console.log("Form submitted!");
+      }
+    </script>
+  </head>
+  <body>
+    <form onsubmit="handleSubmit(event)">
+      <label for="myInput">Input:</label>
+      <input
+        type="text"
+        id="myInput"
+        onchange="console.log('Input value changed:', this.value)"
+      />
+      <br />
+      <button onclick="handleButtonClick()">Click Me</button>
+      <br />
+      <div onmouseover="handleMouseOver()" onmouseout="handleMouseOut()">
+        Mouse over me
+      </div>
+      <br />
+      <input
+        type="text"
+        onkeydown="handleKeyDown(event)"
+        onkeyup="handleKeyUp(event)"
+      />
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
