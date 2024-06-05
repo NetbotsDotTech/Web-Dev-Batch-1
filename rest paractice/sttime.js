@@ -15,24 +15,24 @@
 //     console.log("hellow world")
 // }
 // setTimeout(myfun,4000);
-function saif(dataid,data2){
-   setTimeout(() => {
-    console.log("data=",dataid)
-    // if(data2){
-    //     console.log("if statment")
- data2();
+// function saif(dataid,data2){
+//    setTimeout(() => {
+//     console.log("data=",dataid)
+//     // if(data2){
+//     //     console.log("if statment")
+//  data2();
      
-   }, 2000)
-}
-// saif(4,()=>{
-//     saif(5,()=>{
-//         saif(6)
-//     })
+//    }, 2000)
+// }
+// // saif(4,()=>{
+// //     saif(5,()=>{
+// //         saif(6)
+// //     })
+// // })
+// saif(1,()=>{
+
 // })
-saif(1,()=>{
-    
-})
-saif(2,()=>{})
+// saif(2,()=>{})
 // function saif(id){
 //     setTimeout(() => {
 //         console.log(id)   

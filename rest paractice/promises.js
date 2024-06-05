@@ -9,3 +9,6 @@ let promise=new Promise(( resolve) => {
 promise.then(function(){
     console.log("success")
 })
+console.log("hellow world 1")
+console.log("hellow world 2")
+ console.log("hellow world 3")

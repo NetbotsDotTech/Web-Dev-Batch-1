@@ -13,5 +13,5 @@
 // console.log(arr.lenght)
 // console.log(sum)
 let arr=[1,2,3,4];
-let arr2()=arr.slice(1,2)
+let arr2()=arr.slice(1)
 console.log(arr2)

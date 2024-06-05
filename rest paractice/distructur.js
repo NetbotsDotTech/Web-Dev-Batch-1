@@ -5,4 +5,4 @@ obj={
 let { tittle:course, author:Name}=obj
  //let n=tittle
 console.log(course,Name)
-// console.log(obj)
+console.log(obj)
