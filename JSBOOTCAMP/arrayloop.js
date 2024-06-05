@@ -15,6 +15,6 @@ for(let item of Name){
     console.log(item)
 }
 // for..in loop in array
-for(let i in num){
+for(let i in Name){
     console.log(i)
 }
