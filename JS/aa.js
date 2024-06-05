@@ -1,37 +1,39 @@
-function saif (callback){
+function saif (j){
     setTimeout(()=>{
             console.log("calling first func")
-            callback()
+            j()
+//console.log("g",j)
+            
             
     },7000)
 }
 
-function sai (callback){
+function sai (j){
     setTimeout(()=>{
             console.log("calling second func")
-            callback()
+            j()
     },6000)
 }
 
-function sa (callback){
+function sa (j){
     setTimeout(()=>{
             console.log("calling third func")
-            callback()
+            j()
     },5000)
 }
 
-function s (callback){
+function s (j){
     setTimeout(()=>{
             console.log("calling fourth func")
-            callback()
+            j()
     },4000)
 }
 
 
-saif((callback)=>{
-    sai((callback)=>{
-        sa((callback)=>{
-            s((callback)=>{
+saif((l)=>{
+    sai((j)=>{
+        sa((j)=>{
+            s((j)=>{
                 console.log("Hasta Alfo Ago")
             })
         })

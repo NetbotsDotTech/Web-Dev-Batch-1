@@ -3,7 +3,7 @@ let myPromises = new Promise(function (s,y){
         console.log("Async task is complete")
         // s({username :"fame hyder", email : "famehyder9999@gmail.com"})
 
-        y({username :"fame hyder", email : "famehyder9999@gmail.com"})
+        // y({username :"fame hyder", email : "famehyder9999@gmail.com"})
 
     },1000)
 })
