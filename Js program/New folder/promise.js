@@ -54,31 +54,45 @@
 // })
 
 
-const promisefive=new Promise((resolve,reject)=>{
-    setTimeout(() => {
-        let password=12345
-        if(password==12345){
-            console.log("Your password Match........")
-            resolve({
-                fatherName:"Ali",
-                age:45,
-                address:"Kushmarah gound"
-            })
+// const promisefive=new Promise((resolve,reject)=>{
+//     setTimeout(() => {
+//         let password=12345
+//         if(password==12345){
+//             console.log("Your password Match........")
+//             resolve({
+//                 fatherName:"Ali",
+//                 age:45,
+//                 address:"Kushmarah gound"
+//             })
 
-        }else{
-            reject("Your Password is not match....Please try again")
+//         }else{
+//             reject("Your Password is not match....Please try again")
             
-        }
-    }, 3000);
-})
+//         }
+//     }, 3000);
+// })
 
-promisefive.then((obj)=>{
-    console.log(obj.fatherName)
-}).catch((obj)=>{
-    console.log(obj)
-})
+// promisefive.then((obj)=>{
+//     console.log(obj.fatherName)
+// }).catch((obj)=>{
+//     console.log(obj)
+// })
 // promisefive.catch((obj)=>{
 //     console.log(obj)
 
 // })
+let promiseSix=new Promise((resolve,reject)=>{
+    let pay=5000
+    if(pay==5000){
+        setTimeout(() => {
+            console.log("you Book a room in Sigma Hotel")
+            
+        }, 2000);
 
+        resolve()
+    }
+    else{
+        reject("Som error so deal cancel........")
+    }
+})
+promiseSix.then(value)
