@@ -13,7 +13,7 @@
 // const myUpdatedVehicle = { ...myVehicle, ...updateMyVehicle }
 // console.log(myUpdatedVehicle);
 
-const numbersOne = [1, 2, 3];
+const numbersOne = [1, 2, 3,4,5,6];
 const numbersTwo = [4, 5, 6];
 const numbersCombined = [...numbersOne, ...numbersTwo];
 console.log(numbersCombined)
