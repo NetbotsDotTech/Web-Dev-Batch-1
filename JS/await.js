@@ -33,8 +33,9 @@ setTimeout(()=>{
 
 })
 
-
+console.log(mypro)
 let a = await mypro
+
 console.log(a)
 
 let b = await mypros
