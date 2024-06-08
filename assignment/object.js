@@ -25,9 +25,17 @@ const Animal = {
     SpeedPerHour:100,
     is_halal:false,
 }
-const Add = {LionIs: "King of Jungle"};
-
 console.log(Animal)
+const Add = {LionIs: "King of Jungle",name:"Tiger"};
+for (const key in Add) {
+    if (!(key in Animal)) {
+        Animal[key] = Add[key];
+    }
+    else{
+        console.log("this key is already in Animal")
+    }
+}
+
 let Animals = Object.assign(Animal,Add)
 console.log(Animals)
 
