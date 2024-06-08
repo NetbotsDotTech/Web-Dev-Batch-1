@@ -6,7 +6,7 @@ if (num1===num2)
         console.log('Number1 and number2 are equal and also data type is same =',num1,num2)
     }else if(num1==num2)
     {
-        console.log('Number1 and number2 are equal but data type is different =',num1,num2)
+        console.log('Number1 and number2 are equal but data type is different =',num1,'is',typeof(num1),'and',num2,'is',typeof(num2))
     }
     else{
         console.log('Number1 and number2 are deffrent =',num1,num2)
