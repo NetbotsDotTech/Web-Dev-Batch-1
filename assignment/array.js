@@ -1,39 +1,33 @@
 let numbers = [10, 20, 30, 40, 50];
-console.log('Original Numbers Array:', numbers);
+console.log('Original Array:', numbers);
 
-const moreNumbers = [60, 70, 80];
-const evenMoreNumbers = [90, 100];
 
-console.log('Additional Numbers:', moreNumbers);
-console.log('Even More Numbers:', evenMoreNumbers);
 
-let allNumbers = [...numbers, ...moreNumbers, ...evenMoreNumbers];
-console.log('Merged Numbers Array:', allNumbers);
-const addNumber = [60, 34, 70];  
-console.log('Numbers to Add:', addNumber);
+const addNumber = [50, 34, 40];  
 
+console.log('Adding Array Values:', addNumber);
 
 addNumber.forEach(num => {
-    if (!moreNumbers.includes(num)) {
-        moreNumbers.push(num);
+    if (numbers.includes(num)) {
+        const index = numbers.indexOf(num);
+        numbers[index] = num; 
+        console.log(`Number ${num} already exists in array so overwrite.`);
     } else {
-        const index = moreNumbers.indexOf(num);
-        moreNumbers[index] = num; 
-        console.log(`Number ${num} already exists in moreNumbers so overwrite.`);
+        numbers.push(num); 
     }
 });
-console.log('Updated Numbers addd array with Condition:', moreNumbers);
+console.log('Updated Numbers addd array with Condition:', numbers);
 
 
-const additionalNumbers = [30, 100, 110];
+const addNumber2 = [50, 38, ,100,40];  
 
-additionalNumbers.forEach(num => {
-    if (!evenMoreNumbers.includes(num)) {
-        evenMoreNumbers.push(num);
+addNumber2.forEach(num => {
+    if (!numbers.includes(num)) {
+        numbers.push(num);
     } else {
         console.log(`Number ${num} already exists in the array.`);
     }
 });
 
-console.log('Updated Numbers Array with Condition:', evenMoreNumbers);
+console.log('Updated Numbers Array with Condition:', numbers);
 
