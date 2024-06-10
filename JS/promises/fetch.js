@@ -18,26 +18,28 @@
 
 
 function Add(callback) {
-    console.log("Fetching Data...!");
+    console.log("Fetching Data 1 ...!");
     setTimeout(() => {
         fetch('https://fakestoreapi.com/products/1')
-            .then(
-                response => response.json())
-            .then(
-                data => console.log(data))
-        callback()
-    }, 3000);
+        .then(response => response.json())
+        .then(data => {
+            console.log("Data from Add:", data);
+            callback();
+        })
+        .catch(error => console.error("Error fetching data from Add:", error));
+    }, 1000);
 }
 
 function mul(callback) {
-    console.log("Fetching Data...!");
+    console.log("Fetching Data 2 ...!");
     setTimeout(() => {
         fetch('https://dummyjson.com/products/1')
-            .then(
-                response => response.json())
-            .then(
-                data => console.log(data))
-        callback()
+        .then(response => response.json())
+        .then(data => {
+            console.log("Data from Add:", data);
+            callback();
+        })
+        .catch(error => console.error("Error fetching data from Add:", error));
     }, 1000);
 }
 

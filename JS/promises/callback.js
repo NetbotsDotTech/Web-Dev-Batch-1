@@ -82,37 +82,97 @@
 
 
 
-function Add(callback) {
-  console.log("Adding Data...!");
+// function Add(callback) {
+//   console.log("Adding Data...!");
+//   setTimeout(() => {
+//     const sum = 6+5; 
+//     callback(sum)
+//   }, 4000);
+// }
+
+// function mul(callback) {
+//   console.log("Multiplying Data...!");
+//   setTimeout(() => {
+//     const mult=5*5;
+//     callback(mult)
+//   }, 3000);
+// }
+
+// function sub(callback) {
+//   console.log("Subtracting Data...!");
+//   setTimeout(() => {
+//     const sub =11-4;
+//     callback(sub)
+//   }, 2000);
+// }
+
+// Add((a)=>{
+//   console.log(a)
+//   mul((m)=>{
+//     console.log(m)
+//     sub((b)=>{
+//       console.log(b)
+//       console.log("All done!");
+//     })
+//   })
+// })
+function add(a, b, callback) {
+  console.log('Adding Data....')
   setTimeout(() => {
-    const sum = 6+5; 
-    callback(sum)
+    const result = a + b;
+    callback(result);
+  }, 5000);
+}
+
+const multiply = function (a, b, callback) {
+  console.log('Multiplying Data....')
+
+  setTimeout(() => {
+    const result = a * b;
+    callback(result);
   }, 4000);
 }
 
-function mul(callback) {
-  console.log("Multiplying Data...!");
+const subtract = (a, b,callback) => {
+  console.log('Subtracting Data....')
+
   setTimeout(() => {
-    const mult=5*5;
-    callback(mult)
+    const result = a - b;
+    callback(result);
   }, 3000);
 }
 
-function sub(callback) {
-  console.log("Subtracting Data...!");
+function divide(a, b, callback) {
+  console.log('Dividing Data....')
+
   setTimeout(() => {
-    const sub =11-4;
-    callback(sub)
+    if (b === 0) {
+      callback("Error: Division by zero");
+    } else {
+      const result = a / b;
+      callback(result);
+    }
   }, 2000);
 }
 
-Add((a)=>{
-  console.log(a)
-  mul((m)=>{
-    console.log(m)
-    sub((b)=>{
-      console.log(b)
-      console.log("All done!");
-    })
-  })
-})
+// Example usage of the functions with callbacks
+const num1 = 10;
+const num2 = 15;
+
+add(num1, num2, (t) => {
+  console.log(`Addition: ${num1} + ${num2} = ${t}`);
+  multiply(num1, num2, (result) => {
+    console.log(`Multiplication: ${num1} * ${num2} = ${result}`);
+    subtract(num1, num2, (result) => {
+      console.log(`Subtraction: ${num1} - ${num2} = ${result}`);
+      divide(num1, num2, (result) => {
+        console.log(`Division: ${num1} / ${num2} = ${result}`);
+      });      
+    });
+  });
+});
+
+
+
+
+
