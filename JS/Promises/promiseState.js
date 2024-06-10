@@ -1,6 +1,6 @@
 const promise = new Promise((x, y) => {
   setTimeout(function () {
-    const res = true;
+    const res = false;
     if (res) {
      fulfilled("Resolved!");
     } else {
@@ -9,7 +9,7 @@ const promise = new Promise((x, y) => {
   }, 3000);
 });
 
-console.log(promise)
+// console.log(promise)
 
 promise.then(function (value) {
   console.log("Succees", value);

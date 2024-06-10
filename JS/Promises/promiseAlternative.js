@@ -27,11 +27,11 @@ function fetchData() {
   }
     async function performOperations() {
 
-          fetchData();
+         await fetchData();
           processData();
           saveData();
         console.log("All done!");
    
     }
     
-    performOperations();
+   performOperations();
