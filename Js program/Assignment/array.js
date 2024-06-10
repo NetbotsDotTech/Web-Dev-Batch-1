@@ -22,6 +22,8 @@ arr3[0] = 10; // not work
 arr3.push(4); // not work
 arr3[3] = 4; // not work because array totaly freez
 
-console.log(arr3); // Output: [1, 2, 3]
+console.log(arr3); // Output: [1, 2, 3]      
+
+////
 
    
