@@ -13,5 +13,5 @@ const location = { city: "New York", country: "USA" };
 
 
 const mergObj = { ...person, ...job, ...location };
-console.log('spread 3 onjects :',mergObj); 
+console.log('spread 3 objects :',mergObj); 
 
