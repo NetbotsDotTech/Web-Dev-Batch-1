@@ -42,7 +42,7 @@
 
                   fetchData3( ()=> {
 
-                     console.log()
+                     console.log("all done")
                   })
 
                 })
