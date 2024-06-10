@@ -4,9 +4,9 @@ fetch(url, {
   method: "POST",
   headers: {
     "Content-type": "application/json",
-    apikey: apiKey,
+    "apikey": "apiKey"
   },
-  body: data,
+  body: data=56,
   
 }).then(
   (response) => {
