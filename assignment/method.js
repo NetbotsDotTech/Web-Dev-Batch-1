@@ -18,15 +18,16 @@ for (var key in studentInfo) {
     }
     else if (typeof value === 'boolean') {
         booleanString = value.toString();
+        uperCase[key]=studentInfo[key];
     }
     else {
         uperCase[key] = studentInfo[key];
     }
 }
-// let valueUperCase = studentInfo.();
+
 console.log('Uper case', uperCase);
-console.log("Boolean type",typeof (booleanString));
-//  object into array not solve
+console.log("Boolean type is :",typeof (booleanString));
+
 
 const ObkectToArray = Object.entries(studentInfo).map(([key, value]) => ({ [key]: value }));
 
