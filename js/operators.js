@@ -4,9 +4,9 @@
 //  b=2;
 
 // c=a+b;
-// console.log(typeof (c));
+// console. log(typeof (c));
 
-let a="najm"
+let a="najm "
 b=16
 if(a==b){
     console.log("true")
