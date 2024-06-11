@@ -1,0 +1,5 @@
+promise
+  .then()
+  .catch();
+
+  
