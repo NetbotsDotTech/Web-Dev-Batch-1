@@ -35,3 +35,6 @@ console.log("To check which character is at any index : ",myChar.charAt(5));
 
 console.log("*********************************************************************************");
 
+
+
+

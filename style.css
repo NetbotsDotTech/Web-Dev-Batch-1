@@ -1,0 +1,349 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    border: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.nav-bar{
+    height: 60px;
+    background-color: #0f1111;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: space-evenly;
+    
+
+
+}
+
+.nav-logo{
+    height: 50px;
+    width: 100px;
+    background-size:contain;
+    align-items: center;
+}
+
+.logo{
+    background-image: url(images/amazon-logo.webp);
+    background-image: cover;
+    height: 46px;
+    width: 73%px;
+    background-size: cover;
+    background-color: #008175;
+    align-items: center;
+    margin:2px;
+    padding: 1px 8px 0px 6px;
+    
+    
+}
+
+.border{
+    border: 1.5px solid transparent;
+}
+.border:hover{
+    border: 1.5px solid white;
+    
+}
+
+/*----------------Box2------------------*/
+.delever p{
+    font-size: 12px;
+    color: #cccccc;
+    margin-left: 15px;
+}
+.location{
+    display: flex;
+    margin-left: 3px;
+}
+.para{
+    font-size: 14px;
+    color: #ffffff;
+}
+
+/*----------------Box3------------------*/
+
+.nav-search{
+    height: 50px;
+    width: 500px;
+    background-color: #0f1111;
+    display: flex;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+.nav-select{
+    height: 35px;
+    width: 50px;
+    text-align: center;
+    
+}
+.search-amazone{
+    height: 35px;
+    width: 100%px;
+    text-align: center;
+    border:none;
+
+}
+
+.nav-icon1{
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    color: #0f1111;
+    background-color: rgba(219, 189, 14, 0.877);
+
+
+}
+.nav-icon{
+    height:35px;
+    width: 35px;
+    color: #0f1111;
+    background-color: rgba(219, 189, 14, 0.877);
+   border: 2px solid red;
+   align-items: center;
+   display: flex;
+   text-align: center;
+   
+}
+
+    /*box 4*/
+
+
+    .nav-box4{
+        height: 50px;
+        width: 140px;
+        color: #d6d6d6;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+    }
+
+    span{
+        font-size: 12px;
+        color: #ffffff;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .para2{
+        font-size: 14px;
+        color: #ffffff;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+
+    /*Box 5 */
+
+    .cart{
+        height: 50px;
+        width: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .cartimg{
+        font-size: 1.5rem;
+        display: flex;
+        margin-left: 5px;
+        text-align: center;
+
+    }
+
+    .a123{
+        font-size: 14px;
+        color: #ffffff;
+        text-align: center;
+
+        /* panel */
+
+    }
+    .panel{
+        height: 40px;
+        background-color: #0f2c2c;
+        display: flex;
+        /* justify-content: space-evenly; */
+        
+   
+
+    }
+    .panel-menu{
+        display: flex;
+        height: 40px;
+        width: 80px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        margin-left: 3px;
+
+    }
+    .panel-menu p{
+        font-size: 14px;
+        margin-left: 3px;
+        color: white;
+        
+
+
+    }
+
+    /* panel ancher tages */
+    .ancher{
+        height: 30px;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .ancher-tag{
+        height: 28px;
+       width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .ancher-tag p,a{
+        text-decoration: none;
+        color: white;
+        justify-content: center;
+        align-items: center;  justify-content: center;
+        align-items: center;
+        font-size: 0.75rem;
+        margin-left: 0.5rem;
+    }
+    .deals{
+        display: flex;
+        align-items:right;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        margin-left: 30rem;
+    }
+
+    /* Hero section */
+    .hero{
+        display: flex;
+        height: 400px;
+        background-image: url(images/61LSMvvo+OL._SX3000_.jpg);
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        
+
+        
+
+    }
+
+   .parag{
+    height: 38px;
+    width: 85%;
+    background-color: white;
+    font-size: 14px;
+    color: black;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    margin-bottom: 25px;
+    
+   }
+   .parag a{
+   color:  #19c736;
+   font-size: 14px;
+   font-weight: 700;
+
+   }
+
+   /* shop section */
+
+   .shop-section{
+    display: flex;
+    background-color:rgba(224, 95, 21, 0.411);
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    
+   }
+   .box{
+    height: 300px;
+    width: 23%;
+    background-color: white;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 20px 0px 15px;
+    
+   }
+   .box h4{
+    margin-left: 10px;
+   }
+   .back-img{
+    height: 265px;
+    background-size: cover;
+    margin-top: 2px;
+    margin-bottom: 10px;
+    display: flex;
+    margin-left: 15px;
+    margin-right: 15px;
+   }
+   .angTag{
+    font-weight: 700;
+    font-size: 14px;
+    color: #19c736;
+    margin-bottom: 8px;
+    
+   }
+
+   /* Footer section */
+
+   .back{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#1b232c;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    
+   
+   }
+
+   .footer{
+    height: 400px;
+    width: 100%;
+    background-color:#0f1111;
+    display: flex;
+  
+
+   }
+   .list1{
+    height: 250px;
+    color: white;
+    display: flex;
+    padding: 20px;
+
+    
+   }
+   .item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+
+   }
+   
+   /* logo */
+
+  
+
+
