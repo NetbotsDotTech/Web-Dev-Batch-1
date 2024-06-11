@@ -1,0 +1,9 @@
+ obg={
+    Name:"usama",
+    roll_no:10,
+}
+obg={
+    Name:"usama",
+    roll_no:65,
+}
+console.log(obg)

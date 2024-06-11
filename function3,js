@@ -1,0 +1,5 @@
+function myfun(l1){
+var Name=l1
+return Name;
+}
+console.log((myfun(23)))
