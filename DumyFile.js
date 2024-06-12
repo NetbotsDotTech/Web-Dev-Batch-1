@@ -17,3 +17,19 @@ async function All(){
     await fetchApi1();
 }
 
+//First array in we can change values and add attributes
+var arr1 = [22,
+    true,
+    "Hello",
+    obj={
+        name : "Kashan",age: 34,cgpa:3.5,
+}]
+console.log(arr1);
+// Add a new property to the object inside the array
+arr1[3].grade = 'A';
+console.log(arr1);
+//change value of name
+arr1[3].name = "ALI"
+console.log(arr1)
+arr1.push("New value")
+console.log(arr1)
