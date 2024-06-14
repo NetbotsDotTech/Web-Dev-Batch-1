@@ -33,3 +33,17 @@ arr1[3].name = "ALI"
 console.log(arr1)
 arr1.push("New value")
 console.log(arr1)
+
+//Example 2
+
+function func2(...num) {
+    let sum = 0; // Initialize sum outside the loop
+    
+    for (let i = 0; i < num.length; i++) {
+        sum = sum + num[i]; // Update sum with each element
+    }
+    
+    console.log(sum);
+}
+
+func2(1, 2, 3, 4, 5);
