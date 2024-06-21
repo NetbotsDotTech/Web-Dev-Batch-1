@@ -47,3 +47,16 @@ function func2(...num) {
 }
 
 func2(1, 2, 3, 4, 5);
+
+//function which print even number
+console.log("***************************************");
+
+function fun2 (y){
+    for(let i=0;i<=y;i++){
+        if(i%2==0){
+            console.log(i);
+        }
+    }
+   
+}
+fun2(20);
