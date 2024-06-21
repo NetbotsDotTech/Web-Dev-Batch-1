@@ -60,3 +60,13 @@ function fun2 (y){
    
 }
 fun2(20);
+
+
+//Destructring 
+
+let arr = [1,2,3,4,5];
+let [a,b,...rest] = arr;
+console.log(a);
+console.log(b);
+console.log(rest);
+console.log(...arr);
