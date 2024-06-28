@@ -70,3 +70,12 @@ console.log(a);
 console.log(b);
 console.log(rest);
 console.log(...arr);
+
+let student = {//This is an object variable which store key value pair.
+    name : "Muhammad Nadeem",
+    fatherName : "AbluHassan",
+    age : 22,
+    city : "skardu",
+    institution : "NetBots",
+}
+console.log("Hello my name is " + student.name + " my father Name is " + student.fatherName + " and i am " + student.age + " year old. ");
