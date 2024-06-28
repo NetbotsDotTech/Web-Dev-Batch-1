@@ -9,7 +9,7 @@ const handleForm = (e)=>{
 
     <React.Fragment>
     <div>Form</div>
-    <label >Name</label>
+    <label >Name</label>s
     <input onChange={handleForm}/>
     <button onClick={()=>{alert(name)}}>Show Name</button>
   
