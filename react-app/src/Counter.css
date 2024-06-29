@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: aliceblue;
+
+}
+.counter{
+    background-color: red;
+    border: 2px solid gray;
+    border-radius: 50px;
+    margin: 150px 450px ;
+    padding: 50px 40px;
+    text-align: center;
+    
+}
+.heading1{
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: gray;
+
+    
+    
+}
+button{
+    padding: 10px 10px;
+    margin: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
+   background-color: aqua;
+   font-weight: bold;
+   font-family: Arial, Helvetica, sans-serif;
+}
+.value{
+    padding: 50px;
+    font-size: x-large;
+    font-weight: bold;
+    background-color: goldenrod;
+    color: black;
+
+}
+.btn{
+    background-color: wheat;
+}

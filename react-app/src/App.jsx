@@ -1,6 +1,7 @@
 import Signup from "./components/Register"
 import Login from "./components/Login"
 import Form from "./Form"
+import Counter from "./counter"
 function App() {
  
 
@@ -9,6 +10,7 @@ function App() {
 {/* <Signup/>
 <Login/> */}
 <Form/>
+<Counter/>
     
     </>
   )
