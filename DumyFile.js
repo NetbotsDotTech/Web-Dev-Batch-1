@@ -79,3 +79,12 @@ let student = {//This is an object variable which store key value pair.
     institution : "NetBots",
 }
 console.log("Hello my name is " + student.name + " my father Name is " + student.fatherName + " and i am " + student.age + " year old. ");
+
+let num = 5;
+console.log(num);
+++num;
+console.log(++num); //increment before exicution
+console.log(num++);//increment after exicution exicution
+console.log(num)
+
+console.log("**************************************************");
