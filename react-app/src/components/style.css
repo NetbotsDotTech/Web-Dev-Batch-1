@@ -33,7 +33,7 @@ body {
 .form-container label {
   display: block;
   margin-bottom: 8px;
-  color: #555;
+  color: #000000;
 }
 
 .form-container input[type="text"],
