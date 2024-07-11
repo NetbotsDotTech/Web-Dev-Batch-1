@@ -88,3 +88,6 @@ console.log(num++);//increment after exicution exicution
 console.log(num)
 
 console.log("**************************************************");
+//var variable can be reinitialize and can be modify
+var name = "Muhammad";
+console.log(name);
