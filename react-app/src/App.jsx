@@ -1,19 +1,28 @@
-import Signup from "./components/Register"
-import Login from "./components/Login"
-import Form from "./Form"
-import Counter from "./counter"
-function App() {
- 
+import React from 'react';
+import StudentRegistrationForm from './StudentRegistration';
+import LoginForm from './StudentLonginForm'
+import FlipCardContainer from './FlipCard'
+import FirstComp from './FirstComp'
+import Counter from './counter'
+
+const App = () => {
+  // const handleFormSubmit = (data) => {
+  //   alert(JSON.stringify(data, null, 2));
+  // };
 
   return (
-    <>
-{/* <Signup/>
-<Login/> */}
-<Form/>
-<Counter/>
-    
-    </>
-  )
-}
+    <div>
+      {/* <h1 style={{ color: 'blue', textAlign: 'center' }}>Student Registration Form</h1>
+      <StudentRegistrationForm onSubmit={handleFormSubmit} /> */}
+      {/* <h1 style={{ color: 'blue', textAlign: 'center' }}>Login Form</h1>
+      <LoginForm/> */}
+      <FlipCardContainer/>
+        {/* <FirstComp/> */}
+        {/* <Counter/> */}
 
-export default App
+
+    </div>
+  );
+};
+
+export default App;
