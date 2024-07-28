@@ -63,13 +63,13 @@ const LoginForm = () => {
         </Box>
       </form>
       <Typography variant="body2">
-        <Link href="#" underline="none">
+        <Link href="https://www.google.com" underline="none">
           Forgot Password?
         </Link>
       </Typography>
       <Typography variant="body2" mt={2}>
         <Link href="#" underline="none">
-          Create New Account
+          Singin UP
         </Link>
       </Typography>
     </Container>

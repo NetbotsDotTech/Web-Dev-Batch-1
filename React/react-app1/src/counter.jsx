@@ -1,8 +1,8 @@
 import React,{useState} from 'react'
 import './Counter.css'
 
-const Counter = () => {
-    const [count,setCount]=useState(0)
+const Counter = (Props) => {
+    const [count,setCount]=useState(Props.count)
 
     const increase=()=>{
         if(count<20){

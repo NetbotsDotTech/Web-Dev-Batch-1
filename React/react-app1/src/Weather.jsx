@@ -27,16 +27,6 @@ const Weather = () => {
   const handleSearch = async () => {
     // Call to a weather API (e.g., OpenWeatherMap) should be made here
     // For demo, let's assume the API returns the following:
-    
-        const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`);
-        const data = await response.json();
-      
-        setTemperature(data.main.temp);
-        setHumidity(data.main.humidity);
-        setWeatherIcon(`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
-    
-      
     const mockApiResponse = {
       temperature: 22,
       humidity: 60,

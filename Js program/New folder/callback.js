@@ -1,4 +1,4 @@
-// //Practice-1
+//Practice-1
 // function sum(a,b) {
 //   console.log(a+b)
   
@@ -6,49 +6,56 @@
 // let calculator=function(a,b,callback){
 //   callback(a,b)
 // }
-// //Practice-2
-// calculator(2,3,sum)
+// // calculator(2,3,sum)
 
 // calculator(2,3,(a,b)=>{
 //   console.log(a+b)
 // })
-// //Practice-3
+// //Practice-2
 // function printfunc() {
 //   console.log("Hi I am Basit")
   
 // }
-// setTimeout(printfunc,1000)// it print after 1second
-// //Practice-4
-// let func1=function (callback) {
-//   setTimeout(() => {
-//     console.log("First function .......1")
-//     callback()
-    
-//   }, 1000);
-  
-// }
+// setTimeout(printfunc,5000)// it print after 1second
+//Practice-4
+let func1=function (callback) {
+  setTimeout(() => {
+    console.log("First function .......1")
+    if(callback){
+      callback()
 
-// let func2=function (callback) {
-// setTimeout(() => {
-//   console.log("Second function......2") 
-//   callback()
-// }, 2000); 
-// }
-// function func3(callback) {
-//   setTimeout(() => {
-//     console.log("Third function.....3")
-//     callback()
-    
-//   },3000);
+    }    
+  }, 1000);
   
-// }
-// func3(()=>{
-//   func2(()=>{
-//     func1(()=>{
-//       console.log("Done.............")
-//     })
-//   })
-// })
+}
+
+let func2=function (callback) {
+setTimeout(() => {
+  console.log("Second function......2") 
+  if(callback){
+    callback()
+
+  }  
+}, 2000); 
+}
+function func3(callback) {
+  setTimeout(() => {
+    console.log("Third function.....3")
+    if(callback){
+      callback()
+
+    }  
+    
+  },3000);
+  
+}
+func3(()=>{
+  func2(()=>{
+    func1(()=>{
+      console.log("Done.............")
+    })
+  })
+})
 // // Practice-5
 // function infoSon(callback){
  

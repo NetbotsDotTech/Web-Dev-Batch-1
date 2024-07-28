@@ -1,0 +1,35 @@
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 65px; */
+
+}
+.card{
+    width: 20%;
+    height: 50vh;
+    padding: 80px;
+    border: 5px solid black;
+    margin: 5px 5px;
+}
+.card span{
+    position: relative;
+    top: 160px;
+    /* margin: 5px 20px; */
+    outline: 2px black solid;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+    padding: 5px 5px;
+    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+
+    
+}
+
+
+
+
+

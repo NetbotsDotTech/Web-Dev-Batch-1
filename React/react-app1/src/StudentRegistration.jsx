@@ -68,7 +68,7 @@ const StudentRegistrationForm = ({ onSubmit }) => {
         }}
       />
       <TextField
-        label="Last Name"
+        label="Aakhiri mintaqpo"
         placeholder="Enter your last name"
         name="lastName"
         value={formData.lastName}
