@@ -1,35 +1,35 @@
 
-// function fetchData(innerFunction) {
-//   console.log("Fetching Data...!");
-//   setTimeout(() => {
-//     console.log("Data fetched");
-//     innerFunction()
-//   }, 4000);
-// }
+function fetchData(innerFunction) {
+  console.log("Fetching Data...!");
+  setTimeout(() => {
+    console.log("Data fetched");
+    innerFunction()
+  }, 4000);
+}
 
-// function processData(innerFunction) {
-//   console.log("Processing Data...!");
-//   setTimeout(() => {
-//     console.log("Data processed");
-//     innerFunction()
-//   }, 3000);
-// }
+function processData(innerFunction) {
+  console.log("Processing Data...!");
+  setTimeout(() => {
+    console.log("Data processed");
+    innerFunction()
+  }, 3000);
+}
 
-// function saveData(innerFunction) {
-//   console.log("Saving Data...!");
-//   setTimeout(() => {
-//     console.log("Data saved");
-//     innerFunction()
-//   }, 2000);
-// }
+function saveData(innerFunction) {
+  console.log("Saving Data...!");
+  setTimeout(() => {
+    console.log("Data saved");
+    innerFunction()
+  }, 2000);
+}
 
-// fetchData(()=>{
-//   processData(()=>{
-//     saveData(()=>{
-//       console.log("All done!");
-//     })
-//   })
-// })
+fetchData(()=>{
+  processData(()=>{
+    saveData(()=>{
+      console.log("All done!");
+    })
+  })
+})
 
 
 
@@ -73,35 +73,35 @@
 
 // // })
 
-function func1(callback) {
-  setTimeout(() => {
-    console.log("First fucntion calling ............1")
-    callback()
-  }, 5000);
+// function func1(callback) {
+//   setTimeout(() => {
+//     console.log("First fucntion calling ............1")
+//     callback()
+//   }, 5000);
   
-}
-function func2(callback){
-  setTimeout(() => {
-    console.log("Second Function calling ............2")
-    callback()
-  }, 4000);
-}
-function func3(callback) {
-  setTimeout(() => {
-    console.log("Third Function calling..........3")
-    callback()
+// }
+// function func2(callback){
+//   setTimeout(() => {
+//     console.log("Second Function calling ............2")
+//     callback()
+//   }, 4000);
+// }
+// function func3(callback) {
+//   setTimeout(() => {
+//     console.log("Third Function calling..........3")
+//     callback()
     
-  }, 3000);
+//   }, 3000);
   
-}
-let func4=function (callback) {
-  setTimeout(() => {
-    console.log("Fouring function calling ....................4")
-    callback()
+// }
+// let func4=function (callback) {
+//   setTimeout(() => {
+//     console.log("Fouring function calling ....................4")
+//     callback()
     
-  }, 2000);
+//   }, 2000);
   
-}
+// }
 // func1(()=>{
 //   func2(()=>{
 //     func3(()=>{
@@ -111,12 +111,12 @@ let func4=function (callback) {
 //      })
 //   })
 // })
-func4(()=>{
-  func3(()=>{
-    func2(()=>{
-      func1(()=>{
-        console.log("Hello world")
-      })
-    })
-  })
-})
+// func4(()=>{
+//   func3(()=>{
+//     func2(()=>{
+//       func1(()=>{
+//         console.log("Hello world")
+//       })
+//     })
+//   })
+// })
