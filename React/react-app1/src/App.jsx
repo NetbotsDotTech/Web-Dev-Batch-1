@@ -13,10 +13,10 @@ const App = () => {
 
   return (
     <div>
-      <h1 style={{ color: 'blue', textAlign: 'center' }}>Student Registration Form</h1>
-      <StudentRegistrationForm onSubmit={handleFormSubmit} />
-      {/* <h1 style={{ backgroundColor:"gray", color: 'blue', textAlign: 'center' }}>Login Form</h1>
-      <LoginForm/> */}
+      {/* <h1 style={{ color: 'blue', textAlign: 'center' }}>Student Registration Form</h1>
+      <StudentRegistrationForm onSubmit={handleFormSubmit} /> */}
+      <h1 style={{ backgroundColor:"gray", color: 'blue', textAlign: 'center' }}>Login Form</h1>
+      <LoginForm/>
       {/* <FlipCardContainer/> */}
         {/* <FirstComp/> */}
         {/* <Counter count="100"/> */}

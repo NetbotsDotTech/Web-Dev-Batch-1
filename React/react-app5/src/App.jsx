@@ -1,23 +1,24 @@
 import React from 'react';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Header from './components/Header';
-import ImageCategory from './components/ImageCategory';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NavBar from './components/Navbar';
+import LoginForm from './components/LoginForm';
+import RegistrationForm from './components/RegistrationForm';
+import HomePage from './components/HomePage';
+import ServicesPage from './components/ServicePage';
+import ContactPage from './components/ContactPage';
+import AboutPage from './components/AboutPage';
 
-function App() {
-  const theme = createTheme({
-    // Your custom theme if needed
-  });
-
-  return (
-    <ThemeProvider theme={theme}>
-      <Header />
-      <ImageCategory category="People" />
-      <ImageCategory category="Books" />
-      <ImageCategory category="Animals" />
-      <Footer />
-    </ThemeProvider>
-  );
-}
+const App = () => (
+  <Router>
+    <NavBar />
+    <Routes>
+      <Route path="/" element={<LoginForm />} />
+      <Route path="/register" element={<RegistrationForm />} />
+      <Route path="/services" element={<ServicesPage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route path="/about" element={<AboutPage />} />
+    </Routes>
+  </Router>
+);
 
 export default App;
