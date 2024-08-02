@@ -8,7 +8,8 @@ export const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log("Logging in with:", { username, password });
+    console.log("Logging in with:", { username, password }
+    );
     alert(`Username: ${username}\nPassword: ${password}`);
   };
 

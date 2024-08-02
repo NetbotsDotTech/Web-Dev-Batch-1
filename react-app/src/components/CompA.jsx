@@ -6,7 +6,7 @@ export default function CompA() {
   return (
     <React.Fragment>
       <div>CompA</div>
-      <CompB data1 ={Data} />
+      <CompB data ={Data} />
     </React.Fragment>
   );
 }
