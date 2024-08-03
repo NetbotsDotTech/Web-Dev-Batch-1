@@ -18,15 +18,15 @@ function Footer() {
         <Typography variant="body1">ZBS Company</Typography>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <EmailIcon />
-          <Typography variant="body2">Email: contact@zbscompany.com</Typography>
+          <Typography variant="body2">Email: ZBSCompnay@gamil.com</Typography>
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <PhoneIcon />
-          <Typography variant="body2">Phone: +123 456 7890</Typography>
+          <Typography variant="body2">Phone: +923 475495500</Typography>
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <HomeIcon />
-          <Typography variant="body2">Address: 123 Main St, Gilgit-Baltistan</Typography>
+          <Typography variant="body2">Address:Skardu, Gilgit-Baltistan</Typography>
         </Box>
       </Box>
     </Box>

@@ -66,7 +66,7 @@ function Registration() {
             label="Name"
             variant="outlined"
             fullWidth
-            margin="normal"
+            margin="dense"
             name="name"
             value={formData.name}
             onChange={handleChange}
