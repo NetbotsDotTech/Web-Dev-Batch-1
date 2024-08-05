@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Grid, Typography, Link, TextField, Button } from '@mui/material';
+import {NavLink} from "react-router-dom"
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -14,10 +15,12 @@ const Footer = () => {
               Company
             </Typography>
             <Typography variant="body2">
-              <Link href="#" color="inherit">About Us</Link>
+            <NavLink to="/about-us">About Us</NavLink>
+              {/* <Link href="#" color="inherit">About Us</Link> */}
             </Typography>
             <Typography variant="body2">
-              <Link href="#" color="inherit">Contact Us</Link>
+            <NavLink to="/contact-us" >Contact Us</NavLink>
+
             </Typography>
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -25,13 +28,13 @@ const Footer = () => {
               Follow Us
             </Typography>
             <div>
-              <Link href="#" color="inherit">
+              <Link href="https://www.facebook.com" color="inherit" target='_blank'>
                 <FacebookIcon />
               </Link>
-              <Link href="#" color="inherit">
+              <Link href="https://www.twitter.com" color="inherit" target='_blank'>
                 <TwitterIcon />
               </Link>
-              <Link href="#" color="inherit">
+              <Link href="https://www.instagram.com" color="inherit" target='_blank'>
                 <InstagramIcon />
               </Link>
             </div>

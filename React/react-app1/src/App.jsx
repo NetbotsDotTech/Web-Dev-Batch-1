@@ -17,10 +17,10 @@ const App = () => {
       <StudentRegistrationForm onSubmit={handleFormSubmit} /> */}
       <h1 style={{ backgroundColor:"gray", color: 'blue', textAlign: 'center' }}>Login Form</h1>
       <LoginForm/>
-      {/* <FlipCardContainer/> */}
+      <FlipCardContainer/>
         {/* <FirstComp/> */}
         {/* <Counter count="100"/> */}
-        {/* <Project/> */}
+        <Project/>
 
 
     </div>
