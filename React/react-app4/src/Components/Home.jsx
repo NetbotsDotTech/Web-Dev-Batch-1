@@ -55,10 +55,10 @@ const Home = () => {
     <Container>
       <Paper style={{ padding: '20px', marginBottom: '20px' }}>
         <Typography variant="h4" component="h1" align="center" gutterBottom>
-          Welcome to ShoppingClone
+          Welcome to Shoping Natural Product
         </Typography>
         <Typography variant="body1" align="center" gutterBottom>
-          Explore our collection of amazing products.
+          Explore our collection of amazing natural products.
         </Typography>
       </Paper>
       <Grid container spacing={3}>

@@ -9,6 +9,7 @@ import Cart from './Components/Cart';
 import Checkout from './Components/Checkout';
 import AboutUs from './Components/AboutUs';
 import ContactUs from './Contactus';
+import ProductSearch from './Components/ProductSearch';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/about-us" element={<AboutUs/>}/>
         <Route path="/contact-us" element={<ContactUs/>}/>
+        <Route path="/productList" element={<ProductSearch/>}/>
       </Routes>
       <Footer />
     </Router>
