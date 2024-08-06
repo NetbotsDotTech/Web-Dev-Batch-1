@@ -10,16 +10,19 @@ let myPromise = new Promise(
     }, 2000);
 }
 );
+
 myPromise.then( (value)=> {
   console.log( value);
+  console.log("King is win")
 }).catch((error)=>{
   console.log(error);
+  console.log("Quen is fail")
 })
 
 
-let fun = ()=>{
+// let fun = ()=>{
 
-  console.log("Hello World")
-}
+//   console.log("Hello World")
+// }
 
-fun();
+// fun();

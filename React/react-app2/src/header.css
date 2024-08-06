@@ -1,0 +1,25 @@
+.navbar nav ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: goldenrod;
+    padding: 15px 15px;
+}
+ul li{
+    list-style: none;
+    background-color: goldenrod;
+     cursor: pointer;
+     font-weight: bold;
+     border: 2px solid black;
+     padding: 5px 5px;
+     border-radius: 20px;
+}
+h1{
+    text-align: center;
+    color: wheat;
+}
+h1 span{
+    color: black;
+    font-size: 30px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

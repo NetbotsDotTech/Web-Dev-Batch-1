@@ -1,0 +1,12 @@
+.footer{
+    position: relative;
+    left: 5%;
+    top:10vh
+    
+}
+.footer span{
+    margin: auto 70px;
+    color: white;
+    font-weight: bold;
+    
+}
