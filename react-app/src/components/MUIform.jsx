@@ -1,6 +1,8 @@
 import React from 'react';
 import { TextField, Button, Typography, Link, Box, Container, CssBaseline } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
+import { AppBar, Toolbar} from '@mui/material';
+
 
 const theme = createTheme();
 
@@ -63,7 +65,7 @@ export const Login_Form = () => {
               Signin
             </Button>
             <Typography variant="body2" color="textSecondary">
-              Don't have an account? <Link href="#">Signup</Link>
+              Don't have an account? <Link href="#" to="/register">Register</Link>
             </Typography>
           </Box>
         </Box>
