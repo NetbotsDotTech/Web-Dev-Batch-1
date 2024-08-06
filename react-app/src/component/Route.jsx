@@ -4,12 +4,14 @@ import { AppBar, Toolbar, Button, Typography } from '@mui/material';
 import Login from './Login';
 import Register from './Register';
 import LOGO from "../images/logo.png"
+import ProductList from './Products';
 
 function Menu() {
   const menuItems = [
     { label: 'Home', path: '/' },
     { label: 'Login', path: '/login' },
     { label: 'Register', path: '/register' },
+    { label: 'Products', path: '/products' },
   ];
 
   return (
@@ -28,6 +30,7 @@ function Menu() {
         <Route path="/" element={<h1>Home Page</h1>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/products" element={<ProductList />} />
       </Routes>
     </Router>
   );
