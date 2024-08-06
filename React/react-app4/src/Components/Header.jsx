@@ -12,7 +12,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Box from '@mui/material/Box';
 
 // Sample logo image URL (you can replace this with the actual logo image URL)
-const logoUrl = 'https://via.placeholder.com/150';
+const logoUrl = 'https://img.freepik.com/free-vector/organic-food-supermarket-logo_23-2148455876.jpg?size=626&ext=jpg';
 
 const Header = () => {
   return (
