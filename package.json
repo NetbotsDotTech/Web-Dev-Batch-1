@@ -1,5 +1,10 @@
 {
   "dependencies": {
-    "axios": "^1.7.3"
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^5.16.6",
+    "@mui/material": "^5.16.6",
+    "axios": "^1.7.3",
+    "react-router-dom": "^6.26.0"
   }
 }
