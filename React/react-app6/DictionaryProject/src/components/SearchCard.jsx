@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const SearchCard = () => {
   const [word, setWord] = useState('');
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState({ meaning: '', partOfSpeech: '', example: '' });
 
   const handleSearch = async () => {
     if (!word) return; // Do nothing if the word is empty
@@ -14,16 +14,21 @@ const SearchCard = () => {
       const response = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
       const data = response.data;
 
-      // Extract the translation or meaning
+      // Extract the meaning, part of speech, and example sentence
       if (data && data[0] && data[0].meanings && data[0].meanings.length > 0) {
-        const meanings = data[0].meanings;
-        const definitions = meanings.flatMap(meaning => meaning.definitions.map(def => def.definition));
-        setResult(definitions.join('; '));
+        const meaningData = data[0].meanings[0];
+        const definition = meaningData.definitions[0];
+
+        setResult({
+          meaning: definition.definition || 'Meaning not found',
+          partOfSpeech: meaningData.partOfSpeech || 'Part of speech not found',
+          example: definition.example || 'Example not found',
+        });
       } else {
-        setResult('Not found');
+        setResult({ meaning: 'Not found', partOfSpeech: 'Not found', example: 'Not found' });
       }
     } catch (error) {
-      setResult('Not found');
+      setResult({ meaning: 'Not found', partOfSpeech: 'Not found', example: 'Not found' });
     }
   };
 
@@ -54,7 +59,11 @@ const SearchCard = () => {
           </Box>
         </CardContent>
         <CardActions>
-          <Typography variant="h6">{result}</Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+            <Typography variant="h6">Meaning: {result.meaning}</Typography>
+            <Typography variant="h6">Part of Speech: {result.partOfSpeech}</Typography>
+            <Typography variant="h6">Example: {result.example}</Typography>
+          </Box>
         </CardActions>
       </Card>
     </Box>
