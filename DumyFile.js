@@ -91,3 +91,13 @@ console.log("**************************************************");
 //var variable can be reinitialize and can be modify
 var name = "Muhammad";
 console.log(name);
+//errow function
+
+const fun2 = ((y)=>{
+    for(let j = 0; j<=y; j++){
+        if(j%2==0){
+            console.log("Even numbers are : ","\t",j);
+        }
+    }
+})
+fun2(10); //function call
