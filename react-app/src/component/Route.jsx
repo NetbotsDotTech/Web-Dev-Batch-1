@@ -5,13 +5,15 @@ import Login from './Login';
 import Register from './Register';
 import LOGO from "../images/logo.png"
 import ProductList from './Products';
-
+import CounterApp from "./Counter"
 function Menu() {
   const menuItems = [
     { label: 'Home', path: '/' },
     { label: 'Login', path: '/login' },
     { label: 'Register', path: '/register' },
     { label: 'Products', path: '/products' },
+    { label: 'Counter App', path: '/counter-app' },
+
   ];
 
   return (
@@ -31,6 +33,8 @@ function Menu() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/products" element={<ProductList />} />
+        <Route path="/counter-app" element={<CounterApp />} />
+
       </Routes>
     </Router>
   );
