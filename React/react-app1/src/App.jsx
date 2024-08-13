@@ -20,8 +20,9 @@ const App = () => {
       {/* This is the conditional rendering  */}
       {/* {true ?<FlipCardContainer/>  :      <Project/>} */}
 
-        {false ?<FirstComp/>:
-        <Counter count="100"/>}
+        {/* {false ?<FirstComp/>:
+        <Counter count="100"/>} */}
+        <Counter/>
 
 
     </div>

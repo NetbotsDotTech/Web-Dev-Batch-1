@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import './style.css'
 
 const BackgroundChanger = () => {
     const [color,setColor]=useState("olive")
+    useEffect(()=>{
+        console.log(`Current color is: ${color}`)
+    },[color])
   return (
    <>
    <div className='bgchanger'  style={{ backgroundColor:color}}> 
