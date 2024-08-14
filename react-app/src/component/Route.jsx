@@ -6,6 +6,7 @@ import Register from './Register';
 import LOGO from "../images/logo.png"
 import ProductList from './Products';
 import CounterApp from "./Counter"
+import FormikForm from "./Formik/Index"
 function Menu() {
   const menuItems = [
     { label: 'Home', path: '/' },
@@ -13,6 +14,8 @@ function Menu() {
     { label: 'Register', path: '/register' },
     { label: 'Products', path: '/products' },
     { label: 'Counter App', path: '/counter-app' },
+    { label: 'Stepper Form', path: '/form' },
+
 
   ];
 
@@ -34,6 +37,7 @@ function Menu() {
         <Route path="/register" element={<Register />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/counter-app" element={<CounterApp />} />
+        <Route path="/form" element={<FormikForm />} />
 
       </Routes>
     </Router>
