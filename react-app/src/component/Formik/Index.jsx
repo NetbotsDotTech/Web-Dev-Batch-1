@@ -1,4 +1,3 @@
-// src/MultiStepForm.js
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import { Box, Button, Grid, Step, StepLabel, Stepper, Modal, Typography } from '@mui/material';
@@ -6,7 +5,7 @@ import ProductForm from './FirstStep';
 import CustomerForm from './SecondStep';
 import AccountForm from './ThirdStep';
 import { validationSchema } from './Validation';
-import {  initialValues } from './Schemas';
+import { initialValues } from './Schemas';
 
 const steps = ['Product Details', 'Customer Details', 'Account Details'];
 
@@ -15,11 +14,16 @@ const MultiStepForm = () => {
   const [open, setOpen] = useState(false);
 
   const handleNext = (values, actions) => {
-    if (activeStep === steps.length) {
+    if (activeStep === steps.length - 1) {
       setOpen(true);  // Open modal on final submission
-      console.log("FORM SUBMITTED")
+      console.log("FORM SUBMITTED", values);
+      actions.resetForm(); // Clear all form data
+      setActiveStep(0); // Reset to the first step
+      actions.setSubmitting(false); // Ensure form submission is complete
     } else {
       setActiveStep(prev => prev + 1);
+      actions.setTouched({}); // Reset touched fields to prevent validation errors from previous steps
+      actions.setSubmitting(false); // Allow user to continue
     }
   };
 
@@ -45,10 +49,11 @@ const MultiStepForm = () => {
   };
 
   return (
-    <Formik
+    <div style={{margin:"50px"}}>
+ <Formik
       initialValues={initialValues}
       validationSchema={validationSchema[activeStep]}
-      onSubmit={handleNext}
+      onSubmit={(values, actions) => handleNext(values, actions)}
     >
       {({ isSubmitting }) => (
         <Form>
@@ -74,7 +79,7 @@ const MultiStepForm = () => {
                 )}
               </Grid>
               <Grid item>
-                <Button type="submit" variant="contained" color="primary" disabled={isSubmitting}>
+                <Button type="submit" variant="contained" color="primary">
                   {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                 </Button>
               </Grid>
@@ -110,6 +115,8 @@ const MultiStepForm = () => {
         </Form>
       )}
     </Formik>
+    </div>
+   
   );
 };
 
