@@ -5,9 +5,9 @@ import PasswordGenerator from './PasswordGenerator.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
-  //   {/* < PasswordGenerator/> */}
   
-  // </React.StrictMode>
-  <App/>
+    < PasswordGenerator/>
+  
+  
+  // <App/>
 )

@@ -12,9 +12,9 @@ const Counter = () => {
   }, ); // useEffect runs when `count` changes
 
   const increase = () => {
-    if (count <200) {
+   
       setCount(count + 1);
-    }
+    
   };
 
   const decrease = () => {

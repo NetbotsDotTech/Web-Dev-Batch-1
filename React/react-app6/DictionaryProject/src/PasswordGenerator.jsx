@@ -18,6 +18,7 @@ const PasswordGenerator = () => {
             pass +=str.charAt(char)
         }
         setPasssword(pass)
+        console.log("passwordGenerator with useCallback")
     },[length,numberHave,charHave,setPasssword])
     const copypasswordToClipboard=useCallback(()=>{
         passwordRef.current?.select()
@@ -26,8 +27,13 @@ const PasswordGenerator = () => {
     },[password])
     useEffect(()=>{
         passwordGenerator() 
+        console.log("passwordGenerator with use effect")
     },[length,numberHave,charHave,setPasssword])
-
+    useEffect(()=>{
+      setTimeout(() => {
+        console.log(Math.floor(Math.random()+10))
+      }, 5000);
+    })
   return (
     <div className='outerdiv'>
         <h2 className='h1'>PasswordGenerator</h2>
