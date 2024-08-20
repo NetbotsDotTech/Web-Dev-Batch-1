@@ -99,6 +99,8 @@ const Header = () => {
           <Button color="inherit" onClick={() => handleNavigation('/Buy')}>Buy Now</Button>
           <Button color="inherit" onClick={() => handleNavigation('/about')}>About Us</Button>
           <Button color="inherit" onClick={() => handleNavigation('/contact')}>Contact Us</Button>
+          <Button color="inherit" onClick={() => handleNavigation('/table')}>Table</Button>
+
          
 
         </Box>

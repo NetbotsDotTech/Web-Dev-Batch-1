@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(177, 86, 243);
+    padding: 2px;
+
+    
+}
+.logotext{
+    font-weight: bold;
+    font-size: x-large;
+    margin: 10px;
+}
+.ullist{
+    display: flex;
+    gap: 20px;
+    margin: 12px;
+}
+.lilist{
+    list-style: none;
+    cursor: pointer;
+    
+}
+.lilist:hover{
+    font-weight: bold;
+    transition: all;
+    animation-duration: 0.8s;
+}
