@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    border: 5px solid black;
+    background-color: aqua;
+    display: grid;
+    gap: 1em;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(1,1fr);
+    padding: 50px;
+
+
+}
+.item{
+    border: 2px solid rebeccapurple;
+    background-color:bisque;
+    padding: 63px;
+   
+}
+.header{
+grid-column-start: 1;
+grid-column-end: 4;
+
+
+}
+.footer{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.main{
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+.sideBar{
+}

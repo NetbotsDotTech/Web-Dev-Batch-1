@@ -1,5 +1,0 @@
-promise
-  .then()
-  .catch();
-
-  
