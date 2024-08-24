@@ -32,7 +32,14 @@ const ShopPage = () => {
       }
 
       const response = await axios.get(url);
-      setProducts(response.data);
+      // Extract only the necessary fields: name, price, and image
+      const filteredData = response.data.map((product) => ({
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        image: product.image
+      }));
+      setProducts(filteredData);
     } catch (error) {
       console.error('Error fetching products:', error);
     } finally {

@@ -1,11 +1,8 @@
 import React from 'react';
-import 'open-iconic/font/css/open-iconic-bootstrap.min.css';
-import 'animate.css/animate.min.css';
-import 'aos/dist/aos.css';
-import './ionicons.minHeader.css';
-import './flaticonHeader.css';
-import  './icomoonHeader.css';
-import './style.css';
+
+import 'animate.css';
+import '../css/style.css';
+
 
 const Header = () => {
     return (

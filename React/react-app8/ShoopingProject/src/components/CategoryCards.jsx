@@ -1,11 +1,17 @@
 import React from 'react';
 import { Box, Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 
+// Import images
+import menCategoryImage from '../assets/images/men-category.jpg';
+import womenCategoryImage from '../assets/images/women-category.jpg';
+import electronicsCategoryImage from '../assets/images/electronics-category.jpg';
+import homeDecorCategoryImage from '../assets/images/home-decor-category.jpg';
+
 const categories = [
-  { title: 'Men', image: '/path/to/men-category.jpg' },
-  { title: 'Women', image: '/path/to/women-category.jpg' },
-  { title: 'Electronics', image: '/path/to/electronics-category.jpg' },
-  { title: 'Home Decor', image: '/path/to/home-decor-category.jpg' },
+  { title: 'Men', image: menCategoryImage },
+  { title: 'Women', image: womenCategoryImage },
+  { title: 'Electronics', image: electronicsCategoryImage },
+  { title: 'Home Decor', image: homeDecorCategoryImage },
 ];
 
 const CategoryCards = () => {
@@ -14,9 +20,16 @@ const CategoryCards = () => {
       {categories.map((category) => (
         <Grid item xs={12} sm={6} md={3} key={category.title}>
           <Card>
-            <CardMedia component="img" image={category.image} alt={category.title} height="140" />
+            <CardMedia
+              component="img"
+              image={category.image}
+              alt={category.title}
+              height="140"
+            />
             <CardContent>
-              <Typography variant="h6">{category.title}</Typography>
+              <Typography variant="h6" align="center">
+                {category.title}
+              </Typography>
             </CardContent>
           </Card>
         </Grid>

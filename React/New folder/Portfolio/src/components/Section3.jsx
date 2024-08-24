@@ -1,5 +1,8 @@
 import React from 'react'
 
+import 'animate.css';
+import '../css/style.css';
+
 
 const Section3 = () => {
   return (

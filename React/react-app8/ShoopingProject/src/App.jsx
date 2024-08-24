@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Shop from './components/Shop';
 import BuyNowForm from './components/BuyNowForm';
 import {AdvancedTable} from './components/AdvancedTable';
+import ProductDetail from './ProductDetial';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/about-us" element={<div>About Us Page</div>} />
         <Route path="/contact-us" element={<div>Contact Us Page</div>} />
         <Route path="/Buy" element={<BuyNowForm/>} />
+        <Route path="/product/:id" element={<ProductDetail />} />
 
       </Routes>
     </Router>

@@ -1,14 +1,14 @@
 import React from 'react'
-import '../css/open-iconic-bootstrap.min.css'; 
-import '../css/animate.css';
-import '../css/owl.carousel.min.css'; 
-import '../css/owl.theme.default.min.css';
-import '../css/magnific-popup.css';
-import '../css/aos.css'; 
-import '../css/ionicons.min.css'; 
-import '../css/flaticon.css'; 
-import '../css/icomoon.css';
-import '../css/style.css';
+// import 'open-iconic-bootstrap.min.css'; 
+// import 'css/animate.css';
+// import 'owl.carousel.min.css'; 
+// import 'owl.theme.default.min.css';
+// import 'magnific-popup.css';
+// import 'aos.css'; 
+// import 'ionicons.min.css'; 
+// import 'flaticon.css'; 
+// import 'icomoon.css';
+// import '../css/style.css';
 const  Section4 = () => {
   return (
    <div>

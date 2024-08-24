@@ -1,16 +1,10 @@
 import React from 'react'
 import bg1 from './image/bg_1.jpg'
 import bg2 from './image/bg_2.jpg'
-// In your src/index.js or src/App.js
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../css/animate.css';
-import '../css/owl.carousel.min.css'; 
-import '../css/owl.theme.default.min.css';
-import '../css/magnific-popup.css';
-import '../css/aos.css'; 
-import '../css/ionicons.min.css'; 
-import '../css/flaticon.css'; 
-import '../css/icomoon.css';
+
+
+
+import 'animate.css';
 import '../css/style.css';
 
 
