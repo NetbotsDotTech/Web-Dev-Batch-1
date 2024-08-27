@@ -1,0 +1,22 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #edeaff;
+}
+.stopWatch{
+    width: 90%;
+    max-width: 600px;
+    background-image: url('./bgImage.jpeg');
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    padding: 40px 0;
+    color: white;
+    margin: 30px auto 0;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.9);
+
+
+}
