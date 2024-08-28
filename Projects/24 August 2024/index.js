@@ -6,7 +6,7 @@ for(list in lists){
     list.addEventListener("dragstart",(e)=>{
         let selected=e.target;
         leftBox.addEventListener("dragover",(e)=>{
-            e.preventDefault();
+            // e.preventDefault();
 
         })
 
