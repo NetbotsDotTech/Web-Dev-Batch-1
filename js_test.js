@@ -4,6 +4,10 @@
 //  let name="Shahid";
 //  name="a"   //can be updated
 //  console.log(name);
- const reg="S23BSCS026"
- reg="S23BSCS002"
- console.log(reg)
+// let text="Shahid"
+// let texts=text.split("")
+// console.log(texts)
+const org=[1,2,3,4];
+const n=[...org];
+console.log(org);
+console.log(n);
