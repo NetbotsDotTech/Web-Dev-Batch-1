@@ -1,0 +1,53 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #201f21;
+}
+.inputBox{
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+}
+.inputBox input{
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    color: #ffffff;
+    background: transparent;
+    border-radius: 5px;
+}
+button{
+    background: transparent;
+    border: 0;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+}
+button img{
+    width: 35px;
+}
+#message{
+    position: absolute;
+    bottom: -30%;
+    color: #ffffff;
+    font-size: 15px;
+    display: none;
+}
+::placeholder{
+    font-size: 15px;
+
+}

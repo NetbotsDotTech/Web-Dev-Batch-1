@@ -1,13 +1,18 @@
 import React from 'react';
-import { Box, Typography, Card, CardContent, CardMedia, Rating } from '@mui/material';
+import { Box, Typography, Card, CardContent, CardMedia, Rating, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const ProductCard = ({ product }) => {
   const { id, image, title, price, rating } = product;
   const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleCardClick = () => {
     navigate(`/product/${id}`);
+  };
+
+  const handleBuyNowClick = (event) => {
+    event.stopPropagation(); // Prevents the card click event from triggering
+    navigate(`/checkout/${id}`, { state: product }); // Pass product details to Checkout
   };
 
   return (
@@ -20,7 +25,7 @@ const ProductCard = ({ product }) => {
         justifyContent: 'space-between',
         cursor: 'pointer'
       }} 
-      onClick={handleClick}
+      onClick={handleCardClick}
     >
       <CardMedia
         component="img"
@@ -36,7 +41,6 @@ const ProductCard = ({ product }) => {
         <Typography variant="body2" color="text.secondary" gutterBottom>
           PKR {price}
         </Typography>
-        {/* Safely check for rating and rate */}
         {rating && rating.rate ? (
           <Rating name="read-only" value={rating.rate} readOnly />
         ) : (
@@ -44,6 +48,11 @@ const ProductCard = ({ product }) => {
             No rating available
           </Typography>
         )}
+        <Box mt={2}>
+          <Button variant="contained" color="primary" onClick={handleBuyNowClick}>
+            Buy Now
+          </Button>
+        </Box>
       </CardContent>
     </Card>
   );
