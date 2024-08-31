@@ -6,8 +6,7 @@ import Shop from './components/Shop';
 import BuyNowForm from './components/BuyNowForm';
 import {AdvancedTable} from './components/AdvancedTable';
 import ProductDetail from './ProductDetial';
-import Checkout from './components/Checkout';
-import OrderSummary from './components/Ordersummery';
+import ShippingForm from './components/ShippingForm';
 
 const App = () => {
   return (
@@ -18,10 +17,11 @@ const App = () => {
         <Route path="/" element={<Home/>} />
         <Route path="/shop" element={<Shop/>} />
         <Route path="/table" element={<AdvancedTable/>} />
-        <Route path="/checkout/:id" element={<Checkout />} />
-        <Route path="/order-summary" element={<OrderSummary />} />
-             <Route path="/Buy" element={<BuyNowForm/>} />
+        <Route path="/Buy" element={<BuyNowForm/>} />
         <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/checkout/:id" element={<ShippingForm />} />
+
+
 
       </Routes>
     </Router>

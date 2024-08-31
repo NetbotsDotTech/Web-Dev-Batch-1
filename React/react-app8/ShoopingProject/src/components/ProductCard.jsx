@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
 
   const handleBuyNowClick = (event) => {
     event.stopPropagation(); // Prevents the card click event from triggering
-    navigate(`/checkout/${id}`, { state: product }); // Pass product details to Checkout
+    navigate(`/checkout/${id}`, { state: product }); // Pass product details to Checkout (ShippingForm)
   };
 
   return (

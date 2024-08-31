@@ -1,0 +1,57 @@
+Basic of JavaScript:
+1- variable ,datatypes,conversion ,and scop 
+i-variable
+There are three keyword to declare and initailized any variable in js
+    i-with 'var'
+    ii- with 'let'
+    iii-with 'const'
+Note:-
+    -> The keyword let and const are the feature of ES6 and var is used befor comming of ES6 feature of js
+
+    ->The scope of var is global and next two keyword(let and const) has local scope means we can access the variables with in the scope where they deaclare or initailized ,other hand we can access anywhere if the variable declare or initialized with the keyword var
+
+    ->var has the functionality of hosting and let or const don't have any hosting property/characteristic
+
+    ->We avoid the var key to used due to its global scope and hosting charateristics 
+
+    ->If we declare any variable with const then it must be required to initailized that variable at the declare time otherwise it generate an error ,and it cann't modify when it initialized once time means we can only access that variables which are initailized with const keyword for only Premitive datatype
+
+    ->In the case of 'let' keyword it is not required to initialized at the declarative time. 
+    
+    -> Keep in view  in javaScript if we only declare variable and don't initalized(let or var ,not const because it mendatory to initailized at the deaclaritive time) before cosole or print the it print 'undefined' which is a special datatype in js
+
+    ->Used passcale or camel formate to declare the variable name like myName(camal) and MyName(pascal)
+
+ii- Datatypes:
+    There are two types of datatypes in javaScript
+    i-Premitive data types
+    ii-Non-Premitived data types
+    The Premitive data types further divided into seven types which are:
+
+         ->Number :- 1,2,4.3,0.87789 etc
+         ->string :- 'abc' ,"kazim", `My father name is Ali`
+            Note:-
+                The third method is introduced in ES6 feature which is called the "literal" where we can write sting and js program like `My name is ${myName}`
+        ->boolean:- true and false 
+        ->null:- empty
+        ->undefined:- variable is not initailized or not keey anything in variable
+        ->symbol:- to declare or initailized unique 
+        ->bigInt:- For big number initalized or deaclare
+
+    The Non-Premitive data types also divided into further two types which are:
+        ->array 
+        ->object
+iii- Conversion:
+    We can convert any datatype into any other data type easily to write before it object ,method like 
+    let number=12 :- datatype is: number
+    str=String(number) :- datatype is: string 
+    bool=Boolean(number)
+    symbol=Symbol(number)
+iv-Scope 
+    There are two types of scope 
+    i-Global Scope 
+        if we deaclare any variable in the globally then it will be access anywhere in the program
+    ii-Local Scope
+        if we deaclare any variable in the locally then it will be access particularly in the local area where it declare or initialized
+
+

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import './Header.css'; // Import the CSS file for styling
+import './Header.css'; // Import the CSS file for styling   &gt;
 
 const Header = () => {
   const messages = [
-    'Free Shipping On Orders Over $75. Free returns.',
-    'Labor Day Sale Is Here: Get 30% Off Sitewide* Shop Men | Shop Women',
-    'The New Tree Glider Has Landed: Lightweight. Airy. Made For Life In Motion. Shop Men | Shop Women',
+    'Welcome to our Store',
+    ' Free Delivery Nationwide for orders above PKR 3000/-',
+    
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -20,7 +20,7 @@ const Header = () => {
         <div className="text-container">
           <p>{messages[currentIndex]}</p>
         </div>
-        <button className="arrow-button" onClick={handleNext}>
+        <button className="arrow-button" onClick={handleNext} style={{color:"red", margin:5}}>
           &gt;
         </button>
       </div>

@@ -16,7 +16,7 @@ const logoUrl = 'https://img.freepik.com/free-vector/organic-food-supermarket-lo
 
 const Header = () => {
   return (
-    <AppBar position="sticky">
+    <AppBar position="sticky" sx={{background:"#000000"}}>
       <Toolbar>
         <Link to="/">
           <img src={logoUrl} alt="Logo" style={{ height: '40px', marginRight: '20px' }} />
