@@ -1,6 +1,7 @@
-import { ArrowBack, ArrowBackIos, ArrowBackIosNewTwoTone, ArrowBackSharp, ArrowCircleDown, ArrowCircleRight, ArrowForward, ArrowForwardIosRounded, ArrowForwardRounded, ArrowForwardSharp, ArrowRight, ArrowRightAlt } from '@mui/icons-material'
+import { ArrowForwardIosRounded } from '@mui/icons-material'
 import { AppBar, Box, Link, Toolbar, Typography } from '@mui/material'
 import React, { useState } from 'react'
+import "../../css/Header.css"
 
 const Header1 = () => {
     const message = [
