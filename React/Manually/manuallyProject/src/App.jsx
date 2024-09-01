@@ -1,13 +1,10 @@
 import React from 'react'
 import AllComponent from './component/AllComponentImport_Export/AllComponent'
-import Button from './component/Button/Button'
+import './App.css'
 const App = () => {
   return (
     <>
-
-   <AllComponent/>
-   <Button children='shop Now' type='submit'/>
- 
+  <AllComponent/>
     </>
   )
 }

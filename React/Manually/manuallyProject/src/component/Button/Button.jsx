@@ -1,21 +1,16 @@
 import React from 'react'
+import { Button } from '@mui/material'
+import '../../css/Button.css'
 
-const Button = ({
-    children,
-    type="button",
-    backgroundColor="silver",
-    textColor="white",
-    ...props
+const Buttons = ({
+  children,
+  ...props
 }) => {
   return (
     <div>
-      <button style={{fontWeight:"bolder"} `${type} ${backgroundColor}`}  {...props} >
-        {children}
-     
-        
-      </button>
+      <Button className='btn'{...props} >{children}</Button>
     </div>
   )
 }
 
-export default Button
+export default Buttons
