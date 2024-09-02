@@ -3,30 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flex</title>
+    <title>Display Property</title>
 </head>
 <style>
-    .container{
+    .con{
+        display: flex;
+        flex-direction: colum;
+    }
+    .box{
+        /* display: inline; Width won't work */
+        /* display: inline-block;   */
+        width: 100px;
+        height: 100px;
+        border: 1px solid red;
+        text-align: center;
+        padding: 45px;
+    }
+    /* .container{
         border: 2px solid red;
         height: 1000px;
         display: flex;
         flex-direction: row;
-    }
-    .box{
+    } */
+    /* .box{
         border: 1px solid black;
         height:100px;
         width: 100px;
         background-color: aqua;
         font-size: 50px;
-    }
+    }   */
 </style>
 <body>
-    <div class="container">
+    <div class="con">
+        <div class="box">Box-1</div>
+        <div class="box">Box-2</div>
+        <div class="box">Box-3</div>
+        <div class="box">Box-4</div>
+    </div>
+
+    <!-- <div class="container">
         <dev class="box" id="box-1">1</dev>
         <dev class="box" id="box-2">2</dev>
         <dev class="box" id="box-3">3</dev>
         <dev class="box" id="box-4">4</dev>
         <dev class="box" id="box-5">5</dev>
-    </div>
+    </div>  -->
 </body>
 </html>
