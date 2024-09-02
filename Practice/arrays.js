@@ -105,4 +105,13 @@ const  check_no=(no)=>{
     else
     return false
 }
-console.log(newarray.filter(check_no))
+console.log(newarray.filter(check_no)) 
+
+//Reduce Function
+let a9=[1,2,3,4,5]
+ const red=(a,b)=>{
+return a*b; //we can also use add
+ }
+ console.log("Reduce",a9.reduce(red))   //1x2=2x3=6x4....
+
+ console.log(Array.from("SHAHID")) //convert into  array

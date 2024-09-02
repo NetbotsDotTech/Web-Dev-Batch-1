@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events in JS</title>
+
+    <style>
+        .child{
+            background-color: rgb(148, 179, 206);
+            border: 1px solid black;
+            padding: 34px;
+        }
+        .childcontainer{
+            background-color: rgb(227, 223, 163);
+            padding: 14px;
+
+        }
+        .container{
+            background-color: rgb(87, 234, 18);
+            padding: 14px;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="container">
+        <div class="box">I am a Box</div>
+        <button id="btn">Change content </button>
+    </div> -->
+    <div class="container">
+        <section class="childcontainer">
+            <div class="child">
+                I am Child
+            </div>
+        </section>
+    </div>
+
+    <script>
+        //BUBLING
+       /* document.querySelector(".child").addEventListener("click",()=>{
+            alert("Child was clicked")
+        })
+        document.querySelector(".childcontainer").addEventListener("click",()=>{
+            alert("ChildContainer was clicked")
+        })
+        document.querySelector(".container").addEventListener("click",()=>{
+            alert("Container was clicked")
+        })
+            */
+           //SOLUTION
+       document.querySelector(".child").addEventListener("click",(e)=>{
+            e.stopPropagation()
+            alert("Child was clicked")
+        })
+        document.querySelector(".childcontainer").addEventListener("click",(e)=>{
+            e.stopPropagation()
+            alert("ChildContainer was clicked")
+        })
+        document.querySelector(".container").addEventListener("click",(e)=>{
+            e.stopPropagation()
+            alert("Container was clicked")
+        })
+
+    </script>
+    <script src="events.js"></script>
+</body>
+</html>
