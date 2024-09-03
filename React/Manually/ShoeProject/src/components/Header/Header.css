@@ -1,0 +1,63 @@
+header{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    padding: 20px 0px;
+}
+header img{
+    width: 100px;
+    
+}
+.container-fluid{
+    padding: 0px 45px;
+}
+header .headerSearch{
+    width: 45%;
+    height: 50px;
+    border: 1px solid #3bb77e;
+    position: absolute;
+    top: 35px;
+    left: 190px;
+    padding: 10px 15px;
+
+}
+header .headerSearch .selectDrop{
+   width: 130px;
+   font-size: 16px;
+   font-weight: 800;
+   position: relative;
+   text-align: center;
+
+}
+header .headerSearch .selectDrop::after{
+    content: "";
+    width: 1px;
+    height: 30px;
+    background-color: rgba(0,0,0, 0.3);
+    position: absolute;
+    top: 1px;
+    right: 0px;
+
+}
+header .headerSearch .search{
+    width: 80%;
+}
+header .headerSearch .search input{
+
+    width: 63%;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    left: 150px;
+    border: 0px;
+    outline: none;
+    font-size: 18px;
+  
+}
+header .headerSearch .search  img{
+    width: 30px;
+    position: absolute;
+    top: 8px;
+    left: 520px;
+    opacity: 0.9;
+}
