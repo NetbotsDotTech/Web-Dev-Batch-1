@@ -1,9 +1,0 @@
-Start Backened on 02 september
-bcrypt.js
-cookieparser
-cookieparserdotenv
-express
-express validator
-jsonwebtoken
-mongoose
-nodemon
