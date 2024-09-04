@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Button, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom'; // To handle navigation
+import  bgimage from '../image/bg1.jpg'
 
 const HeroSection = () => {
   const navigate = useNavigate(); // Hook for navigation
@@ -13,8 +14,8 @@ const HeroSection = () => {
     <Box
       sx={{
         textAlign: 'center',
-        p: 4,
-        backgroundImage: 'url(/path/to/hero-image.jpg)',
+        p: 11,
+        backgroundImage: `url(${bgimage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         color: '#fff', // White text for better contrast

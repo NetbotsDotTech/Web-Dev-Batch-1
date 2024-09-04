@@ -1,45 +1,28 @@
 import React from 'react';
+import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import HomePage from './pages/HomePage';
-import ShopPage from './pages/ShopPage';
-import ProductDetailPage from './pages/ProductDetailPage';
-import CartPage from './pages/CartPage';
-import CheckoutPage from './pages/CheckoutPage';
-import AboutUs from './pages/AboutUs';
-import ContactUs from './pages/ContactUs';
+import Header from './components/Header';  // Ensure this path is correct
+import Home from './components/Home';
+import Shop from './components/Shop';
+import BuyNowForm from './components/BuyNowForm';
+import ProductDetail from './ProductDetial';
+import ShippingForm from './components/ShippingForm';
 
 const App = () => {
-  // Cart state and functions
-  const [cartItems, setCartItems] = React.useState([]);
-
-  const totalPrice = cartItems.reduce((total, item) => total + parseFloat(item.price), 0);
-
-  const removeFromCart = (id) => {
-    setCartItems(cartItems.filter((item) => item.id !== id));
-  };
-
   return (
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/shop" element={<ShopPage />} />
-        <Route path="/product/:id" element={<ProductDetailPage />} />
-        <Route
-          path="/cart"
-          element={<CartPage cartItems={cartItems} removeFromCart={removeFromCart} totalPrice={totalPrice} />}
-        />
-        {/* Pass cartItems and totalPrice to CheckoutPage */}
-        <Route
-          path="/checkout"
-          element={<CheckoutPage cartItems={cartItems} totalPrice={totalPrice} />}
-        />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/contact-us" element={<ContactUs />} />
+        {/* Define routes that point to existing components */}
+        <Route path="/" element={<Home/>} />
+        <Route path="/shop" element={<Shop/>} />
+        <Route path="/Buy" element={<BuyNowForm/>} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/checkout/:id" element={<ShippingForm />} />
+
+
+
       </Routes>
-      <Footer />
     </Router>
   );
 };
