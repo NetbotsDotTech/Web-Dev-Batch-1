@@ -38,7 +38,7 @@ const HeroSection = () => {
       <Typography variant="body1" sx={{ mb: 4, maxWidth: '600px' }}>
       Explore our wide range of high-quality products. We offer the best selection of goods, for <Link href="#" id="link" >Men</Link>, <Link href="#"  id="link">Women</Link> and <Link href="#" id="link">Kids</Link>. Whether you're looking for the latest trends or timeless classics, we have something for everyone. Our commitment to quality ensures that you get the best value for your money.
       </Typography>
-      <Button variant="contained" color="primary" onClick={handleShopNow} sx={{ px: 4, py: 2, fontSize: '1.2rem' }} className='btn'>
+      <Button variant="contained"  onClick={handleShopNow} sx={{ px: 4, py: 2, fontSize: '1.2rem',backgroundColor:"#7dcea0" }} className='btn'>
         Shop Now
       </Button>
     </Box>

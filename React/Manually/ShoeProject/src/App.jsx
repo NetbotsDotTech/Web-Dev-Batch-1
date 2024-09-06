@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Shop from './components/Shop';
 import ProductDetail from './ProductDetial';
 import ShippingForm from './components/ShippingForm';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
 
 
       </Routes>
+      <Footer/>
     </Router>
   );
 };

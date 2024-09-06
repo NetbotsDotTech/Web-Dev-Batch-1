@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../css/Header.css'
 import logo from '../image/logo.png';
 import {
   AppBar, Toolbar, Typography, IconButton, Button,
@@ -85,8 +86,8 @@ const Header = () => {
   const isShopPage = location.pathname === '/shop';
 
   return (
-    <AppBar position="static">
-      <Toolbar>
+    <AppBar position="fixed" >
+      <Toolbar className="header">
         {/* Logo aligned to the left */}
         <Box
           component="img"
@@ -126,7 +127,7 @@ const Header = () => {
 
       {/* Show promo banner only on Home page */}
       {isHomePage && (
-        <Box sx={{ backgroundColor: 'secondary.main', p: 1 }}>
+        <Box  sx={{ backgroundColor: ' #7dcea0 ', p: 1 }}>
           <Typography variant="body1" align="center">
             {currentSentence}
           </Typography>
@@ -135,7 +136,7 @@ const Header = () => {
 
       {/* Show secondary navbar only on Shop page */}
       {isShopPage && (
-        <Box sx={{ backgroundColor: 'secondary.main', p: 1 }}>
+        <Box sx={{ backgroundColor: ' #7dcea0', p: 1 }}>
           <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
             <Button color="inherit" onClick={() => handleNavigation('/shop/men')}>Men</Button>
             <Button color="inherit" onClick={() => handleNavigation('/shop/women')}>Women</Button>
