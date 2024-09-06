@@ -1,0 +1,18 @@
+.btn:hover{
+    border-radius: 50px;
+    background-color: azure;
+    color: black;
+    font-weight: 500;
+  
+}
+.Box:hover{
+    background-image: url('../image/bg3.avif');
+}
+#link{
+    color: black;
+    text-decoration: none;
+    font-size: 30px;
+}
+#link:hover{
+    color: darkgoldenrod;
+}

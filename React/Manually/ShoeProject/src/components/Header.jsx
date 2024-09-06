@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import logo from '../image/logo.png'
+import logo from '../image/logo.png';
 import {
-  AppBar, Toolbar, Typography, IconButton, Menu, MenuItem, Button,
+  AppBar, Toolbar, Typography, IconButton, Button,
   InputBase, Badge, Box
 } from '@mui/material';
 import {
-  Search, ShoppingCart, Favorite, AccountCircle,
-  Notifications, AccessibilityNew
+  Search, ShoppingCart
 } from '@mui/icons-material';
 import { styled, alpha } from '@mui/material/styles';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const SearchBar = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -54,32 +53,21 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const Header = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const navigate = useNavigate(); // Hook for navigation
-
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleNavigation = (path) => {
-    navigate(path); // Function to navigate to different paths
+    navigate(path);
   };
 
-  // Array of dynamic sentences
   const sentences = [
     'Free Shipping on orders over 50pkr!',
     'Exclusive offers available now!',
-    'Get 20% off your first purchase!'
+    'Get 20% off your first purchase!',
   ];
 
   const [currentSentence, setCurrentSentence] = useState(sentences[0]);
 
-  // Effect to change sentence every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSentence((prevSentence) => {
@@ -87,94 +75,74 @@ const Header = () => {
         const nextIndex = (currentIndex + 1) % sentences.length;
         return sentences[nextIndex];
       });
-    }, 2000); // Change every 2 seconds
+    }, 2000);
 
-    return () => clearInterval(interval); // Clean up interval on component unmount
+    return () => clearInterval(interval);
   }, [sentences]);
+
+  // Check if current path is "/home" or "/shop"
+  const isHomePage = location.pathname === '/';
+  const isShopPage = location.pathname === '/shop';
 
   return (
     <AppBar position="static">
       <Toolbar>
-        
-      <Box
+        {/* Logo aligned to the left */}
+        <Box
           component="img"
           sx={{
-            height: 64, // Adjust as necessary
-            display: { xs: 'none', sm: 'block' }, // Hides on smaller screens
+            height: 64,
+            display: { xs: 'none', sm: 'block' },
+            marginRight: 'auto',
           }}
           alt="Shop Logo"
-          src={logo} // Use the imported logo
+          src={logo}
         />
 
-
-        <SearchBar>
-          <SearchIconWrapper>
-            <Search />
-          </SearchIconWrapper>
-          <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
-        </SearchBar>
-
-        <Box sx={{ flexGrow: 1 }} />
-        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+        {/* Centered Navigation */}
+        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
           <Button color="inherit" onClick={() => handleNavigation('/')}>Home</Button>
-          <Button color="inherit" onClick={() => handleNavigation('/shop')}>Shop</Button> {/* Navigates to /shop */}
-          <Button color="inherit" onClick={() => handleNavigation('/Buy')}>Buy Now</Button>
+          <Button color="inherit" onClick={() => handleNavigation('/shop')}>Shop</Button>
           <Button color="inherit" onClick={() => handleNavigation('/about')}>About Us</Button>
           <Button color="inherit" onClick={() => handleNavigation('/contact')}>Contact Us</Button>
         </Box>
 
-        <IconButton size="large" edge="end" color="inherit" aria-label="account of current user" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleMenu}>
-          <AccountCircle />
-        </IconButton>
-        <Menu
-          id="menu-appbar"
-          anchorEl={anchorEl}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
-          keepMounted
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-        >
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
-          <MenuItem onClick={handleClose}>My account</MenuItem>
-          <MenuItem onClick={handleClose}>Sign Out</MenuItem>
-        </Menu>
+        {/* Search bar and cart icon aligned to the right */}
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <SearchBar>
+            <SearchIconWrapper>
+              <Search />
+            </SearchIconWrapper>
+            <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
+          </SearchBar>
 
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <ShoppingCart />
-          </Badge>
-        </IconButton>
-
-        <IconButton size="large" aria-label="show 7 new notifications" color="inherit">
-          <Badge badgeContent={7} color="error">
-            <Favorite />
-          </Badge>
-        </IconButton>
-
-        <IconButton size="large" aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="error">
-            <Notifications />
-          </Badge>
-        </IconButton>
-
-        <IconButton size="large" color="inherit">
-          <AccessibilityNew />
-        </IconButton>
+          <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            <Badge badgeContent={4} color="error">
+              <ShoppingCart />
+            </Badge>
+          </IconButton>
+        </Box>
       </Toolbar>
 
-      {/* Dynamically changing sentence section */}
-      <Box sx={{ backgroundColor: 'secondary.main', p: 1 }}>
-        <Typography variant="body1" align="center">
-          {currentSentence} {/* Dynamically updated sentence */}
-        </Typography>
-      </Box>
+      {/* Show promo banner only on Home page */}
+      {isHomePage && (
+        <Box sx={{ backgroundColor: 'secondary.main', p: 1 }}>
+          <Typography variant="body1" align="center">
+            {currentSentence}
+          </Typography>
+        </Box>
+      )}
+
+      {/* Show secondary navbar only on Shop page */}
+      {isShopPage && (
+        <Box sx={{ backgroundColor: 'secondary.main', p: 1 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
+            <Button color="inherit" onClick={() => handleNavigation('/shop/men')}>Men</Button>
+            <Button color="inherit" onClick={() => handleNavigation('/shop/women')}>Women</Button>
+            <Button color="inherit" onClick={() => handleNavigation('/shop/kids')}>Kids</Button>
+          </Box>
+        </Box>
+      )}
     </AppBar>
   );
 };

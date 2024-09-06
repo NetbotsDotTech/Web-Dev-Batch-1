@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, Typography ,Link} from '@mui/material';
 import { useNavigate } from 'react-router-dom'; // To handle navigation
 import  bgimage from '../image/bg1.jpg'
-
+import '../css/HeroSection.css'
 const HeroSection = () => {
   const navigate = useNavigate(); // Hook for navigation
 
@@ -12,6 +12,7 @@ const HeroSection = () => {
 
   return (
     <Box
+    className="Box"
       sx={{
         textAlign: 'center',
         p: 11,
@@ -32,12 +33,12 @@ const HeroSection = () => {
         Welcome to Our Shop
       </Typography>
       <Typography variant="h5" sx={{ mb: 4 }}>
-        Discover our latest collection and exclusive offers!
+        Discover our latest collection
       </Typography>
       <Typography variant="body1" sx={{ mb: 4, maxWidth: '600px' }}>
-        Whether you're looking for the latest fashion trends, electronics, or home decor, we've got you covered. Explore our vast selection and find the perfect items that suit your style and needs.
+      Explore our wide range of high-quality products. We offer the best selection of goods, for <Link href="#" id="link" >Men</Link>, <Link href="#"  id="link">Women</Link> and <Link href="#" id="link">Kids</Link>. Whether you're looking for the latest trends or timeless classics, we have something for everyone. Our commitment to quality ensures that you get the best value for your money.
       </Typography>
-      <Button variant="contained" color="primary" onClick={handleShopNow} sx={{ px: 4, py: 2, fontSize: '1.2rem' }}>
+      <Button variant="contained" color="primary" onClick={handleShopNow} sx={{ px: 4, py: 2, fontSize: '1.2rem' }} className='btn'>
         Shop Now
       </Button>
     </Box>
