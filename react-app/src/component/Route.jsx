@@ -7,6 +7,8 @@ import LOGO from "../images/logo.png"
 import ProductList from './Products';
 import CounterApp from "./Counter"
 import FormikForm from "./Formik/Index"
+import DataTable from "./DataTable"
+import SingleProductDetail from './SingleProductDetails';
 function Menu() {
   const menuItems = [
     { label: 'Home', path: '/' },
@@ -15,6 +17,8 @@ function Menu() {
     { label: 'Products', path: '/products' },
     { label: 'Counter App', path: '/counter-app' },
     { label: 'Stepper Form', path: '/form' },
+    { label: 'Data Table', path: '/data-grid-table' },
+
 
 
   ];
@@ -38,6 +42,8 @@ function Menu() {
         <Route path="/products" element={<ProductList />} />
         <Route path="/counter-app" element={<CounterApp />} />
         <Route path="/form" element={<FormikForm />} />
+        <Route path="/data-grid-table" element={<DataTable />} />
+        <Route path="/product/:id" element={<SingleProductDetail />} />
 
       </Routes>
     </Router>

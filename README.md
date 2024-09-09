@@ -15,3 +15,18 @@ callback
 fetch
 Event Listner
 DOM
+
+react 
+component 
+state
+props 
+prop drilling 
+component life cycle 
+hooks (useState and useEffect)
+react router dom
+formik & Yup 
+multi step form 
+axios & fetch
+MUI formS
+
+

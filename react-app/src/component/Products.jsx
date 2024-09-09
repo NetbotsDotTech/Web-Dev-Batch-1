@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, CircularProgress, Card, CardContent, CardMedia, Typography, Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-// import ProductCard from './ProductCard';
+
 const ProductList = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         // Fetch products from the API
         const fetchProducts = async () => {
             try {
                 const response = await axios.get('https://fakestoreapi.com/products');
-                console.log("Response Data ", response)
                 setProducts(response.data);
             } catch (error) {
                 console.error('Error fetching products:', error);
@@ -31,6 +32,10 @@ const ProductList = () => {
         );
     }
 
+    const handleCardClick = (id) => {
+        navigate(`/product/${id} `);
+    };
+
     return (
         <Box sx={{ flexGrow: 1, padding: 3 }}>
             <Grid container spacing={4}>
@@ -44,7 +49,9 @@ const ProductList = () => {
                                 '&:hover': {
                                     transform: 'scale(1.05)',
                                 },
+                                cursor: 'pointer',
                             }}
+                            onClick={() => handleCardClick(product.id)}
                         >
                             <CardMedia
                                 component="img"
@@ -67,7 +74,6 @@ const ProductList = () => {
                                 </Typography>
                             </CardContent>
                         </Card>
-                        {/* <ProductCard product={product} /> */}
                     </Grid>
                 ))}
             </Grid>
