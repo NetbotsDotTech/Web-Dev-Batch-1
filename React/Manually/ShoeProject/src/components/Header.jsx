@@ -103,7 +103,6 @@ const Header = () => {
         {/* Centered Navigation */}
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
           <Button color="inherit" onClick={() => handleNavigation('/')}>Home</Button>
-          <Button color="inherit" onClick={() => handleNavigation('/shop')}>Shop</Button>
           <Button color="inherit" onClick={() => handleNavigation('/about')}>About Us</Button>
           <Button color="inherit" onClick={() => handleNavigation('/contact')}>Contact Us</Button>
         </Box>

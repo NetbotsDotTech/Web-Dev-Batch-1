@@ -10,28 +10,28 @@ const Footer = () => {
       <Grid container spacing={4}>
         {/* Help Section */}
         <Grid item xs={12} md={3}>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="h6" gutterBottom >
             Help
           </Typography>
-          <Typography variant="body1">1-888-963-8944</Typography>
-          <Typography variant="body1">1-814-251-9966 (Text)</Typography>
+          <Typography variant="body1">+92 3475495500</Typography>
+          <Typography variant="body1">+92 3554214164 (Text)</Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"   href="mailto:help@allbirds.com" color="inherit">
-              help@allbirds.com
+            <Link id="textDecoration"   href="mailto:help@allbirds.com" color="inherit">
+              Apoali911@gamil.com
             </Link>
           </Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
+            <Link id="textDecoration"  href="#" color="inherit">
               Returns/Exchanges
             </Link>
           </Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
+            <Link id="textDecoration"  href="#" color="inherit">
               FAQ/Contact Us
             </Link>
           </Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
+            <Link id="textDecoration"  href="#" color="inherit">
               Afterpay
             </Link>
           </Typography>
@@ -43,38 +43,28 @@ const Footer = () => {
             Shop
           </Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
+            <Link id="textDecoration"  href="#" color="inherit">
               Men's Shoes
             </Link>
           </Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
+            <Link id="textDecoration"  href="#" color="inherit">
               Women's Shoes
             </Link>
           </Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
-              Men's Apparel
+            <Link id="textDecoration"  href="#" color="inherit">
+              Kid's Shoes
             </Link>
           </Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
-              Women's Apparel
+            <Link id="textDecoration"  href="#" color="inherit">
+              Girl's Shoes
             </Link>
           </Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
-              Socks
-            </Link>
-          </Typography>
-          <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
-              Gift Cards
-            </Link>
-          </Typography>
-          <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
-              Refer a Friend
+            <Link id="textDecoration"  href="#" color="inherit">
+              Boy's Shoes
             </Link>
           </Typography>
         </Grid>
@@ -85,52 +75,44 @@ const Footer = () => {
             Company
           </Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
+            <Link id="textDecoration"  href="#" color="inherit">
               Our Stores
             </Link>
           </Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
+            <Link id="textDecoration"  href="#" color="inherit">
               Our Story
             </Link>
           </Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
+            <Link id="textDecoration"  href="#" color="inherit">
               Our Materials
             </Link>
           </Typography>
+        
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
-              Sustainability
-            </Link>
-          </Typography>
-          <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
+            <Link id="textDecoration"  href="#" color="inherit">
               Investors
             </Link>
           </Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
+            <Link id="textDecoration"  href="#" color="inherit">
               Shoe Care
             </Link>
           </Typography>
+        
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
-              Affiliates
-            </Link>
-          </Typography>
-          <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
+            <Link id="textDecoration"  href="#" color="inherit">
               Bulk Orders
             </Link>
           </Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
+            <Link id="textDecoration"  href="#" color="inherit">
               Careers
             </Link>
           </Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
+            <Link id="textDecoration"  href="#" color="inherit">
               Press
             </Link>
           </Typography>
@@ -139,30 +121,30 @@ const Footer = () => {
         {/* Additional Links */}
         <Grid item xs={12} md={3}>
           <Typography variant="h6" gutterBottom>
-            Allbirds Responsible Disclosure Program
+            AllBasit's Responsible Disclosure Program
           </Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
-              California Transparency Act
+            <Link id="textDecoration"  href="#" color="inherit">
+              Pakistan Transparency Act
             </Link>
           </Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
+            <Link id="textDecoration"  href="#" color="inherit">
               Community Offers
             </Link>
           </Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
+            <Link id="textDecoration"  href="#" color="inherit">
               Our Blog - The Perch
             </Link>
           </Typography>
           <Typography variant="body1">
-            <Link className="textDecoration"  href="#" color="inherit">
+            <Link id="textDecoration"  href="#" color="inherit">
               Follow the Flock
             </Link>
           </Typography>
           <Typography variant="body2" sx={{ mt: 2 }}>
-            Exclusive offers, a heads up on new things, and sightings of Allbirds in the wild. Oh, we have cute sheep, too. #allbirds
+            Exclusive offers, a heads up on new things, and sightings of AllBasit's in the wild. Oh, we have cute sheep, too. #allbasit
           </Typography>
         </Grid>
       </Grid>
@@ -180,19 +162,19 @@ const Footer = () => {
       {/* Footer Bottom Section */}
       <Box sx={{ textAlign: 'center', mt: 4 }}>
         <Typography variant="body2">
-          © 2024 Allbirds, Inc. All Rights Reserved.{' '}
-          <Link  className="textDecoration" href="#" color="inherit">
+          © 2024 Allbasit, Inc. All Rights Reserved.{' '}
+          <Link  id="textDecoration" href="#" color="inherit">
             Terms
           </Link>,{' '}
           <Link href="#" color="inherit">
             Privacy
           </Link> &{' '}
-          <Link className="textDecoration"  href="#" color="inherit">
+          <Link id="textDecoration"  href="#" color="inherit">
             Accessibility
           </Link>
         </Typography>
         <Typography variant="body2" sx={{ mt: 1 }}>
-          <Link className="textDecoration"  href="#" color="inherit">
+          <Link id="textDecoration"  href="#" color="inherit">
             Do Not Sell My Personal Information
           </Link>
         </Typography>
