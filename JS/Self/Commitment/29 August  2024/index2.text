@@ -1,0 +1,19 @@
+Non Premitive Data type
+i- Array:
+    keyword arrayName=[value]
+
+    Array is a data type where we can store any type of data which are in the consective memory location ,called index which is start from 0 and end length-1
+
+    Array has so many methods 
+
+    type of an array is object
+ii- Object:
+    object is also data type wher we store data in the form of key:value pair form
+    
+    object has also many different method
+Also cover the destructuring and spraed operator
+Note:
+--->for array destructuring we can used for variable anything don't matter
+but if we destructure any oject then we must give the key in destructuring
+
+--->array effect when the order change mean through array destructuring we need to see the order or index of array element if we don't care about the order the value swap in different variable otherhand object don't mater about the order it required the key which i used i array

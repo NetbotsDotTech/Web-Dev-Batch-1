@@ -1,4 +1,0 @@
-/*
-Topic:Spread Operator
-
-*/

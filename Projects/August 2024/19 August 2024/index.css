@@ -1,0 +1,50 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    text-align: center;
+    border: 2px solid gray;
+    margin: 20px 300px;
+    background-color: silver;
+    height: 100vh;
+    width: 40em;
+    position: fixed;
+    /* border-radius: 2em; */
+
+}
+.image img{
+    position: relative;
+    top: 20px;
+    width: 15%;
+    height: 12%;
+    border-radius: 50%;
+    border: none;
+    
+}
+.inputFeilds{
+position: relative;
+top: 20px;
+}
+input{
+    border-radius: 7px;
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+    width: 30em;
+}
+#name{
+    width: 188px;
+}
+.submit{
+    color: white;
+    background-color: greenyellow;
+    width: 15em;
+    padding: 9px;
+    font-weight: bold;
+}
+legend{
+    font-size: x-large;
+    font-weight: bold;
+}
