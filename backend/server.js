@@ -5,7 +5,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 
 
-
+import authRoute from "./routes/user.routes.js"
 
 
 dotenv.config();
@@ -22,7 +22,7 @@ app.use(express.json());
 
 // Set endpoin
 
-// app.use("/api/user", userRoute);
+app.use("/api/user", authRoute);
 
 
 
