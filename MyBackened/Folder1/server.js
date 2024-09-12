@@ -1,42 +1,38 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
-dotenv.config()
-
+import router from './src/routes/patient.route.js'
 
 const app=express()
-app.use(express.json())
 
+app.use(express.json())
+dotenv.config()
+app.use('/hospital',router)
 
 const databaseConnection=async()=>{
     try {
-      await  mongoose.connect(process.env.MONGO_URI)
-      console.log("Data base connected......")
+        await mongoose.connect(process.env.MONGO_URI)
+        console.log(`Database Conncetion Successfully.........and the databased name is${process.env.DATABASENAME}`)
     } catch (error) {
-        console.log(`Database Connection Error ${error}`)
+        console.log(`Data Connection Error..........${error}`)
+        
     }
+
+    await mongoose.connection.on('disconnected',()=>{
+        console.log("MongoDB is Disconnect..........")
+    })
 }
 
-mongoose.connection.on('Disconnected',()=>{
-    console.log("MongoDB Disconnected")
-})
-
 app.get('/',(req,res)=>{
-    res.json("I am Talking from Backend")
-})
-app.post("/post/:id", (req, res) => {
-    const body = req.body.email
-    const query = req.query.name
-    const param = req.params.id
-    const Data = `Requests From Frontend ", Body : ${body}, Query :  ${query}, Param: ${param}`
-    res.status(200).json({ message: "Successfull", data: Data })
+    res.json({
+        message:"Hello From Backened"
+    })
 })
 
-const port=process.env.PORT
-console.log(port)
 
+
+const port=process.env.PORT || 4000
 app.listen(port,()=>{
     databaseConnection()
-    console.log(`Server is running at the port${port}`)
-    console.log("connected ")
+    console.log(`Server is runing at port ...${port}`)
 })

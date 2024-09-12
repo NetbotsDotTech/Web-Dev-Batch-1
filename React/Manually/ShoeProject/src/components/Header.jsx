@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../css/Header.css'
-import logo from '../image/logo.png';
+import logo from '../assets/image/logo.png';
 import {
   AppBar, Toolbar, Typography, IconButton, Button,
   InputBase, Badge, Box

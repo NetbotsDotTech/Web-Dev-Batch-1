@@ -1,0 +1,299 @@
+
+
+
+import  express  from "express" 
+import  { check, validationResult } from 'express-validator'
+import  { Register, Login } from "../controller/auth.controller.js"
+import { verifyToken, verifyUser, verifyAdmin } from "../utils/verifyToken.js";
+const router = express.Router();
+
+// Validation rules
+const registerValidation = [
+    check('username', 'Username is required').notEmpty().trim(),
+    check('email', 'Please enter a valid email').isEmail().normalizeEmail(),
+    check('password', 'Password is required').isLength({ min: 6 }),
+    check('firstName', 'First name is required').notEmpty().trim(),
+    check('lastName', 'Last name is required').notEmpty().trim(),
+    check('phone', 'Please enter a valid phone number').isMobilePhone(), 
+
+
+    // Address validation (assuming all fields are required)
+  // check('address.street', 'Street address is required').notEmpty().trim(),
+  // check('address.city', 'City is required').notEmpty().trim(),
+  // check('address.state', 'State is required').notEmpty().trim(),
+  // check('address.postalCode', 'Postal code is required').notEmpty().trim(),
+  // check('address.country', 'Country is required').notEmpty().trim(),
+
+  // Date of birth validation (assuming it's a string)
+  check('dateOfBirth', 'Date of birth is required').notEmpty(),
+  ];
+  
+  const loginValidation = [
+    check('email', 'Please enter a valid email').isEmail().normalizeEmail(),
+    check('password', 'Password is required').isLength({ min: 6 }),
+  ];
+
+  
+router.post(
+  "/register",
+  registerValidation,
+  Register
+);
+
+router.post(
+  "/login",
+  loginValidation,
+  Login
+);
+
+
+router.get("/check-auth", verifyToken, (req, res, next) => {
+  res.send("Hello! You are authenticated.");
+});
+
+router.get("/check-user/:id", verifyUser, (req, res, next) => {
+  res.send("Hello User! You are logged in.");
+});
+
+router.get("/check-admin/:id", verifyAdmin, (req, res, next) => {
+  res.send("Hello Admin! You are logged in.");
+});
+
+
+// http://localhost:8000/api/auth/register
+// http://localhost:8000/api/auth/login
+
+export default router;
+
+
+import  { validationResult } from 'express-validator'
+import  User from '../model/user.model.js'
+import  bcrypt from 'bcryptjs'
+import  jwt from 'jsonwebtoken'
+
+export const Register = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  const { username, email, password, firstName, lastName, ...rest } = req.body;
+  const salt =  await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(password, salt);
+  try {
+    const user = new User({
+      username,
+      email,
+      password: hashedPassword,
+      firstName,
+      lastName,
+      ...rest,
+    });
+
+    await user.save();
+    res
+    .status(201)
+    .json({ 
+        status: true,
+        message: 'User created successfully',
+        data:user
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Error creating user' , error:err });
+  }
+};
+
+export const Login = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  const { email, password } = req.body;
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(401).json({ message: 'Email Not Found' });
+    }
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(401).json({ message: 'Invalid  password' });
+    }
+    const payload = { userId: user._id, role: user.roles[0] }; 
+    const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1d' });
+  
+    res.cookie('access_token', token, { httpOnly: true }); 
+    res.status(200).json({ message: 'Login successful', Detail : user.email, });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Error logging in',  Error: err });
+  }
+};
+
+export const updateUser = async (req, res, next) => {
+  try {
+    const userId = req.params.userId; 
+    // const { error } = validateUpdateUser(req.body); 
+    // if (error) return res.status(400).send(error.details[0].message);  
+    
+    const user = await User.findById(userId);
+
+    if (!user) return res.status(404).send('User not found');
+    user.set(req.body); 
+    await user.save();
+    res.status(200).json({ message: 'User Data Updated', Data : user, });
+
+  } catch (error) {
+    console.error(error); 
+    res.status(500).json({ message: 'Internal Server Error', Error_Info : error.message });
+};
+}
+export const updateUser = async (req, res, next) => {
+  try {
+    const userId = req.params.userId; 
+    // const { error } = validateUpdateUser(req.body); 
+    // if (error) return res.status(400).send(error.details[0].message);  
+    
+    const user = await User.findById(userId);
+
+    if (!user) return res.status(404).send('User not found');
+    user.set(req.body); 
+    await user.save();
+    res.status(200).json({ message: 'User Data Updated', Data : user, });
+
+  } catch (error) {
+    console.error(error); 
+    res.status(500).json({ message: 'Internal Server Error', Error_Info : error.message });
+};
+}
+
+export const deleteUser = async (req, res, next) => {
+  try {
+    const userId = req.params.userId; 
+    const user = await User.findByIdAndDelete(userId);
+
+    if (!user) return res.status(404).send('User not found');
+    res.status(200).json({ message: 'User deleted successfully', Data : user, });
+  } catch (error) {
+    console.error(error); 
+    res.status(500).json({ message: 'Internal Server Error', Error_Info : error.message });
+  }
+};
+
+export const deleteUser = async (req, res, next) => {
+  try {
+    const userId = req.params.userId; 
+    const user = await User.findByIdAndDelete(userId);
+
+    if (!user) return res.status(404).send('User not found');
+    res.status(200).json({ message: 'User deleted successfully', Data : user, });
+  } catch (error) {
+    console.error(error); 
+    res.status(500).json({ message: 'Internal Server Error', Error_Info : error.message });
+  }
+};
+
+
+export const viewSingleUser = async (req, res, next) => {
+  try {
+    const userId = req.params.userId; 
+    const user = await User.findById(userId); 
+
+    if (!user) return res.status(404).send('User not found');
+    res.status(200).json({ message: 'User  Details', Data : user, });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error', Error_Info : error.message });
+  }
+};
+
+export const viewSingleUser = async (req, res, next) => {
+  try {
+    const userId = req.params.userId; 
+    const user = await User.findById(userId); 
+
+    if (!user) return res.status(404).send('User not found');
+    res.status(200).json({ message: 'User  Details', Data : user, });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error', Error_Info : error.message });
+  }
+};
+
+
+export const viewAllUser = async (req, res, next) => {
+  try {
+    console.log("ViewAllUser Endpoint Triggered")
+    const query = {};
+    const page = parseInt(req.query.page) || 1; 
+    const limit = parseInt(req.query.limit) || 10;
+    const sort = req.query.sort; 
+
+    if (req.query.username) {
+      query.username = new RegExp(req.query.username, 'i'); 
+    }
+
+    if (req.query.role) {
+      query.roles = req.query.role;
+    }
+
+    const users = await User.find(query)
+      .sort(sort) 
+      .skip((page - 1) * limit) 
+      .limit(limit);
+
+    const totalUsers = await User.countDocuments(query);
+    res.send({
+      message: 'User  Details',
+      users,
+      pagination: {
+        page,
+        limit,
+        totalPages: Math.ceil(totalUsers / limit),
+        totalUsers,
+      },
+    });
+  } catch (error) {
+    console.error(error); 
+    res.status(500).json({ message: 'Internal Server Error', Error_Info : error.message });
+  }
+};
+
+
+
+export const viewAllUser = async (req, res, next) => {
+  try {
+    console.log("ViewAllUser Endpoint Triggered")
+    const query = {};
+    const page = parseInt(req.query.page) || 1; 
+    const limit = parseInt(req.query.limit) || 10;
+    const sort = req.query.sort; 
+
+    if (req.query.username) {
+      query.username = new RegExp(req.query.username, 'i'); 
+    }
+
+    if (req.query.role) {
+      query.roles = req.query.role;
+    }
+
+    const users = await User.find(query)
+      .sort(sort) 
+      .skip((page - 1) * limit) 
+      .limit(limit);
+
+    const totalUsers = await User.countDocuments(query);
+    res.send({
+      message: 'User  Details',
+      users,
+      pagination: {
+        page,
+        limit,
+        totalPages: Math.ceil(totalUsers / limit),
+        totalUsers,
+      },
+    });
+  } catch (error) {
+    console.error(error); 
+    res.status(500).json({ message: 'Internal Server Error', Error_Info : error.message });
+  }
+};
