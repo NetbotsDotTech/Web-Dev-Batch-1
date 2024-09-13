@@ -32,8 +32,16 @@ const userSchema=mongoose.Schema({
         unique:true,
         trim:true        
     },
-    DOB:Number,
+    DOB:{
+        type:String
+    },
+    roles: {
+        type: [String],
+        default: ['user']
+    },
     address:String,
+    phoneNumber:Number,
+
     
 
     

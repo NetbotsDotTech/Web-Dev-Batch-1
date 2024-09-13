@@ -3,8 +3,8 @@ import bcrypt from 'bcryptjs'
 const register=async(req,res)=>{
 
     const {userName,email,firstName,lastName,password,...rest}=req.body
-    // const salt=await bcrypt.genSalt(5)
-    // const hashedPassword=await bcrypt.hash(password,salt)
+    const salt=await bcrypt.genSalt(5)
+    const hashedPassword=await bcrypt.hash(password,salt)
 
     try {
         const user=new User({
@@ -12,8 +12,8 @@ const register=async(req,res)=>{
             email,
             firstName,
             lastName,
-            // password: hashedPassword,
-            password,
+            password: hashedPassword,
+            // password,
             ...rest
         })
 
