@@ -1,23 +1,35 @@
 import React from 'react';
-import { Box, Card, CardContent, CardMedia, Grid, Typography, Button } from '@mui/material';
+import { Box, Card, CardContent, CardMedia, Grid, Typography, Button,Link } from '@mui/material';
 import Slider from 'react-slick';
 import '../css/CategoryCard.css';
 
 // Import images
-import image1 from '../assets/image/shoes1.avif';
-import image2 from '../assets/image/shoes5.avif';
-import image3 from '../assets/image/shoe3.avif';
+import image1 from '../assets/image/box1/shoes1.avif';
+import image2 from '../assets/image/box1/shoes2.avif';
+import image3 from '../assets/image/box1/shoes3.avif';
 import image4 from '../assets/image/boximage.avif';
-import image5 from '../assets/image/box3/box31.avif'
-import image6 from '../assets/image/box3/box32.avif'
-import image7 from '../assets/image/box3/box33.avif'
-import image8 from '../assets/image/box3/box34.avif'
+import image5 from '../assets/image/box3/shoes1.avif';
+import image6 from '../assets/image/box3/shoes2.avif';
+import image7 from '../assets/image/box3/shoes3.avif';
+import image8 from '../assets/image/box3/shoes4.avif';
+import image9 from '../assets/image/box3/shoes5.avif';
+import image10 from '../assets/image/box3/shoes6.avif';
+import image11 from '../assets/image/box4/shoes1.avif';
+import image12 from '../assets/image/box4/shoes2.avif';
+import image13 from '../assets/image/box4/shoes3.avif';
+import image14 from '../assets/image/box4/shoes4.avif';
+import image15 from '../assets/image/box4/shoes5.avif';
+import image16 from '../assets/image/box5/shoes1.avif';
+import image17 from '../assets/image/box5/shoes2.avif';
+import image18 from '../assets/image/box5/shoes3.avif';
+import image19 from '../assets/image/box5/shoes4.avif';
+import image20 from '../assets/image/box5/shoes5.avif';
+import image21 from '../assets/image/box5/shoes6.avif';
+import image22 from '../assets/image/box5/shoes7.avif';
+import image23 from '../assets/image/box5/shoes8.avif';
+import image24 from '../assets/image/box5/shoes9.avif';
 
 
-
-
-const generateRandomPrice = () => Math.floor(Math.random() * 5000) + 1000;
-const generateRandomRating = () => (Math.random() * 4 + 1).toFixed(1);
 
 const categories = [
   {
@@ -49,33 +61,78 @@ const categories = [
     type: 'Women',
   },
   {
-    title: 'Classic Shoes',
+    title: "Men's Breathable Shoes",
     image: image5,
-    price: 2800,
-    rating: 4.2,
-    type: 'Men',
+
   },
   {
-    title: 'Boots',
-    image: image6,
-    price: 4700,
-    rating: 4.6,
-    type: 'Men',
+    title: "Women Breezy Styles",
+    image: image6
   },
   {
-    title: 'Loafers',
-    image: image7,
-    price: 3100,
-    rating: 4.4,
-    type: 'Women',
+    title: "Men's Sporty Styles",
+    image: image7
   },
   {
-    title: 'Sandals',
-    image: image8,
-    price: 2300,
-    rating: 3.8,
-    type: 'Kids',
+    title: "Women's Athleisure Styles",
+    image: image8
   },
+  {
+    title: "Men's Lightweight Styles",
+    image: image9
+  },
+  {
+    title: "Women's Packable Shoes",
+    image: image10
+  },
+  {
+    title: "Wool Piper Go",
+    image: image12,
+    price:420
+  },
+  {
+    title: "Wool Piper Go",
+    image: image13,
+    price:900
+  },
+  {
+    title: "Wool Piper Go",
+    image: image14,
+    price:640
+  },
+  {
+    title: "Wool Piper Go",
+    image: image15,
+    price:1290
+  },
+  {
+    title: "Medium Grey",
+    image: image16
+  },  {
+    title: "Basin Pink",
+    image: image17
+  },  {
+    title: "Thunder Red",
+    image: image18
+  },  {
+    title: "Blizzard",
+    image: image19
+  },  {
+    title: "Navy-Night",
+    image: image20
+  },  {
+    title: "Kaikoura White",
+    image: image21
+  },  {
+    title: "Blizzard Black",
+    image: image22
+  },  {
+    title: "Moonrise",
+    image: image23
+  },  {
+    title: "Mist",
+    image: image24
+  },  
   // Add more categories as needed
 ];
 
@@ -156,8 +213,8 @@ const CategoryCards = () => {
           >
             <CardMedia component="img" image={category.image} alt={category.title} sx={{ height: '100%' ,textAlign:"center" }} />
             <CardContent sx={{ textAlign: 'center' ,position:"absolute", bottom:360,left:100}}>
-              <Typography variant="h6" >{category.title}</Typography>
-              <Typography variant="body2">Price:  {category.price} Rs.</Typography>
+              <Typography variant="h5" >{category.title}</Typography>
+              <Typography variant="body2">Price:  {category.price} pk</Typography>
             </CardContent>
             {/* Hover Buttons */}
             <Box
@@ -205,7 +262,7 @@ const CategoryCards = () => {
       {/* Third Box - Carousel with Six Cards */}
       <Box sx={{ my: 4 }}>
   <Slider {...sliderSettings}>
-    {categories.slice(0, 6).map((category) => (
+    {categories.slice(4, 10).map((category) => (
       <Card
         key={category.title}
         sx={{
@@ -258,7 +315,7 @@ const CategoryCards = () => {
   <Grid item xs={6}>
     <Box
       sx={{
-        backgroundImage: `url(${image1})`,
+        backgroundImage: `url(${image11})`,
         height: 500,
         position: 'relative',
         '&:hover .content': { display: 'flex' },
@@ -300,7 +357,7 @@ const CategoryCards = () => {
   {/* Second column with 4 boxes */}
   <Grid item xs={6}>
     <Grid container spacing={2}>
-      {categories.slice(0, 4).map((category) => (
+      {categories.slice(10, 14).map((category) => (
         <Grid item xs={6} key={category.title}>
           <Card
             sx={{
@@ -371,21 +428,21 @@ const CategoryCards = () => {
 
       {/* Additional Section - "More to Shop" */}
       <Box sx={{ my: 1, textAlign: 'right' }}>
-        <Typography variant="h5" sx={{ mb: 1,textAlign: 'left',position:"relative",top:40  }}>
+        <Typography variant="h5" sx={{ mb: 1,textAlign: 'left',position:"relative",top:40 ,mx:5,fontWeight:"bold" }}>
           More to Shop
         </Typography>
-        <Button variant="outlined" sx={{ mx: 1}}>
-          New Arrivals
-        </Button>
-        <Button variant="outlined" sx={{ mx: 1}}>
-          Best Sellers
-        </Button>
+        <Link sx={{ mx: 1,fontSize:25, fontFamily:"sans-serif", fontWeight:"bold",color:"#333" , textDecoration:"none" ,cursor:"pointer"}}>
+          Men
+        </Link>
+        <Link sx={{ mx: 3,fontSize:25, fontFamily:"sans-serif", fontWeight:"bold",color:"#333" , textDecoration:"none" ,cursor:"pointer"}}>
+         Women
+        </Link>
       </Box>
 
       {/* Sixth Box - Carousel with Twelve Cards */}
       <Box sx={{ my: 4 }}>
         <Slider {...sliderSettings} slidesToShow={4} slidesToScroll={1}>
-          {categories.slice(0, 12).map((category) => (
+          {categories.slice(14, 23).map((category) => (
             <Card
               key={category.title}
               sx={{
@@ -395,7 +452,7 @@ const CategoryCards = () => {
                 '&:hover .card-text': { opacity: 1 },
               }}
             >
-              <CardMedia component="img" image={category.image} alt={category.title} sx={{ height: '80%' }} />
+              <CardMedia component="img" image={category.image} alt={category.title} sx={{ height: '100%' }} />
               <Box
                 className="card-text"
                 sx={{
@@ -416,7 +473,9 @@ const CategoryCards = () => {
                   padding: 2,
                 }}
               >
-                <Typography variant="body1">Shoe Description here</Typography>
+                <Typography variant="h4">{category.title}</Typography> 
+                
+
               </Box>
             </Card>
           ))}
