@@ -17,7 +17,7 @@ const HeroSection = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentImage((prevImage) => (prevImage + 1) % bgImages.length); // Loop through images
-    }, 5000); // 5 seconds
+    }, 2000); // 5 seconds
 
     // Cleanup interval on component unmount
     return () => clearInterval(intervalId);

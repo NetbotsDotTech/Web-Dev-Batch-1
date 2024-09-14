@@ -101,10 +101,12 @@ const Header = () => {
         />
 
         {/* Centered Navigation */}
-        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
+        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'ceter' }}>
           <Button color="inherit" onClick={() => handleNavigation('/')}>Home</Button>
-          <Button color="inherit" onClick={() => handleNavigation('/about')}>About Us</Button>
-          <Button color="inherit" onClick={() => handleNavigation('/contact')}>Contact Us</Button>
+          <Button color="inherit" onClick={() => handleNavigation('/men')}>Men</Button>
+          <Button color="inherit" onClick={() => handleNavigation('/women')}>Women</Button>
+          <Button color="inherit" onClick={() => handleNavigation('/kids')}>Kids</Button>
+
         </Box>
 
         {/* Search bar and cart icon aligned to the right */}
