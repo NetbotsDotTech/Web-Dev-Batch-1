@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'; // To handle navigation
 import bgimage1 from '../assets/image/backgroundImage/backgroundImage1.avif';
 import bgimage2 from '../assets/image/backgroundImage/backgroundImage2.avif';
 import bgimage3 from '../assets/image/backgroundImage/bg3.avif';
+import bgimage4 from '../assets/image/backgroundImage/bg4.avif'
 import '../css/HeroSection.css';
 
 const HeroSection = () => {
@@ -11,7 +12,7 @@ const HeroSection = () => {
   const [currentImage, setCurrentImage] = useState(0); // Track the current background image
 
   // Array of background images
-  const bgImages = [bgimage1, bgimage2, bgimage3];
+  const bgImages = [bgimage1, bgimage2, bgimage3,bgimage4];
 
   // Change the background image every 10 seconds
   useEffect(() => {

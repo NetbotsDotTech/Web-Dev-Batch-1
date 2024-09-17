@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import '../css/Header.css'
+import '../css/Header.css';
 import logo from '../assets/image/logo.png';
 import {
   AppBar, Toolbar, Typography, IconButton, Button,
-  InputBase, Badge, Box
+  Badge, Box, Menu, MenuItem
 } from '@mui/material';
-import {
-  Search, ShoppingCart
-} from '@mui/icons-material';
+import { Search, ShoppingCart, AccountCircle } from '@mui/icons-material';
 import { styled, alpha } from '@mui/material/styles';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -37,28 +35,23 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   justifyContent: 'center',
 }));
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '12ch',
-      '&:focus': {
-        width: '20ch',
-      },
-    },
-  },
-}));
-
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleNavigation = (path) => {
-    navigate(path);
+  const [anchorElProfile, setAnchorElProfile] = useState(null);
+  const [cartItems, setCartItems] = useState(0); // State to store cart items
+
+  const handleProfileMenuOpen = (event) => {
+    setAnchorElProfile(event.currentTarget);
+  };
+
+  const handleProfileMenuClose = () => {
+    setAnchorElProfile(null);
+  };
+
+  const handleAddToCart = () => {
+    setCartItems((prevItems) => prevItems + 1);
   };
 
   const sentences = [
@@ -81,67 +74,83 @@ const Header = () => {
     return () => clearInterval(interval);
   }, [sentences]);
 
-  // Check if current path is "/home" or "/shop"
   const isHomePage = location.pathname === '/';
   const isShopPage = location.pathname === '/shop';
 
   return (
-    <AppBar position="fixed" >
+    <AppBar position="fixed">
       <Toolbar className="header">
-        {/* Logo aligned to the left */}
         <Box
           component="img"
           sx={{
             height: 64,
             display: { xs: 'none', sm: 'block' },
             marginRight: 'auto',
+            marginLeft: 'auto',
           }}
           alt="Shop Logo"
           src={logo}
         />
 
-        {/* Centered Navigation */}
-        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'ceter' }}>
-          <Button color="inherit" onClick={() => handleNavigation('/')}>Home</Button>
-          <Button color="inherit" onClick={() => handleNavigation('/men')}>Men</Button>
-          <Button color="inherit" onClick={() => handleNavigation('/women')}>Women</Button>
-          <Button color="inherit" onClick={() => handleNavigation('/kids')}>Kids</Button>
-
+        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
+          <Button color="inherit" onClick={() => navigate('/shop/men')}>Men</Button>
+          <Button color="inherit" onClick={() => navigate('/shop/women')}>Women</Button>
+          <Button color="inherit" onClick={() => navigate('/shop/kids')}>Kids</Button>
         </Box>
 
-        {/* Search bar and cart icon aligned to the right */}
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <SearchBar>
-            <SearchIconWrapper>
-              <Search />
-            </SearchIconWrapper>
-            <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
-          </SearchBar>
+          <IconButton
+            size="large"
+            aria-label="search"
+            color="inherit"
+            onClick={() => navigate('/search')}
+          >
+            <Search />
+          </IconButton>
 
-          <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-            <Badge badgeContent={4} color="error">
+          <IconButton size="large" aria-label="show cart items" color="inherit" onClick={handleAddToCart}>
+            <Badge badgeContent={cartItems} color="error">
               <ShoppingCart />
             </Badge>
           </IconButton>
+
+          <IconButton
+            size="large"
+            edge="end"
+            aria-label="account of current user"
+            aria-controls="primary-search-account-menu"
+            aria-haspopup="true"
+            color="inherit"
+            onClick={handleProfileMenuOpen}
+          >
+            <AccountCircle />
+          </IconButton>
+
+          <Menu
+            anchorEl={anchorElProfile}
+            open={Boolean(anchorElProfile)}
+            onClose={handleProfileMenuClose}
+          >
+            <MenuItem onClick={() => navigate('/login')}>Login</MenuItem>
+            <MenuItem onClick={() => navigate('/signup')}>Signup</MenuItem>
+          </Menu>
         </Box>
       </Toolbar>
 
-      {/* Show promo banner only on Home page */}
       {isHomePage && (
-        <Box  sx={{ backgroundColor: ' #7dcea0 ', p: 1 }}>
+        <Box sx={{ backgroundColor: ' #7dcea0 ', p: 1 }}>
           <Typography variant="body1" align="center">
             {currentSentence}
           </Typography>
         </Box>
       )}
 
-      {/* Show secondary navbar only on Shop page */}
       {isShopPage && (
         <Box sx={{ backgroundColor: ' #7dcea0', p: 1 }}>
           <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
-            <Button color="inherit" onClick={() => handleNavigation('/shop/men')}>Men</Button>
-            <Button color="inherit" onClick={() => handleNavigation('/shop/women')}>Women</Button>
-            <Button color="inherit" onClick={() => handleNavigation('/shop/kids')}>Kids</Button>
+            <Button color="inherit" onClick={() => navigate('/shop/men')}>Men</Button>
+            <Button color="inherit" onClick={() => navigate('/shop/women')}>Women</Button>
+            <Button color="inherit" onClick={() => navigate('/shop/kids')}>Kids</Button>
           </Box>
         </Box>
       )}
