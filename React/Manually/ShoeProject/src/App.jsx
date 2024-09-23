@@ -8,6 +8,7 @@ import ProductDetail from './ProductDetial';
 import ShippingForm from './components/ShippingForm';
 import Footer from './components/Footer';
 import MenShoes from './components/Menshoes';
+import WomenShoes from './components/WomenShoes';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/shop" element={<Shop/>} />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/shop/men" element={<MenShoes />} />
+        <Route path="/shop/women" element={<WomenShoes />} />
         
         <Route path="/checkout/:id" element={<ShippingForm />} />
 

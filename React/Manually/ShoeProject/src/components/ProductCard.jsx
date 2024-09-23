@@ -1,60 +1,66 @@
-import React from 'react';
-import { Box, Typography, Card, CardContent, CardMedia, Rating, Button } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Card, CardMedia, CardContent, Typography, Box, styled } from '@mui/material';
+
+// Styled components for Thumbnail
+const Thumbnail = styled('img')(({ theme }) => ({
+  width: '60px',
+  height: '60px',
+  objectFit: 'cover',
+  border: '1px solid #ddd',
+  borderRadius: '4px',
+  cursor: 'pointer',
+  marginRight: '8px',
+  transition: 'border-color 0.3s ease',
+  '&:hover': {
+    borderColor: theme.palette.primary.main,
+  },
+}));
+
+// Styled component for product card
+const StyledCard = styled(Card)(({ theme }) => ({
+  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+  position: 'relative',
+  '&:hover': {
+    transform: 'scale(1.05)',
+    boxShadow: theme.shadows[8],
+    zIndex: 1,
+  },
+}));
 
 const ProductCard = ({ product }) => {
-  const { id, image, title, price, rating } = product;
-  const navigate = useNavigate();
+  const [mainImage, setMainImage] = useState(product.images[0]);
 
-  const handleCardClick = () => {
-    navigate(`/product/${id}`);
-  };
-
-  const handleBuyNowClick = (event) => {
-    event.stopPropagation(); // Prevents the card click event from triggering
-    navigate(`/checkout/${id}`, { state: product }); // Pass product details to Checkout (ShippingForm)
+  const handleImageClick = (image) => {
+    setMainImage(image);
   };
 
   return (
-    <Card 
-      sx={{ 
-        maxWidth: 345, 
-        height: '100%', 
-        display: 'flex', 
-        flexDirection: 'column', 
-        justifyContent: 'space-between',
-        cursor: 'pointer'
-      }} 
-      onClick={handleCardClick}
-    >
+    <StyledCard>
       <CardMedia
         component="img"
-        height="200"
-        image={image}
-        alt={title}
-        sx={{ objectFit: 'cover' }}
+        height="140"
+        image={mainImage}
+        alt={product.title}
       />
-      <CardContent sx={{ flexGrow: 1 }}>
-        <Typography variant="h6" component="div" gutterBottom>
-          {title}
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {product.title}
         </Typography>
-        <Typography variant="body2" color="text.secondary" gutterBottom>
-          PKR {price}
+        <Typography variant="body2" color="text.secondary">
+          {product.price}
         </Typography>
-        {rating && rating.rate ? (
-          <Rating name="read-only" value={rating.rate} readOnly />
-        ) : (
-          <Typography variant="body2" color="text.secondary">
-            No rating available
-          </Typography>
-        )}
-        <Box mt={2}>
-          <Button variant="contained" color="primary" onClick={handleBuyNowClick}>
-            Buy Now
-          </Button>
+        <Box display="flex" mt={2}>
+          {product.images.map((image, index) => (
+            <Thumbnail
+              key={index}
+              src={image}
+              alt={`Thumbnail ${index}`}
+              onClick={() => handleImageClick(image)}
+            />
+          ))}
         </Box>
       </CardContent>
-    </Card>
+    </StyledCard>
   );
 };
 
