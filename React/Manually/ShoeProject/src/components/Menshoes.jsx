@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, Card, CardMedia, CardContent, Grid, styled, Button } from '@mui/material';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Box, Typography, Card, CardMedia, CardContent, Grid, styled } from '@mui/material';
+import { useSearchParams, useLocation } from 'react-router-dom'; // Import necessary hooks
 import shoesImage from '../assets/image/box1/shoes1.avif';
 import shoes2 from '../assets/image/backgroundImage/bg4.avif';
 
 // Styled components
 const Thumbnail = styled('img')(({ theme }) => ({
-  width: '60px',
-  height: '60px',
+  width: '50px',
+  height: '50px',
   objectFit: 'cover',
   border: '1px solid #ddd',
   borderRadius: '4px',
@@ -19,35 +19,11 @@ const Thumbnail = styled('img')(({ theme }) => ({
   },
 }));
 
-const SizeBox = styled(Box)(({ theme, isSelected }) => ({
-  backgroundColor: isSelected ? '#ddd' : 'transparent',
-  border: '1px solid #ddd',
-  borderRadius: '4px',
-  padding: '8px',
-  marginRight: '8px',
-  cursor: 'pointer',
-  textAlign: 'center',
-  transition: 'background-color 0.3s ease',
-  '&:hover': {
-    backgroundColor: '#ccc',
-  },
-}));
-
-const ColorBox = styled(Box)(({ color }) => ({
-  backgroundColor: color,
-  width: '20px',
-  height: '20px',
-  borderRadius: '50%',
-  marginBottom: '8px',
-  cursor: 'pointer',
-  border: '1px solid #ddd',
-}));
-
-const StyledCard = styled(Card)(({ theme }) => ({
+const StyledCard = styled(Card)(({ theme, isHovered }) => ({
   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
   position: 'relative',
   '&:hover': {
-    transform: 'scale(1.05)',
+    transform: isHovered ? 'scale(1.05)' : 'none',
     boxShadow: theme.shadows[8],
     zIndex: 1,
   },
@@ -60,15 +36,13 @@ const CustomSwitch = styled('div')(({ theme, isMenSelected }) => ({
   borderRadius: '30px',
   padding: '5px',
   width: '180px',
-  justifyContent: 'space-between', // Adjusted to space-between
+  justifyContent: 'flex-end',
   backgroundColor: '#f0f0f0',
   position: 'relative',
   fontSize: '16px',
   fontWeight: 'bold',
   boxShadow: '0px 4px 6px rgba(0,0,0,0.1)',
   transition: 'background-color 0.3s ease',
-  marginBottom: '20px',
-
   '& .label': {
     width: '50%',
     textAlign: 'center',
@@ -86,187 +60,168 @@ const CustomSwitch = styled('div')(({ theme, isMenSelected }) => ({
   '& .switch': {
     position: 'absolute',
     top: '0',
-    right: isMenSelected ? '90px' : '0', // Adjusted for position
+    left: isMenSelected ? '50%' : '0',
     width: '90px',
     height: '100%',
     backgroundColor: theme.palette.primary.main,
     borderRadius: '30px',
-    transition: 'right 0.3s ease', // Keep transition for right
+    transition: 'left 0.3s ease',
+    zIndex: 1,
   },
-}));
-
-
-const ResetButton = styled(Button)(({ theme }) => ({
-  backgroundColor: theme.palette.error.main,
-  color: theme.palette.common.white,
-  '&:hover': {
-    backgroundColor: theme.palette.error.dark,
-  },
-  marginTop: '20px',
-  width: '100%',
 }));
 
 const MenShoes = () => {
   const [isMenSelected, setIsMenSelected] = useState(true);
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
-  const [products, setProducts] = useState([]); // State to manage products
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [products, setProducts] = useState([]);
+  const [hoveredImage, setHoveredImage] = useState({});
+  const [searchParams, setSearchParams] = useSearchParams(); // Get search params from URL
 
-  // Dummy product data with mainImage field
-  const initialProducts = [
-    { id: 1, title: 'Running Shoes', price: '5000 PKR', images: [shoesImage, shoes2], availableSizes: ['5', '6', '7', '8', '9'], color: 'Red', category: 'Men', mainImage: shoesImage },
-    { id: 2, title: 'Hiking Boots', price: '7500 PKR', images: [shoesImage, shoes2], availableSizes: ['8', '9', '10'], color: 'Black', category: 'Men', mainImage: shoesImage },
-    { id: 3, title: 'Casual Sneakers', price: '4000 PKR', images: [shoesImage], availableSizes: ['6', '7', '8'], color: 'Blue', category: 'Women', mainImage: shoesImage },
-    { id: 4, title: 'Leather Boots', price: '8500 PKR', images: [shoesImage], availableSizes: ['8', '9', '10'], color: 'Brown', category: 'Women', mainImage: shoesImage },
-    { id: 5, title: 'Sports Shoes', price: '6000 PKR', images: [shoesImage], availableSizes: ['5', '6'], color: 'Green', category: 'Men', mainImage: shoesImage },
-    { id: 1, title: 'Running Shoes', price: '5000 PKR', images: [shoesImage, shoes2], availableSizes: ['5', '6', '7', '8', '9'], color: 'Red', category: 'Men', mainImage: shoesImage },
-    { id: 2, title: 'Hiking Boots', price: '7500 PKR', images: [shoesImage, shoes2], availableSizes: ['8', '9', '10'], color: 'Black', category: 'Men', mainImage: shoesImage },
-    { id: 3, title: 'Casual Sneakers', price: '4000 PKR', images: [shoesImage], availableSizes: ['6', '7', '8'], color: 'Blue', category: 'Women', mainImage: shoesImage },
-    { id: 4, title: 'Leather Boots', price: '8500 PKR', images: [shoesImage], availableSizes: ['8', '9', '10'], color: 'Brown', category: 'Women', mainImage: shoesImage },
-    { id: 5, title: 'Sports Shoes', price: '6000 PKR', images: [shoesImage], availableSizes: ['5', '6'], color: 'Green', category: 'Men', mainImage: shoesImage }, { id: 1, title: 'Running Shoes', price: '5000 PKR', images: [shoesImage, shoes2], availableSizes: ['5', '6', '7', '8', '9'], color: 'Red', category: 'Men', mainImage: shoesImage },
-    { id: 2, title: 'Hiking Boots', price: '7500 PKR', images: [shoesImage, shoes2,shoes2,shoes2,shoes2], availableSizes: ['8', '9', '10'], color: 'Black', category: 'Men', mainImage: shoesImage },
-    { id: 3, title: 'Casual Sneakers', price: '4000 PKR', images: [shoesImage], availableSizes: ['6', '7', '8'], color: 'Blue', category: 'Women', mainImage: shoesImage },
-    { id: 4, title: 'Leather Boots', price: '8500 PKR', images: [shoesImage], availableSizes: ['8', '9', '10'], color: 'Brown', category: 'Women', mainImage: shoesImage },
-    { id: 5, title: 'Sports Shoes', price: '6000 PKR', images: [shoesImage], availableSizes: ['5', '6'], color: 'Green', category: 'Men', mainImage: shoesImage },
-    { id: 6, title: 'Fashion Sneakers', price: '4200 PKR', images: [shoesImage], availableSizes: ['7', '9'], color: 'Purple', category: 'Women', mainImage: shoesImage },
-  ];
+  useEffect(() => {
+    const dummyProducts = [
+      { id: 1, title: 'Running Shoes', price: '5000 PKR', images: [shoesImage, shoesImage, shoesImage, shoes2], availableSizes: ['5', '6', '7', '8', '9', '10'], color: 'Red', category: 'Men' },
+  { id: 2, title: 'Hiking Boots', price: '7500 PKR', images: [shoesImage, shoesImage, shoesImage, shoesImage], availableSizes: ['8', '9', '10', '11'], color: 'Black', category: 'Men' },
+  { id: 3, title: 'Casual Sneakers', price: '4000 PKR', images: [shoesImage], availableSizes: ['6', '7', '8', '9'], color: 'Blue', category: 'Women' },
+  { id: 4, title: 'Leather Boots', price: '8500 PKR', images: [shoesImage], availableSizes: ['8', '9', '10'], color: 'Brown', category: 'Women' },
+  { id: 5, title: 'Sports Sandals', price: '3500 PKR', images: [shoesImage, shoes2], availableSizes: ['6', '7', '8'], color: 'Green', category: 'Men' },
+  { id: 6, title: 'Gym Trainers', price: '6000 PKR', images: [shoesImage, shoesImage], availableSizes: ['7', '8', '9'], color: 'Gray', category: 'Men' },
+  { id: 7, title: 'Ankle Boots', price: '7800 PKR', images: [shoesImage, shoes2], availableSizes: ['6', '7', '8', '9'], color: 'Black', category: 'Women' },
+  { id: 8, title: 'Slip-on Loafers', price: '4200 PKR', images: [shoesImage], availableSizes: ['8', '9', '10'], color: 'Navy Blue', category: 'Men' },
+  { id: 9, title: 'High Heels', price: '5400 PKR', images: [shoesImage, shoesImage], availableSizes: ['5', '6', '7'], color: 'Red', category: 'Women' },
+  { id: 10, title: 'Flip Flops', price: '2000 PKR', images: [shoesImage], availableSizes: ['6', '7', '8', '9'], color: 'White', category: 'Women' },
+  { id: 11, title: 'Trail Running Shoes', price: '6800 PKR', images: [shoesImage, shoes2, shoesImage], availableSizes: ['7', '8', '9', '10'], color: 'Orange', category: 'Men' },
+  { id: 12, title: 'Formal Oxfords', price: '9000 PKR', images: [shoesImage], availableSizes: ['7', '8', '9'], color: 'Black', category: 'Men' },
+    ];
+    setProducts(dummyProducts);
+  }, []);
+
+  useEffect(() => {
+    // Sync component state with query parameters
+    const menParam = searchParams.get('category') === 'Men';
+    const sizeParam = searchParams.get('size') || '';
+    const colorParam = searchParams.get('color') || '';
+
+    setIsMenSelected(menParam);
+    setSelectedSize(sizeParam);
+    setSelectedColor(colorParam);
+  }, [searchParams]);
+
 
   const colors = ['Grey', 'Black', 'Beige', 'Blue', 'Red', 'White', 'Gray', 'Purple'];
 
-  useEffect(() => {
-    // Load initial products into state
-    setProducts(initialProducts);
-
-    // Parse the query parameters
-    const params = new URLSearchParams(location.search);
-    const size = params.get('size') || '';
-    const color = params.get('color') || '';
-
-    if (size) setSelectedSize(size);
-    if (color) setSelectedColor(color);
-  }, [location]);
-
-  useEffect(() => {
-    // Update URL query parameters on size/color change
-    const params = new URLSearchParams();
-    if (selectedSize) params.set('size', selectedSize);
-    if (selectedColor) params.set('color', selectedColor);
-    navigate({ search: params.toString() });
-  }, [selectedSize, selectedColor, navigate]);
-
-  // Update the specific product's mainImage when a thumbnail is clicked
-  const handleImageClick = (productId, image) => {
-    const updatedProducts = products.map((product) =>
-      product.id === productId ? { ...product, mainImage: image } : product
-    );
-    setProducts(updatedProducts);
-  };
-
-  const handleSizeClick = (size) => {
-    setSelectedSize(size);
-  };
-
-  const handleColorClick = (color) => {
-    setSelectedColor(color);
-  };
-
-  // Filter products based on selected criteria
   const filteredProducts = products.filter(product =>
     product.category === (isMenSelected ? 'Men' : 'Women') &&
     (selectedSize ? product.availableSizes.includes(selectedSize) : true) &&
     (selectedColor ? product.color === selectedColor : true)
   );
 
-  // Reset filters
-  const resetFilters = () => {
+const resetFilters = () => {
     setSelectedSize('');
     setSelectedColor('');
+    setSearchParams({ category: isMenSelected ? 'Men' : 'Women' }); // Reset to category only
+  };
+  const handleSizeChange = (size) => {
+    setSelectedSize(size);
+    setSearchParams({ category: isMenSelected ? 'Men' : 'Women', size, color: selectedColor }); // Update query params
+  };
+  const handleColorChange = (color) => {
+    setSelectedColor(color);
+    setSearchParams({ category: isMenSelected ? 'Men' : 'Women', size: selectedSize, color }); // Update query params
   };
 
-  // Toggle between Men and Women products
-  const toggleCategory = () => {
-    setIsMenSelected(!isMenSelected);
+
+  const handleThumbnailClick = (productId, image) => {
+    setHoveredImage(prevState => ({ ...prevState, [productId]: image }));
   };
 
   return (
-    <Box display="flex" p={3} mt={10}> {/* Adjusted the margin-top */}
-      {/* Left Column (Filters) */}
+    <Box display="flex" p={3} mt={15}>
       <Box width="25%" pr={2}>
         <Typography variant="h6">Filter By:</Typography>
 
-        {/* Size Filter */}
         <Typography variant="h6" mt={2}>Sizes</Typography>
-        <Typography variant="body2" color="textSecondary" mb={2}>
-          Select your preferred size
-        </Typography>
         <Box display="flex" flexWrap="wrap" mb={2}>
-          {['5', '6', '7', '8', '9', '10', '11', '12', '13','4.5'].map(size => (
-            <SizeBox
+          {['5', '6', '7', '8', '9', '10', '11', '12', '13'].map(size => (
+            <Box
               key={size}
-              isSelected={size === selectedSize}
-              onClick={() => handleSizeClick(size)}
+              sx={{
+                backgroundColor: size === selectedSize ? '#ddd' : 'transparent',
+                border: '1px solid #ddd',
+                borderRadius: '4px',
+                padding: '8px',
+                marginRight: '8px',
+                cursor: 'pointer',
+                textAlign: 'center',
+                '&:hover': { backgroundColor: '#ccc' }
+              }}
+              onClick={() => setSelectedSize(size)}
             >
               {size}
-            </SizeBox>
+            </Box>
           ))}
         </Box>
 
-        {/* Color Filter */}
-        <Typography variant="h6" mt={2}>Colors</Typography>
-        <Typography variant="body2" color="textSecondary" mb={2}>
-          Choose your favorite color
-        </Typography>
-        <Box display="flex" flexDirection="column" gap={1}>
-  {colors.map(color => (
-    <Box display="flex" alignItems="center" key={color}>
-      <ColorBox color={color} onClick={() => handleColorClick(color)} />
-      <Typography variant="body2" style={{ marginLeft: '8px' }}>
-        {color}
-      </Typography>
-    </Box>
-  ))}
-</Box>
+        <Typography variant="h6" mt={2}>Color Base</Typography>
+        <Box display="flex" flexDirection="column">
+          {colors.map(color => (
+            <Box key={color} display="flex" alignItems="center" onClick={() => setSelectedColor(color)}>
+              <Box sx={{ backgroundColor: color, width: '20px', height: '20px', borderRadius: '50%', marginBottom: '8px', cursor: 'pointer', border: '1px solid #ddd' }} />
+              <Typography variant="body2" style={{ color: selectedColor === color ? color : 'inherit' }}>{color}</Typography>
+            </Box>
+          ))}
+        </Box>
 
-
-        {/* Reset Filters Button */}
-        <ResetButton variant="contained" onClick={resetFilters}>Reset Filters</ResetButton>
+        <Box mt={2} display="flex" justifyContent="flex-end">
+          <button onClick={resetFilters} style={{
+            padding: '10px 20px',
+            backgroundColor: '#007BFF',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            transition: 'background-color 0.3s ease',
+          }}>
+            Reset Filters
+          </button>
+        </Box>
       </Box>
 
-      {/* Right Column (Products) */}
-      <Box width="75%" pl={2}>
-        {/* Category Toggle Switch */}
-        <CustomSwitch isMenSelected={isMenSelected} onClick={toggleCategory}>
-  <div className="label label-men">Men</div>
-  <div className="label label-women">Women</div>
-  <div className="switch" />
-</CustomSwitch>
+      <Box width="75%">
+        <Box display="flex" justifyContent="flex-end">
+          <CustomSwitch onClick={() => setIsMenSelected(!isMenSelected)} isMenSelected={isMenSelected}>
+            <Box className="switch" />
+            <Typography className={`label label-men`}>Men</Typography>
+            <Typography className={`label label-women`}>Women</Typography>
+          </CustomSwitch>
+        </Box>
 
+        <Typography variant="h4" mt={2} mb={2}>
+          {isMenSelected ? 'Men\'s Shoes' : 'Women\'s Shoes'}
+        </Typography>
 
-        {/* Product Grid */}
         <Grid container spacing={2}>
           {filteredProducts.map(product => (
             <Grid item xs={12} sm={6} md={4} key={product.id}>
-              <StyledCard>
+              <StyledCard isHovered={true}>
                 <CardMedia
                   component="img"
-                  height="200"
-                  image={product.mainImage}
+                  height="140"
+                  image={hoveredImage[product.id] || product.images[0]} // Display the hovered image or the default image
                   alt={product.title}
                 />
                 <CardContent>
                   <Typography variant="h6">{product.title}</Typography>
-                  <Typography variant="body2" color="textSecondary">{product.price}</Typography>
+                  <Typography variant="body1">{product.price}</Typography>
 
                   {/* Thumbnail images */}
-                  <Box display="flex" mt={1}>
+                  <Box display="flex" mt={2}>
                     {product.images.map((image, index) => (
                       <Thumbnail
                         key={index}
                         src={image}
                         alt={`Thumbnail ${index}`}
-                        onClick={() => handleImageClick(product.id, image)}
+                        onClick={() => handleThumbnailClick(product.id, image)} // Update main image on click
                       />
                     ))}
                   </Box>

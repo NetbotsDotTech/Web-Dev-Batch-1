@@ -1,0 +1,13 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+.container-fluid{
+    padding: 0px 40px;
+}
+.cursor{
+    cursor: pointer;
+
+}

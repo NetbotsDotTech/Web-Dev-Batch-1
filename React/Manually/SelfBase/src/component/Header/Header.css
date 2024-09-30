@@ -1,0 +1,88 @@
+header{
+   width: 100%;
+   height: auto;
+   margin: auto;
+   padding: 30px 0;
+}
+header .headerSearch{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #bce3c9;
+    padding: 5px 8px;
+}
+header .headerSearch .selectDrop{
+    width: 25%;
+    font-size: 16px;
+    font-weight: 300;
+    position: relative;
+}
+header .headerSearch .selectDrop::after{
+    content: '';
+    width: 1px;
+    height: 30px;
+    background-color: rgba(109, 241, 180, 0.8);
+    position: absolute;
+    top: 1px;
+    left: 125px;
+ 
+
+}
+header .headerSearch .search{
+    width: 73%;
+    position: absolute;
+    top:6.5%;
+    left: 27%;
+    padding-left: 20px;
+}
+header .headerSearch .search input{
+    width: 35%;
+    height: 30px;
+    border: 0px;
+    outline: none;
+    font-size: 15px;
+}
+header .headerSearch .search .searchIcon{
+    position: absolute;
+    top: 1%;
+    left: 37%;
+    font-size: 30px;
+    opacity: 0.5;
+
+}
+header .country .selectDrop{
+    width: 170px;
+    position: absolute;
+    top: 5.5%;
+    left: 58%;
+    font-size: 18px;
+    opacity: 0.7;
+    padding: 5px;
+    border: 1px solid #bce3c9;
+   
+
+}
+header .country .selectDrop  .arrow{
+    position: absolute;
+    top: 8px;
+    left: 145px;
+}
+header .headerTabs {
+    padding-bottom: 3%;
+    padding-left: 170px;
+    
+}
+header .headerTabs li{
+    position: relative;
+}
+header .headerTabs li span{
+    margin: 5px;
+    cursor: pointer;
+    /* gap: 5px; */
+}
+header .headerTabs li span .badge{
+    width: 6%;
+    font-weight: 400;
+    position: absolute;
+    top: -20px;
+    left: 10px;
+}

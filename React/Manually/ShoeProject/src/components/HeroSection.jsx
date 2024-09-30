@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Button, Typography, Link } from '@mui/material';
+import { Box, Typography, Link } from '@mui/material';
 import { useNavigate } from 'react-router-dom'; // To handle navigation
 import bgimage1 from '../assets/image/backgroundImage/backgroundImage1.avif';
 import bgimage2 from '../assets/image/backgroundImage/backgroundImage2.avif';
 import bgimage3 from '../assets/image/backgroundImage/bg3.avif';
-import bgimage4 from '../assets/image/backgroundImage/bg4.avif'
+import bgimage4 from '../assets/image/backgroundImage/bg4.avif';
 import '../css/HeroSection.css';
 
 const HeroSection = () => {
@@ -12,19 +12,22 @@ const HeroSection = () => {
   const [currentImage, setCurrentImage] = useState(0); // Track the current background image
 
   // Array of background images
-  const bgImages = [bgimage1, bgimage2, bgimage3,bgimage4];
+  const bgImages = [bgimage1, bgimage2, bgimage3, bgimage4];
 
   // Change the background image every 10 seconds
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentImage((prevImage) => (prevImage + 1) % bgImages.length); // Loop through images
-    }, 2000); // 5 seconds
+    }, 2000); // 2 seconds
 
     // Cleanup interval on component unmount
     return () => clearInterval(intervalId);
   }, [bgImages.length]);
 
-
+  // Handlers for navigating to different pages
+  const handleNavigate = (path) => {
+    navigate(path);
+  };
 
   return (
     <Box
@@ -53,9 +56,30 @@ const HeroSection = () => {
         Discover our latest collection
       </Typography>
       <Typography variant="body1" sx={{ mb: 4, maxWidth: '600px' }}>
-        Explore our wide range of high-quality products. We offer the best selection of goods, for <Link href="#" id="link">Men</Link>, <Link href="#" id="link">Women</Link> and <Link href="#" id="link">Kids</Link>. Whether you're looking for the latest trends or timeless classics, we have something for everyone. Our commitment to quality ensures that you get the best value for your money.
+        Explore our wide range of high-quality products. We offer the best selection of goods for{' '}
+        <Link
+          onClick={() => handleNavigate('/men')}
+          sx={{ cursor: 'pointer', textDecoration: 'underline', fontSize: '20px' }} // Increased font size
+        >
+          Men
+        </Link>
+        ,{' '}
+        <Link
+          onClick={() => handleNavigate('/women')}
+          sx={{ cursor: 'pointer', textDecoration: 'underline', fontSize: '20px' }} // Increased font size
+        >
+          Women
+        </Link>
+        , and{' '}
+        <Link
+          onClick={() => handleNavigate('/kids')}
+          sx={{ cursor: 'pointer', textDecoration: 'underline', fontSize: '20px' }} // Increased font size
+        >
+          Kids
+        </Link>
+        . Whether you're looking for the latest trends or timeless classics, we have something for
+        everyone. Our commitment to quality ensures that you get the best value for your money.
       </Typography>
-     
     </Box>
   );
 };

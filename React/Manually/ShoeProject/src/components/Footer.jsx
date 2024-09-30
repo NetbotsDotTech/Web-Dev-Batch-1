@@ -151,10 +151,10 @@ const Footer = () => {
 
       {/* Social Icons */}
       <Box sx={{display: 'flex', justifyContent: 'center', mt: 4 }}>
-        <IconButton sx={{color:"#ecf0f1"}} aria-label="Instagram" href="https://www.instagram.com">
+        <IconButton sx={{color:"#ecf0f1"}} aria-label="Instagram" href="https://www.instagram.com" target='_blank'>
           <InstagramIcon />
         </IconButton>
-        <IconButton sx={{color:"#ecf0f1"}} aria-label="Facebook" href="https://www.facebook.com">
+        <IconButton sx={{color:"#ecf0f1"}} aria-label="Facebook" href="https://www.facebook.com" target='_blank'>
           <FacebookIcon />
         </IconButton>
       </Box>

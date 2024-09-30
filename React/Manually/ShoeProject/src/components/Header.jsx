@@ -75,7 +75,7 @@ const Header = () => {
   }, [sentences]);
 
   const isHomePage = location.pathname === '/';
-  const isShopPage = location.pathname === '/shop';
+
 
   return (
     <AppBar position="fixed">
@@ -93,9 +93,9 @@ const Header = () => {
         />
 
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
-          <Button color="inherit" onClick={() => navigate('/shop/men')}>Men</Button>
-          <Button color="inherit" onClick={() => navigate('/shop/women')}>Women</Button>
-          <Button color="inherit" onClick={() => navigate('/shop/kids')}>Kids</Button>
+          <Button color="inherit" onClick={() => navigate('/men')}>Men</Button>
+          <Button color="inherit" onClick={() => navigate('/women')}>Women</Button>
+          <Button color="inherit" onClick={() => navigate('/kids')}>Kids</Button>
         </Box>
 
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -138,24 +138,17 @@ const Header = () => {
       </Toolbar>
 
       {isHomePage && (
-        <Box sx={{ backgroundColor: ' #7dcea0 ', p: 1 }}>
+        <Box sx={{ backgroundColor: '#7dcea0', p: 1 }}>
           <Typography variant="body1" align="center">
             {currentSentence}
           </Typography>
         </Box>
       )}
 
-      {isShopPage && (
-        <Box sx={{ backgroundColor: ' #7dcea0', p: 1 }}>
-          <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
-            <Button color="inherit" onClick={() => navigate('/shop/men')}>Men</Button>
-            <Button color="inherit" onClick={() => navigate('/shop/women')}>Women</Button>
-            <Button color="inherit" onClick={() => navigate('/shop/kids')}>Kids</Button>
-          </Box>
-        </Box>
-      )}
+   
     </AppBar>
   );
 };
 
 export default Header;
+

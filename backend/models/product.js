@@ -1,7 +1,4 @@
 import mongoose from "mongoose";
-
-import Review from "./review.js"
-
 // Product Schema
 const productSchema = new mongoose.Schema(
   {
