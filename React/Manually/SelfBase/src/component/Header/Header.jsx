@@ -8,12 +8,19 @@ import compareIcon from '../../assets/images/compare.png'
 import wishIcon from '../../assets/images/wishlist.png'
 import cartIcon from '../../assets/images/cart.png'
 import accountIcon from '../../assets/images/account.png'
+import setting from '../../assets/images/setting.png'
+import logout from '../../assets/images/logout.png'
+import location from '../../assets/images/location.png'
+import  ClickAwayListener from '@mui/material/ClickAwayListener'
+import Navigation from './nav/navigation.jsx'
+
 
 
 const Header = () => {
+    const [isOpenDropDwon, setIsOpenDropDwon]=useState(false)
     const [Categories, setCategories] = useState([
       
-        "Milks",
+        "Milks ",
         "Drinks",
         "Cloths",
         "Fresh SeaFood",
@@ -44,11 +51,11 @@ const [contryName,setContryName]=useState([
             <header>
                 <div className='container-fluid'>
                     <div className="row">
-                        <div className="col-sm-2">
-                            <img src={logo} alt="Not found" width={80} />
+                        <div className="col-sm-1">
+                            <img src={logo} alt="Not found" width={60} />
                         </div>
                         {/* Header Search Start here*/}
-                        <div className="col-sm-5">
+                        <div className="col-sm-6">
                             <div className="headerSearch flex align-items-center">
                                 <Select data={Categories} placeholder={"All Categories"} icon={false}/>
 
@@ -67,31 +74,50 @@ const [contryName,setContryName]=useState([
                       <div className="country">
                         <Select data={contryName} placeholder={"Your Location"} icon={ <LocationOnOutlinedIcon style={{opacity:0.7 }}/>}/>
                         </div>
-                        <div className="list list-inline mb-0 headerTabs">
+                        <ClickAwayListener onClickAway={()=>setIsOpenDropDwon(false)}>
+                        <ul className="list list-inline mb-0 headerTabs">
                             <li className='list-inline-item '>
-                                <span><img src={compareIcon} width={18} />
+                                <span className='cursor'><img src={compareIcon} width={18} />
                                 <span className='badge bg-success rounded-circle text-align-center'>3</span>
                                 Compare</span>
 
                             </li>
                             <li className='list-inline-item '>
-                                <span><img src={wishIcon} width={16} />
+                                <span className='cursor'><img src={wishIcon} width={16} />
                                 <span className='badge bg-success rounded-circle text-align-center'>3</span>
                                 Wishlist</span>
 
                             </li>
                             <li className='list-inline-item '>
-                                <span><img src={cartIcon} width={16} />
+                                <span className='cursor'><img src={cartIcon} width={16} />
                                 <span className='badge bg-success rounded-circle text-align-center'>4</span>
                                 Cart</span>
 
                             </li>
                             <li className='list-inline-item'>
-                                <span><img src={accountIcon} width={16} />
+                         
+                                <span onClick={()=>setIsOpenDropDwon(!isOpenDropDwon)} className='last cursor'><img src={accountIcon} width={16} />
                                 Account</span>
 
+                                {
+                                    isOpenDropDwon!==false &&
+                                <ul className='dropdownMenu'>
+                                    <li><button> <img src={accountIcon} width={22}/>My Account</button> </li>
+                                    <li><button><img src={location} width={25} />Order Tracking</button></li>
+                                    <li><button><img src={wishIcon} width={22} />My Wishlist</button></li>
+                                    <li><button><img src={setting} width={45} />Setting</button> </li>
+                                    <li><button><img src={logout} width={22} />Log-Out</button></li>
+
+
+
+
+                                </ul>
+                                }
+                                
+
                             </li>
-                        </div>
+                        </ul>
+                        </ClickAwayListener>
                       </div>
                         </div>
 
@@ -99,6 +125,7 @@ const [contryName,setContryName]=useState([
                 </div>
 
             </header>
+            <Navigation/>
         </div>
     )
 }

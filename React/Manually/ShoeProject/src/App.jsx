@@ -7,6 +7,8 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import Signup from './components/SignUp';
 import MenShoes from './components/Menshoes';
+import ProductDetail from './components/ProductDetail';
+import WomenShoes from './components/WomenShoes';
 
 
 
@@ -20,6 +22,10 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/men" element={<MenShoes />} />
+        <Route path="/women" element={<WomenShoes />} />
+
+        <Route path="/men/product/:productId" element={<ProductDetail />} />
+
 
 
 

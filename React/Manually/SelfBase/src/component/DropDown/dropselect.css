@@ -41,6 +41,7 @@
     font-size: 15px;
     width: 100%;
     padding: 4px;
+    border-radius: 10px;
 }
 .searchresult::-webkit-scrollbar{
     width: 8px;

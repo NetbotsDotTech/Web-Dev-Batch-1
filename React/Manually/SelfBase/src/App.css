@@ -11,3 +11,10 @@
     cursor: pointer;
 
 }
+.bg-g ,.bg-success{
+    background: #3bb77e;
+}
+.text-g{
+    color: #3bb77e;
+
+}

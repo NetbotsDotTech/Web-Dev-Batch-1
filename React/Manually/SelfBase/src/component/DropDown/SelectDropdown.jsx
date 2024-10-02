@@ -34,7 +34,7 @@ const SelectDropdown = ({data,placeholder,icon}) => {
    <ClickAwayListener onClickAway={()=>setIsOpen(false)}>
      <div className="selectDrop cursor">
      {icon}
-     <span className='openSelect' onClick={openSelect}>{selectItem} <KeyboardArrowDownIcon className='arrow cursor'/> </span>
+     <span className='openSelect' onClick={openSelect}>{selectItem  } <KeyboardArrowDownIcon className='arrow cursor'/> </span>
      {
       isOpen===true &&
       <div className='dropDown'>
