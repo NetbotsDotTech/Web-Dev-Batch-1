@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Card, CardContent, CardMedia, Grid, Typography, Button,Link } from '@mui/material';
 import Slider from 'react-slick';
 import '../css/CategoryCard.css';
+import { useNavigate } from 'react-router-dom';
 
 // Import images
 import image1 from '../assets/image/box1/shoes1.avif';
@@ -196,6 +197,7 @@ const sliderSettings = {
 };
 
 const CategoryCards = () => {
+  const navigate=useNavigate()
   return (
     <Box>
       {/* First Box - Three large cards */}
@@ -229,8 +231,8 @@ const CategoryCards = () => {
                 gap: 2,
               }}
             >
-              <Button sx={{ backgroundColor: 'white', color: 'black' }} >Shop Men</Button>
-              <Button sx={{ backgroundColor: 'white', color: 'black' }}>Shop Women</Button>
+              <Button sx={{ backgroundColor: 'white', color: 'black' }} onClick={()=>navigate('/men')}>Shop Men</Button>
+              <Button sx={{ backgroundColor: 'white', color: 'black' }} onClick={()=>navigate('/women')}>Shop Women</Button>
             </Box>
           </Card>
         ))}
@@ -271,6 +273,7 @@ const CategoryCards = () => {
           width: 100,
           position: 'relative',
           '&:hover .card-text': { opacity: 1 },
+          
         }}
       >
         <CardMedia
@@ -278,6 +281,7 @@ const CategoryCards = () => {
           image={category.image}
           alt={category.title}
           sx={{ height: '100%' }}
+          
         />
         <Box
           className="card-text"
@@ -347,8 +351,8 @@ const CategoryCards = () => {
           Meet the new Wool Piper Go—timeless design meets nature-made comfort.
         </Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
-          <Button sx={{ backgroundColor: 'white', color: 'black' }}>Shop Men</Button>
-          <Button sx={{ backgroundColor: 'white', color: 'black' }}>Shop Women</Button>
+          <Button sx={{ backgroundColor: 'white', color: 'black' }} onClick={()=>navigate('/men')}>Shop Men</Button>
+          <Button sx={{ backgroundColor: 'white', color: 'black' }}  onClick={()=>navigate('/women')}>Shop Women</Button>
         </Box>
       </Box>
     </Box>
@@ -413,8 +417,8 @@ const CategoryCards = () => {
                 gap: 2,
               }}
             >
-              <Button sx={{ backgroundColor: 'white', color: 'black' }}>Shop Men</Button>
-              <Button sx={{ backgroundColor: 'white', color: 'black' }}>Shop Women</Button>
+              <Button sx={{ backgroundColor: 'white', color: 'black' }} onClick={()=>navigate('/men')}>Shop Men</Button>
+              <Button sx={{ backgroundColor: 'white', color: 'black' }}  onClick={()=>navigate('/women')}>Shop Women</Button>
             </Box>
           </Card>
         </Grid>

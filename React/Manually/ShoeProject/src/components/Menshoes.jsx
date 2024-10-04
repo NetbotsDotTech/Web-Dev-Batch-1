@@ -4,6 +4,55 @@ import { useSearchParams, useNavigate } from 'react-router-dom'; // For URL hand
 import shoesImage from '../assets/image/box1/shoes1.avif';
 import shoes2 from '../assets/image/backgroundImage/bg4.avif';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'; // New Icon Import
+// import images
+import card11 from '../assets/image/card/card1/1.avif'
+import card12 from '../assets/image/card/card1/2.avif'
+import card13 from '../assets/image/card/card1/3.avif'
+import card14 from '../assets/image/card/card1/4.avif'
+import card21 from '../assets/image/card/card2/1.avif'
+import card22 from '../assets/image/card/card2/2.avif'
+import card23 from '../assets/image/card/card2/3.avif'
+import card24 from '../assets/image/card/card2/4.avif'
+import card31 from '../assets/image/card/card3/1.avif'
+import card32 from '../assets/image/card/card3/2.avif'
+import card33 from '../assets/image/card/card3/3.avif'
+import card34 from '../assets/image/card/card3/4.avif'
+import card41 from '../assets/image/card/card4/1.avif'
+import card42 from '../assets/image/card/card4/2.avif'
+import card43 from '../assets/image/card/card4/3.avif'
+import card44 from '../assets/image/card/card4/4.avif'
+import card51 from '../assets/image/card/card5/1.avif'
+import card52 from '../assets/image/card/card5/2.avif'
+import card53 from '../assets/image/card/card5/3.avif'
+import card54 from '../assets/image/card/card5/4.avif'
+import card61 from '../assets/image/card/card6/1.avif'
+import card62 from '../assets/image/card/card6/2.avif'
+import card63 from '../assets/image/card/card6/3.avif'
+import card64 from '../assets/image/card/card6/4.avif'
+import card71 from '../assets/image/card/card7/1.avif'
+import card72 from '../assets/image/card/card7/2.avif'
+import card73 from '../assets/image/card/card7/3.avif'
+import card74 from '../assets/image/card/card7/4.avif'
+import card81 from '../assets/image/card/card8/1.avif'
+import card82 from '../assets/image/card/card8/2.avif'
+import card83 from '../assets/image/card/card8/3.avif'
+import card84 from '../assets/image/card/card8/4.avif'
+import card91 from '../assets/image/card/card9/1.avif'
+import card92 from '../assets/image/card/card9/2.avif'
+import card93 from '../assets/image/card/card9/3.avif'
+import card94 from '../assets/image/card/card9/4.avif'
+import card101 from '../assets/image/card/card10/1.avif'
+import card102 from '../assets/image/card/card10/2.avif'
+import card103 from '../assets/image/card/card10/3.avif'
+import card104 from '../assets/image/card/card10/4.avif'
+import card111 from '../assets/image/card/card11/1.avif'
+import card112 from '../assets/image/card/card11/2.avif'
+import card113 from '../assets/image/card/card11/3.avif'
+import card114 from '../assets/image/card/card11/4.avif'
+import card121 from '../assets/image/card/card12/1.avif'
+import card122 from '../assets/image/card/card12/2.avif'
+import card123 from '../assets/image/card/card12/3.avif'
+import card124 from '../assets/image/card/card12/4.avif'
 
 // Styled components
 const Thumbnail = styled('img')(({ theme }) => ({
@@ -85,41 +134,27 @@ const MenShoes = () => {
 
   useEffect(() => {
     const dummyProducts = [
-      { id: 1, title: 'Running Shoes', price: '5000 PKR', images: [shoesImage, shoesImage, shoesImage, shoes2], availableSizes: ['5', '6', '7', '8', '9', '10'], color: 'Red', category: 'Men' },
-      { id: 2, title: 'Hiking Boots', price: '7500 PKR', images: [shoesImage, shoesImage, shoesImage, shoesImage], availableSizes: ['8', '9', '10', '11'], color: 'Black', category: 'Men' },
-      { id: 3, title: 'Casual Sneakers', price: '4000 PKR', images: [shoesImage], availableSizes: ['6', '7', '8', '9'], color: 'Blue', category: 'Women' },
-      { id: 4, title: 'Basketball Shoes', price: '6000 PKR', images: [shoesImage, shoesImage], availableSizes: ['7', '8', '9', '10', '11'], color: 'White', category: 'Men' },
-      { id: 5, title: 'Trail Running Shoes', price: '5500 PKR', images: [shoesImage, shoes2], availableSizes: ['5', '6', '7', '8'], color: 'Green', category: 'Men' },
-      { id: 6, title: 'Formal Loafers', price: '4500 PKR', images: [shoesImage], availableSizes: ['8', '9', '10', '11'], color: 'Brown', category: 'Men' },
-      { id: 7, title: 'Flat Sandals', price: '3000 PKR', images: [shoesImage], availableSizes: ['6', '7', '8'], color: 'Tan', category: 'Women' },
-      { id: 8, title: 'High Top Sneakers', price: '6500 PKR', images: [shoesImage, shoes2], availableSizes: ['7', '8', '9', '10'], color: 'Black', category: 'Men' },
-      { id: 9, title: 'Ballet Flats', price: '3500 PKR', images: [shoesImage], availableSizes: ['5', '6', '7'], color: 'Pink', category: 'Women' },
-      { id: 10, title: 'Slip-On Sneakers', price: '4000 PKR', images: [shoesImage], availableSizes: ['7', '8', '9'], color: 'Gray', category: 'Women' },
-      { id: 11, title: 'Outdoor Sandals', price: '3800 PKR', images: [shoesImage, shoesImage], availableSizes: ['8', '9', '10'], color: 'Beige', category: 'Men' },
-      { id: 12, title: 'Fitness Shoes', price: '5200 PKR', images: [shoesImage], availableSizes: ['6', '7', '8', '9'], color: 'Black', category: 'Women' },
-      { id: 13, title: 'Canvas Shoes', price: '3200 PKR', images: [shoesImage, shoes2], availableSizes: ['5', '6', '7'], color: 'Navy', category: 'Men' },
-      { id: 14, title: 'Combat Boots', price: '8000 PKR', images: [shoesImage], availableSizes: ['9', '10', '11'], color: 'Olive', category: 'Men' },
-      { id: 15, title: 'Wedge Sneakers', price: '7000 PKR', images: [shoesImage], availableSizes: ['6', '7', '8'], color: 'White', category: 'Women' },
-      { id: 16, title: 'Running Sandals', price: '3900 PKR', images: [shoesImage], availableSizes: ['7', '8', '9'], color: 'Black', category: 'Men' },
-      { id: 17, title: 'Knee-High Boots', price: '8500 PKR', images: [shoesImage, shoes2], availableSizes: ['7', '8', '9'], color: 'Brown', category: 'Women' },
-      { id: 18, title: 'Dress Shoes', price: '6000 PKR', images: [shoesImage], availableSizes: ['8', '9', '10'], color: 'Black', category: 'Men' },
-      { id: 19, title: 'Platform Sandals', price: '4800 PKR', images: [shoesImage], availableSizes: ['6', '7', '8'], color: 'Red', category: 'Women' },
-      { id: 20, title: 'Snow Boots', price: '9000 PKR', images: [shoesImage], availableSizes: ['8', '9', '10'], color: 'Gray', category: 'Men' },
-      { id: 21, title: 'Leather Sneakers', price: '6200 PKR', images: [shoesImage], availableSizes: ['6', '7', '8', '9'], color: 'Brown', category: 'Women' },
-      { id: 22, title: 'Waterproof Boots', price: '7700 PKR', images: [shoesImage], availableSizes: ['8', '9', '10', '11'], color: 'Black', category: 'Men' },
-      { id: 23, title: 'Dress Sandals', price: '4400 PKR', images: [shoesImage], availableSizes: ['5', '6', '7', '8'], color: 'Silver', category: 'Women' },
-      { id: 24, title: 'Suede Sneakers', price: '5100 PKR', images: [shoesImage, shoes2], availableSizes: ['5', '6', '7'], color: 'Beige', category: 'Women' },
-      { id: 25, title: 'Track Shoes', price: '5800 PKR', images: [shoesImage], availableSizes: ['9', '10', '11'], color: 'Red', category: 'Men' },
-      { id: 26, title: 'Ankle Boots', price: '6500 PKR', images: [shoesImage], availableSizes: ['7', '8', '9'], color: 'Gray', category: 'Women' },
+      { id: 1, title: 'Running Shoes', price: '5000 PKR', images: [card11, card12, card13, card14], availableSizes: ['5', '6', '7', '8', '9', '10'], color: 'Red', category: 'Young' },
+      { id: 2, title: 'Hiking Boots', price: '7500 PKR', images: [card21, card22, card23, card24], availableSizes: ['8', '9', '10', '11'], color: 'Black', category: 'Old' },
+      { id: 3, title: 'Casual Sneakers', price: '4000 PKR', images: [card31,card32,card33,card34], availableSizes: ['6', '7', '8', '9'], color: 'Blue', category: 'Young' },
+      { id: 4, title: 'Basketball Shoes', price: '6000 PKR', images: [card41, card42,card43,card44], availableSizes: ['7', '8', '9', '10', '11'], color: 'White', category: 'Old' },
+      { id: 5, title: 'Trail Running Shoes', price: '5500 PKR', images: [card51, card52,card53,card54], availableSizes: ['5', '6', '7', '8'], color: 'Green', category: 'Young' },
+      { id: 6, title: 'Formal Loafers', price: '4500 PKR', images: [card61,card62,card63,card64], availableSizes: ['8', '9', '10', '11'], color: 'Brown', category: 'Old' },
+      { id: 7, title: 'Flat Sandals', price: '3000 PKR', images: [card71,card72,card73,card74], availableSizes: ['6', '7', '8'], color: 'Tan', category: 'Young' },
+      { id: 8, title: 'High Top Sneakers', price: '6500 PKR', images: [card81, card82,card83,card84], availableSizes: ['7', '8', '9', '10'], color: 'Black', category: 'Young' },
+      { id: 9, title: 'Ballet Flats', price: '3500 PKR', images: [card91,card92,card93,card94], availableSizes: ['5', '6', '7'], color: 'Pink', category: 'Old' },
+      { id: 10, title: 'Slip-On Sneakers', price: '4000 PKR', images: [card101,card102,card103,card104], availableSizes: ['7', '8', '9'], color: 'Gray', category: 'Young' },
+      { id: 11, title: 'Outdoor Sandals', price: '3800 PKR', images: [card111, card112,card113,card114], availableSizes: ['8', '9', '10'], color: 'Beige', category: 'Old' },
+      { id: 12, title: 'Fitness Shoes', price: '5200 PKR', images: [card121,card122,card123,card124], availableSizes: ['6', '7', '8', '9'], color: 'Black', category: 'Old' },
+     
     ];
-    
     setProducts(dummyProducts);
   }, []);
 
   const colors = ['Grey', 'Black', 'Beige', 'Blue', 'Red', 'White', 'Gray', 'Purple'];
 
   const filteredProducts = products.filter(product =>
-    product.category === (isMenSelected ? 'Men' : 'Women') &&
+    product.category === (isMenSelected ? 'Young' : 'Old') &&
     (selectedSize ? product.availableSizes.includes(selectedSize) : true) &&
     (selectedColor ? product.color === selectedColor : true)
   );
@@ -205,13 +240,13 @@ const MenShoes = () => {
           {/* Switch for Men/Women */}
           <CustomSwitch onClick={() => setIsMenSelected(!isMenSelected)} isMenSelected={isMenSelected}>
             <Box className="switch" />
-            <Typography className={`label label-men`}>Men</Typography>
-            <Typography className={`label label-women`}>Women</Typography>
+            <Typography className={`label label-men`}>Young</Typography>
+            <Typography className={`label label-women`}>Old</Typography>
           </CustomSwitch>
         </Box>
 
         <Typography variant="h4" mt={2} mb={2}>
-          {isMenSelected ? 'Men\'s Shoes' : 'Women\'s Shoes'}
+          {isMenSelected ? 'Young\'s Shoes' : 'Old\'s Shoes'}
         </Typography>
 
         <Grid container spacing={2}>

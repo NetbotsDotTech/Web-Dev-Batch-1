@@ -9,12 +9,16 @@ import Signup from './components/SignUp';
 import MenShoes from './components/Menshoes';
 import ProductDetail from './components/ProductDetail';
 import WomenShoes from './components/WomenShoes';
+import CartPage from './components/CartPage';
+import { ProductProvider } from './context/ProductProvider';
 
 
 
 const App = () => {
   return (
-    <Router>
+
+
+<Router>
       <Header />
       <Routes>
         {/* Define routes that point to existing components */}
@@ -23,6 +27,7 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/men" element={<MenShoes />} />
         <Route path="/women" element={<WomenShoes />} />
+        <Route path="/men/product/:productId/ViewCard" element={<CartPage />} />
 
         <Route path="/men/product/:productId" element={<ProductDetail />} />
 
@@ -36,6 +41,8 @@ const App = () => {
       </Routes>
       <Footer/>
     </Router>
+    
+    
   );
 };
 
