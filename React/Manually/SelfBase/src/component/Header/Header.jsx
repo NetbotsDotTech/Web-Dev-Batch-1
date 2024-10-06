@@ -46,8 +46,9 @@ const [contryName,setContryName]=useState([
     'Japan',
     'Sudia'
 ])
+
     return (
-        <div>
+        <div className='headerWrapper'>
             <header>
                 <div className='container-fluid'>
                     <div className="row">

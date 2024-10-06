@@ -18,3 +18,11 @@
     color: #3bb77e;
 
 }
+.hd{
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+.transition{
+    transition: all 0.3s ease-in-out;
+}

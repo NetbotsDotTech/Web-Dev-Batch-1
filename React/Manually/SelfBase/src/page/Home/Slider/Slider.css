@@ -6,5 +6,104 @@
 .home_slider_main{
     border-radius: 25px;
     overflow: hidden;
+    position: relative;
     
+}
+.slick-arrow{
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    z-index: 1000;
+}
+.slick-arrow.slick-next{
+
+    right: 250em;
+}
+.slick-arrow.slick-prev{
+
+    left: 250em;
+  
+}
+.slick-arrow.slick-next:hover{
+    background-color: #3bb77e;
+}
+.slick-arrow.slick-prev:hover{
+    background-color: #3bb77e;
+}
+.home_slider_main .slick-dots{
+    position: absolute;
+    bottom: 30px;
+}
+.home_slider_main .slick-dots button::before{
+    width: 50px !important ;
+    height: 50px !important;
+    font-size: 16px;
+   
+}
+.slick-active button::before{
+     color: #3bb77e !important;
+}
+.home_slider_main .item{
+    position: relative;
+}
+.home_slider_main .item .info{
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    z-index: 100;
+}
+
+.home_slider_main .item .info h2{
+    font-size: 45px ;   
+    font-weight: bold; 
+    color: rgba(0,0,0,0.8);
+}
+.home_slider_main .item .info p{
+    font-size: 25px ;   
+    font-weight: 600; 
+    color:#100e0e;
+}
+.homeSlider .newsletter{
+    width: 600px;
+    height: 50px;
+    position: absolute;
+    bottom: 70px;
+    left: 11%;
+    z-index: 10;
+    
+}
+.homeSlider .newsletter input{
+        width: 80%;
+        height: 100%;
+        background-color: #fff;
+        border-radius: 30px;
+        border: 0px;
+        outline: none;
+        padding-left: 50px ;
+        padding-right: 140px;
+        font-size: 20px;
+}
+.homeSlider .newsletter Button{
+    padding: 10px 40px !important;
+    border-radius: 50px !important;
+    color: #fff ;
+    position: absolute;
+    right: 80px;
+    top: 0px;
+    height: 50px;
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: capitalize;
+
+}
+.homeSlider .newsletter svg{
+        position: absolute;
+        top: 13px;
+        left: 15px;
+        z-index: 10;
+        transform: rotate(-21deg);
+        opacity: 0.5;
 }
