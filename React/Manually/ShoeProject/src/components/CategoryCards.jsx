@@ -187,10 +187,10 @@ const arrowStyle = {
 };
 
 const sliderSettings = {
-  dots: true,
+  dots: false,
   infinite: false,
   speed: 500,
-  slidesToShow: 3,
+  slidesToShow: 2,
   slidesToScroll: 1,
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />,
@@ -231,8 +231,8 @@ const CategoryCards = () => {
                 gap: 2,
               }}
             >
-              <Button sx={{ backgroundColor: 'white', color: 'black' }} onClick={()=>navigate('/men')}>Shop Men</Button>
-              <Button sx={{ backgroundColor: 'white', color: 'black' }} onClick={()=>navigate('/women')}>Shop Women</Button>
+              <Button sx={{ backgroundColor: 'white', color: 'black' }} onClick={()=>navigate('/Service')}>Shop Now</Button>
+              
             </Box>
           </Card>
         ))}
@@ -273,8 +273,10 @@ const CategoryCards = () => {
           width: 100,
           position: 'relative',
           '&:hover .card-text': { opacity: 1 },
+        
           
         }}
+        
       >
         <CardMedia
           component="img"
@@ -351,8 +353,7 @@ const CategoryCards = () => {
           Meet the new Wool Piper Go—timeless design meets nature-made comfort.
         </Typography>
         <Box sx={{ display: 'flex', gap: 2 }}>
-          <Button sx={{ backgroundColor: 'white', color: 'black' }} onClick={()=>navigate('/men')}>Shop Men</Button>
-          <Button sx={{ backgroundColor: 'white', color: 'black' }}  onClick={()=>navigate('/women')}>Shop Women</Button>
+        <Button sx={{ backgroundColor: 'white', color: 'black' }} onClick={()=>navigate('/Service')}>Shop Now</Button>
         </Box>
       </Box>
     </Box>
@@ -417,8 +418,7 @@ const CategoryCards = () => {
                 gap: 2,
               }}
             >
-              <Button sx={{ backgroundColor: 'white', color: 'black' }} onClick={()=>navigate('/men')}>Shop Men</Button>
-              <Button sx={{ backgroundColor: 'white', color: 'black' }}  onClick={()=>navigate('/women')}>Shop Women</Button>
+             <Button sx={{ backgroundColor: 'white', color: 'black' }} onClick={()=>navigate('/Service')}>Shop Now</Button>
             </Box>
           </Card>
         </Grid>
@@ -435,7 +435,7 @@ const CategoryCards = () => {
         <Typography variant="h5" sx={{ mb: 1,textAlign: 'left',position:"relative",top:40 ,mx:5,fontWeight:"bold" }}>
           More to Shop
         </Typography>
-        <Link sx={{ mx: 1,fontSize:25, fontFamily:"sans-serif", fontWeight:"bold",color:"#333" , textDecoration:"none" ,cursor:"pointer"}}>
+        <Link sx={{ mx: 1,fontSize:25, fontFamily:"sans-serif", fontWeight:"bold",color:"#333" , textDecoration:"none" ,cursor:"pointer"}} >
           Men
         </Link>
         <Link sx={{ mx: 3,fontSize:25, fontFamily:"sans-serif", fontWeight:"bold",color:"#333" , textDecoration:"none" ,cursor:"pointer"}}>

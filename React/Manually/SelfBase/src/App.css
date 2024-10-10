@@ -26,3 +26,13 @@
 .transition{
     transition: all 0.3s ease-in-out;
 }
+.price{
+    font-size: 20px;
+    margin-right: 10px;
+}
+ .oldPrice{
+    font-size: 16px;
+    color: #000;
+    text-decoration: line-through;
+    opacity: 0.6;
+}

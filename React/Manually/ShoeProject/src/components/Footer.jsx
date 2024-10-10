@@ -3,6 +3,7 @@ import { Grid, Typography, Link, IconButton, Box } from '@mui/material';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import "../css/footerCss.css"
+import  WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const Footer = () => {
   return (
@@ -52,21 +53,7 @@ const Footer = () => {
               Women's Shoes
             </Link>
           </Typography>
-          <Typography variant="body1">
-            <Link id="textDecoration"  href="#" color="inherit">
-              Kid's Shoes
-            </Link>
-          </Typography>
-          <Typography variant="body1">
-            <Link id="textDecoration"  href="#" color="inherit">
-              Girl's Shoes
-            </Link>
-          </Typography>
-          <Typography variant="body1">
-            <Link id="textDecoration"  href="#" color="inherit">
-              Boy's Shoes
-            </Link>
-          </Typography>
+          
         </Grid>
 
         {/* Company Section */}
@@ -79,11 +66,7 @@ const Footer = () => {
               Our Stores
             </Link>
           </Typography>
-          <Typography variant="body1">
-            <Link id="textDecoration"  href="#" color="inherit">
-              Our Story
-            </Link>
-          </Typography>
+          
           <Typography variant="body1">
             <Link id="textDecoration"  href="#" color="inherit">
               Our Materials
@@ -95,27 +78,8 @@ const Footer = () => {
               Investors
             </Link>
           </Typography>
-          <Typography variant="body1">
-            <Link id="textDecoration"  href="#" color="inherit">
-              Shoe Care
-            </Link>
-          </Typography>
-        
-          <Typography variant="body1">
-            <Link id="textDecoration"  href="#" color="inherit">
-              Bulk Orders
-            </Link>
-          </Typography>
-          <Typography variant="body1">
-            <Link id="textDecoration"  href="#" color="inherit">
-              Careers
-            </Link>
-          </Typography>
-          <Typography variant="body1">
-            <Link id="textDecoration"  href="#" color="inherit">
-              Press
-            </Link>
-          </Typography>
+         
+
         </Grid>
 
         {/* Additional Links */}
@@ -151,6 +115,9 @@ const Footer = () => {
 
       {/* Social Icons */}
       <Box sx={{display: 'flex', justifyContent: 'center', mt: 4 }}>
+      <IconButton sx={{color:"#ecf0f1"}} aria-label="Instagram" href="https://www.whatsapp.com" target='_blank'>
+          <WhatsAppIcon/>
+        </IconButton>
         <IconButton sx={{color:"#ecf0f1"}} aria-label="Instagram" href="https://www.instagram.com" target='_blank'>
           <InstagramIcon />
         </IconButton>

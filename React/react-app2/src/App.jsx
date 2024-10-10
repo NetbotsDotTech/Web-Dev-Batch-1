@@ -1,25 +1,33 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Home from './components/Home';
-import Service from './components/Services';
-import AboutUs from './components/AboutUs';
-import ContactUs from './components/ContactUs';
-import Footer from './components/Footer';
+import Header from './component/Header';
+import Home from './component/Home';
+import Service from './component/Service';
+import About from './About';
+import Contact from './Contact';
+import ProductDetail from './ProductDetail';
+import CartPage from './CartPage';
+import Checkout from './Checkout';
+import { ProductProvider } from './context/Cartcontext';
 
-const App = () => {
+
+function App() {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/service" element={<Service />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/contact-us" element={<ContactUs />} />
-      </Routes>
-      <Footer />
-    </Router>
+   <ProductProvider>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/service" element={<Service />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<Checkout />} />
+        </Routes>
+      </Router>
+      </ProductProvider>
+    
   );
-};
+}
 
 export default App;

@@ -111,16 +111,7 @@
 .productThumb .brand a{
     text-decoration: none;
 }
-.productThumb .price{
-    font-size: 20px;
-    margin-right: 20px;
-}
-.productThumb .oldPrice{
-    font-size: 16px;
-    color: #000;
-    text-decoration: line-through;
-    opacity: 0.6;
-}
+
 .productThumb button{
     position: absolute;
     right: 3px;
@@ -132,4 +123,5 @@
 .productThumb button:hover{
     background-color: #3bb77e;
     color: #fff;
+    
 }

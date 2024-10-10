@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
   Box,
   Button,
@@ -12,25 +12,13 @@ import {
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import CloseIcon from '@mui/icons-material/Close';
-import image from '../assets/image/card/card4/1.avif';
-import image1 from '../assets/image/card/card4/2.avif';
-import CartPage from './CartPage.jsx';
-
-
-// Mock product data
-const productData = {
-  images: [image, image1],
-  title: 'Stylish Product',
-  price: 5000,
-  rating: 4.27,
-  totalRatings: 107,
-};
-
-const sizes = [8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14];
 
 const ProductDetail = () => {
+  const location=useLocation()
+  const data=location.state[0]
+  const {  availableSizes,color,id,images=[],price,title,rating,description}=data;
   const navigate=useNavigate()
-  const [selectedImage, setSelectedImage] = useState(productData.images[0]);
+  const [selectedImage, setSelectedImage] = useState(images[2]);
   const [selectedSize, setSelectedSize] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -43,6 +31,9 @@ const ProductDetail = () => {
       setModalOpen(true);
     }
   };
+  const handleClick=()=>{
+    const selectedData=location
+  }
 
   return (
     <Box sx={{ padding: 3, backgroundColor: '#f5f5f5', height: '100vh' }}>
@@ -65,13 +56,13 @@ const ProductDetail = () => {
           />
           <IconButton
             sx={{ position: 'absolute', bottom: 10, right: 50, backgroundColor: 'white', '&:hover': { backgroundColor: '#e0e0e0' } }}
-            onClick={() => handleImageClick(productData.images[(productData.images.indexOf(selectedImage) - 1 + productData.images.length) % productData.images.length])}
+            onClick={() => handleImageClick(images[(images.indexOf(selectedImage) - 1 + images.length) % images.length])}
           >
             <ChevronLeftIcon />
           </IconButton>
           <IconButton
             sx={{ position: 'absolute', bottom: 10, right: 10, backgroundColor: 'white', '&:hover': { backgroundColor: '#e0e0e0' } }}
-            onClick={() => handleImageClick(productData.images[(productData.images.indexOf(selectedImage) + 1) % productData.images.length])}
+            onClick={() => handleImageClick(images[(images.indexOf(selectedImage) + 1) % images.length])}
           >
             <ChevronRightIcon />
           </IconButton>
@@ -81,20 +72,29 @@ const ProductDetail = () => {
       {/* Product Details Row */}
       <Box sx={{ marginTop: 2, backgroundColor: 'white', borderRadius: '5px', padding: 2, boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)' }}>
         <Typography variant="body1" sx={{ color: '#666' }}>
-          URL: /path/to/current
+          {
+          `/product/:productId ${id}`
+          
+          }
         </Typography>
-        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 1 }}>{productData.title}</Typography>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', marginTop: 1 }}>{title||'basit'}</Typography>
         <Typography variant="body1" sx={{ marginTop: 1 }}>
-          Price: {productData.price} PKR (Free Shipping)
+          Price: {price} PKR
         </Typography>
         <Typography variant="body1" sx={{ marginTop: 1 }}>
-          Rating: {productData.rating} Stars ({productData.totalRatings})
+          Rating: {rating}  
+        </Typography>
+        <Typography variant="body1" sx={{ marginTop: 1 }}>
+          Color: {color}  
+        </Typography>
+        <Typography variant="body1" sx={{ marginTop: 1 }}>
+        description: {description}  
         </Typography>
 
         {/* Size Selection */}
         <Typography variant="body1" sx={{ marginTop: 2 }}>Select Size:</Typography>
         <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginTop: 1 }}>
-          {sizes.map((size) => (
+          {availableSizes .map((size) => (
             <Button
               key={size}
               variant="outlined"
@@ -151,15 +151,15 @@ const ProductDetail = () => {
             <Box>
               <Typography variant="body1">Product Image:</Typography>
               <img src={selectedImage} alt="Product" style={{ width: 100, height: 100, marginTop: 5 }} />
-              <Typography variant="body1">{productData.title}</Typography>
-              <Typography variant="body1">Price: {productData.price} PKR</Typography>
+              <Typography variant="body1">{title}</Typography>
+              <Typography variant="body1">Price: {price} PKR </Typography>
               <Typography variant="body1">Size: {selectedSize}</Typography>
             </Box>
             <Box>
               <Typography variant="h6">Subtotal</Typography>
-              <Typography variant="body1">{productData.price} PKR</Typography>
+              <Typography variant="body1">{price} PKR </Typography>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: 2 }}>
-                <Button variant="outlined" sx={{ marginRight: 1 }} onClick={()=>navigate('/men/product/:productId/ViewCard')}>View Cart & Checkout </Button>
+                <Button variant="outlined" sx={{ marginRight: 1 }} onClick={()=>navigate('/service/product/:productId/Cart',{state:data})}>View Cart & Checkout </Button>
                 <Button variant="contained">Continue Shopping</Button>
               </Box>
             </Box>

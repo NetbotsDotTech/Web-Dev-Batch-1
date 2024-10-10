@@ -30,7 +30,7 @@ const HeroSection = () => {
   };
 
   return (
-    <Box
+    <Box          
       className="Box"
       sx={{
         textAlign: 'center',
@@ -58,25 +58,19 @@ const HeroSection = () => {
       <Typography variant="body1" sx={{ mb: 4, maxWidth: '600px' }}>
         Explore our wide range of high-quality products. We offer the best selection of goods for{' '}
         <Link
-          onClick={() => handleNavigate('/men')}
+          onClick={() => handleNavigate('/Service')}
           sx={{ cursor: 'pointer', textDecoration: 'underline', fontSize: '20px' }} // Increased font size
         >
-          Men
+Men 
         </Link>
-        ,{' '}
+        and {' '}
         <Link
-          onClick={() => handleNavigate('/women')}
+          onClick={() => handleNavigate('/Service')}
           sx={{ cursor: 'pointer', textDecoration: 'underline', fontSize: '20px' }} // Increased font size
         >
           Women
         </Link>
-        , and{' '}
-        <Link
-          onClick={() => handleNavigate('/kids')}
-          sx={{ cursor: 'pointer', textDecoration: 'underline', fontSize: '20px' }} // Increased font size
-        >
-          Kids
-        </Link>
+
         . Whether you're looking for the latest trends or timeless classics, we have something for
         everyone. Our commitment to quality ensures that you get the best value for your money.
       </Typography>

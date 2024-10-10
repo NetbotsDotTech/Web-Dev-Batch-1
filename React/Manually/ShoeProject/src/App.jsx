@@ -6,18 +6,19 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Signup from './components/SignUp';
-import MenShoes from './components/Menshoes';
 import ProductDetail from './components/ProductDetail';
-import WomenShoes from './components/WomenShoes';
 import CartPage from './components/CartPage';
-import { ProductProvider } from './context/ProductProvider';
+import Service from './components/Service';
+import ContactPage from './components/ContactPage';
+import AboutUsPage from './components/AboutUsPage';
+import Checkout from './components/Checkout';
+import { CartProvider } from './components/ReactContext';
 
 
 
 const App = () => {
   return (
-
-
+<CartProvider>
 <Router>
       <Header />
       <Routes>
@@ -25,23 +26,17 @@ const App = () => {
         <Route path="/" element={<Home/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/men" element={<MenShoes />} />
-        <Route path="/women" element={<WomenShoes />} />
-        <Route path="/men/product/:productId/ViewCard" element={<CartPage />} />
-
-        <Route path="/men/product/:productId" element={<ProductDetail />} />
-
-
-
-
+        <Route path="/service" element={<Service/>} />
+        <Route path="/contact" element={<ContactPage/>} />
+        <Route path="/about" element={<AboutUsPage/>} />
+        <Route path='/service/product/:productId/Cart' element={<CartPage />} />  
+        <Route path="/service/product/:productId" element={<ProductDetail />} />
+        <Route path="/checkout" element={<Checkout />} />
         
-
-
-
       </Routes>
       <Footer/>
     </Router>
-    
+    </CartProvider>
     
   );
 };

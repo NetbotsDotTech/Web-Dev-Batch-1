@@ -32,10 +32,8 @@ export const addProduct=async(req,res)=>{
 
 export const getProductById=async(req,res)=>{
     const {id}=req.params;
-    console.log(id)
 
     try {
-        // const productDetail=req.body;
         const getProduct= await Product.findById(id)
         res.status(200).json({
             message:`You get data with the help this id ${getProduct.id}`,
@@ -90,7 +88,7 @@ export const updateProduct = async (req, res) => {
                 description: description || "No description", 
                 category: category || "Uncategorized" 
             }, 
-            { new: true, runValidators: true }  
+            { new: true}  
         );
 
         if (!updatedProduct) {

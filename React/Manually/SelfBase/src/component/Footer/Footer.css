@@ -1,0 +1,13 @@
+.footerWrapper{
+    padding: 45px 0px;
+    width: 100%;
+}
+.footerWrapper .footerBoxes .box{
+    background-color: #f4f6fa;
+    padding: 15px 25px;
+    border-radius: 10px;
+
+}
+.footerWrapper .footerBoxes .box .info{
+    padding-left: 25px;
+}

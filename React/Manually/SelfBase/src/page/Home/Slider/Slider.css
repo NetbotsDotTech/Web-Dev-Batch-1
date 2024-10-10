@@ -19,12 +19,14 @@
     z-index: 1000;
 }
 .slick-arrow.slick-next{
+    background-color: gray;
 
     right: 250em;
 }
 .slick-arrow.slick-prev{
 
     left: 250em;
+    background-color: gray;
   
 }
 .slick-arrow.slick-next:hover{
@@ -65,45 +67,4 @@
     font-size: 25px ;   
     font-weight: 600; 
     color:#100e0e;
-}
-.homeSlider .newsletter{
-    width: 600px;
-    height: 50px;
-    position: absolute;
-    bottom: 70px;
-    left: 11%;
-    z-index: 10;
-    
-}
-.homeSlider .newsletter input{
-        width: 80%;
-        height: 100%;
-        background-color: #fff;
-        border-radius: 30px;
-        border: 0px;
-        outline: none;
-        padding-left: 50px ;
-        padding-right: 140px;
-        font-size: 20px;
-}
-.homeSlider .newsletter Button{
-    padding: 10px 40px !important;
-    border-radius: 50px !important;
-    color: #fff ;
-    position: absolute;
-    right: 80px;
-    top: 0px;
-    height: 50px;
-    font-size: 17px;
-    font-weight: 600;
-    text-transform: capitalize;
-
-}
-.homeSlider .newsletter svg{
-        position: absolute;
-        top: 13px;
-        left: 15px;
-        z-index: 10;
-        transform: rotate(-21deg);
-        opacity: 0.5;
 }

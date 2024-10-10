@@ -4,7 +4,8 @@ import './Slider.css';
 import sliderImage from '../../../assets/images/slider/main1.png'
 import sliderImage2 from '../../../assets/images/slider/main2.jpg'
 import { Button } from '@mui/material';
-import SendOutlinedIcon from '@mui/icons-material/SendOutlined'
+import InputTag from '../../../component/InputInSlider/InputTag';
+
 
 export default function SimpleSlider() {
   var settings = {
@@ -13,7 +14,9 @@ export default function SimpleSlider() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows:true
+    arrows:true,
+    autoplay:2000,
+    centerMood:true
   };
   return (
     <section className="homeSlider">
@@ -39,11 +42,8 @@ export default function SimpleSlider() {
 
 
 </Slider>
-    <div className="newsletter">
-      <SendOutlinedIcon/>
-      <input type="text"  placeholder='Your Email Address'/>
-      <Button className='bg-success'>Subscribe</Button>
-    </div>
+<InputTag/>
+   
       </div>
     </section>
   );

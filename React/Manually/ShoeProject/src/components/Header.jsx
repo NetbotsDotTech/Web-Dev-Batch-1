@@ -93,9 +93,10 @@ const Header = () => {
         />
 
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
-          <Button color="inherit" onClick={() => navigate('/men')}>Men</Button>
-          <Button color="inherit" onClick={() => navigate('/women')}>Women</Button>
-          <Button color="inherit" onClick={() => navigate('/kids')}>Kids</Button>
+        <Button color="inherit" onClick={() => navigate('/')}>Home</Button>
+          <Button color="inherit" onClick={() => navigate('/service')}>Service</Button>
+          <Button color="inherit" onClick={() => navigate('/about')}>About</Button>
+          <Button color="inherit" onClick={() => navigate('/contact')}>Contact</Button>
         </Box>
 
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -108,10 +109,9 @@ const Header = () => {
             <Search />
           </IconButton>
 
-          <IconButton size="large" aria-label="show cart items" color="inherit" onClick={handleAddToCart}>
-            <Badge badgeContent={cartItems} color="error">
+          <IconButton size="large" aria-label="show cart items" color="inherit" onClick={()=>navigate(`/service/product/:${1}/Cart`)}>
               <ShoppingCart />
-            </Badge>
+            
           </IconButton>
 
           <IconButton
