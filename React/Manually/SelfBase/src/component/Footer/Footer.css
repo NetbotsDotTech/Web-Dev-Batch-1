@@ -4,10 +4,24 @@
 }
 .footerWrapper .footerBoxes .box{
     background-color: #f4f6fa;
-    padding: 15px 25px;
+    padding: 15px 15px;
     border-radius: 10px;
 
 }
 .footerWrapper .footerBoxes .box .info{
     padding-left: 25px;
+}
+.footerWrapper .footerBoxes .box .info h4{
+    font-size: 15px;
+}
+.footerWrapper .footerBoxes .box .info p{
+    font-size: 15px;
+    margin-bottom: 0px;
+}
+.footerWrapper .footerBoxes .box  img{
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+.footerWrapper .footerBoxes .box:hover img{
+    transform: translateY(-5deg);
 }

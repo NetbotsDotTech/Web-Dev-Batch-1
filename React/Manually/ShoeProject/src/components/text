@@ -1,0 +1,61 @@
+import React, { createContext, useContext, useState } from 'react';
+
+// Create the Context
+const EcommerceContext = createContext();
+
+// Define a provider component
+export const EcommerceProvider = ({ children }) => {
+  // State to store products
+  const [products, setProducts] = useState([]);
+
+  // Create (Add a product)
+  const addProduct = (newProduct) => {
+    setProducts([...products, newProduct]);
+  };
+
+  // Read (Fetch all products)
+  const fetchProducts = () => {
+    return products;
+  };
+
+  // Update (Update a product)
+  const updateProduct = (updatedProduct) => {
+    const updatedProducts = products.map((product) =>
+      product.id === updatedProduct.id ? updatedProduct : product
+    );
+    setProducts(updatedProducts);
+  };
+
+  // Delete (Remove a product)
+  const deleteProduct = (productId) => {
+    const filteredProducts = products.filter((product) => product.id !== productId);
+    setProducts(filteredProducts);
+  };
+
+  // Context value containing the state and CRUD functions
+  const contextValue = {
+    products,
+    addProduct,
+    fetchProducts,
+    updateProduct,
+    deleteProduct,
+  };
+
+  return (
+    <EcommerceContext.Provider value={contextValue}>
+      {children}
+    </EcommerceContext.Provider>
+  );
+};
+
+// Custom hook to use the EcommerceContext
+export const useEcommerce = () => {
+  const context = useContext(EcommerceContext);
+
+  // Check if context exists to avoid using it outside of the provider
+  if (!context) {
+    throw new Error('useEcommerce must be used within an EcommerceProvider');
+  }
+
+  return context;
+};

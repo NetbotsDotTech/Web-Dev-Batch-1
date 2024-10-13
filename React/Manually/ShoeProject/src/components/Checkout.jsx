@@ -12,19 +12,21 @@ import {
   FormControlLabel,
   Radio,
   Checkbox,
-  Divider,
-  Grid,
-  Card,
-  CardContent,
+  CircularProgress,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
 } from '@mui/material';
-import { useLocation } from 'react-router-dom';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
-const steps = ['Shipping Information', 'Payment Information', 'Review Order', 'Confirmation'];
+// Steps for checkout
+const steps = ['Shipping Information', 'Payment Information', 'Confirmation'];
 
-const Checkout = ({ cartItems = [] }) => { // Set default value for cartItems
-    const location =useLocation()
-    const datafrom=location.state
-  const initialShippingDetails = {
+// Initial form values
+const initialValues = {
+  shipping: {
     name: '',
     address: '',
     city: '',
@@ -33,211 +35,210 @@ const Checkout = ({ cartItems = [] }) => { // Set default value for cartItems
     phone: '',
     email: '',
     shippingMethod: 'standard',
-  };
-
-  const initialPaymentDetails = {
+  },
+  payment: {
     cardNumber: '',
     expiryDate: '',
     cvv: '',
     cardHolderName: '',
     billingAddressSame: true,
-  };
+  },
+  termsAgreed: false,
+};
 
+// Validation schema
+const validationSchema = [
+  Yup.object({
+    shipping: Yup.object().shape({
+      name: Yup.string().required('Required'),
+      address: Yup.string().required('Required'),
+      city: Yup.string().required('Required'),
+      state: Yup.string().required('Required'),
+      postalCode: Yup.string().required('Required'),
+      phone: Yup.string().required('Required'),
+      email: Yup.string().email('Invalid email').required('Required'),
+      shippingMethod: Yup.string().required('Required'),
+    }),
+  }),
+  Yup.object({
+    payment: Yup.object().shape({
+      cardNumber: Yup.string().required('Required'),
+      expiryDate: Yup.string().required('Required'),
+      cvv: Yup.string().required('Required'),
+      cardHolderName: Yup.string().required('Required'),
+    }),
+  }),
+];
+
+const Checkout = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const [shippingDetails, setShippingDetails] = useState(initialShippingDetails);
-  const [paymentDetails, setPaymentDetails] = useState(initialPaymentDetails);
-  const [promoCode, setPromoCode] = useState('');
-  const [termsAgreed, setTermsAgreed] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [openModal, setOpenModal] = useState(false); // State for modal
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    const details = activeStep === 0 ? shippingDetails : paymentDetails;
+  const handleSubmit = async (values) => {
+    if (activeStep === steps.length - 1) {
+      setLoading(true);
+      // Simulate API call
+      setTimeout(() => {
+        // Log and store the order
+        console.log('Order submitted:', values);
+        localStorage.setItem('order', JSON.stringify(values));
 
-    if (activeStep === 0) {
-      setShippingDetails({ ...details, [name]: value });
+        // Open the success modal
+        setOpenModal(true);
+        
+        setLoading(false);
+      }, 2000);
     } else {
-      setPaymentDetails({ ...details, [name]: value });
-    }
-  };
-
-  const handleShippingMethodChange = (e) => {
-    setShippingDetails({ ...shippingDetails, shippingMethod: e.target.value });
-  };
-
-  const handleTermsChange = (e) => {
-    setTermsAgreed(e.target.checked);
-  };
-
-  const handlePromoCodeChange = (e) => {
-    setPromoCode(e.target.value);
-  };
-
-  const handleNext = () => {
-    if (activeStep === 0 && isShippingDetailsValid()) {
       setActiveStep((prevStep) => prevStep + 1);
-    } else if (activeStep === 1 && isPaymentDetailsValid()) {
-      setActiveStep((prevStep) => prevStep + 1);
-    } else if (activeStep === steps.length - 1) {
-      console.log('Order submitted:', { shippingDetails, paymentDetails });
     }
   };
 
-  const handleBack = () => {
-    if (activeStep > 0) {
-      setActiveStep((prevStep) => prevStep - 1);
-    }
-  };
-
-  const calculateTotal = () => {
-    const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    const shippingCost = shippingDetails.shippingMethod === 'express' ? 10 : 5;
-    return subtotal + shippingCost;
-  };
-
-  const isShippingDetailsValid = () => {
-    return Object.values(shippingDetails).every((field) => field);
-  };
-
-  const isPaymentDetailsValid = () => {
-    return Object.values(paymentDetails).every((field) => field);
+  const handleCloseModal = () => {
+    setOpenModal(false);
+    // Optionally reset the form or navigate elsewhere after closing
   };
 
   return (
-    <Box sx={{ padding: 3 }}>
-      <Typography variant="h4" gutterBottom>
-        Checkout
-      </Typography>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema[activeStep]}
+      onSubmit={handleSubmit}
+    >
+      {({ values }) => (
+        <Form>
+          <Box sx={{ padding: 3 }}>
+            <Typography variant="h4" gutterBottom>
+              Checkout
+            </Typography>
 
-      <Stepper activeStep={activeStep} alternativeLabel>
-        {steps.map((label) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
+            <Stepper activeStep={activeStep} alternativeLabel>
+              {steps.map((label) => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
 
-      <Box sx={{ marginTop: 2 }}>
-        {activeStep === 0 && (
-          <ShippingInformation
-            shippingDetails={shippingDetails}
-            handleInputChange={handleInputChange}
-            handleShippingMethodChange={handleShippingMethodChange}
-          />
-        )}
+            <Box sx={{ marginTop: 2 }}>
+              {activeStep === 0 && <ShippingInformation />}
+              {activeStep === 1 && <PaymentInformation />}
+              {activeStep === 2 && <Confirmation values={values} />}
 
-        {activeStep === 1 && (
-          <PaymentInformation
-            paymentDetails={paymentDetails}
-            handleInputChange={handleInputChange}
-          />
-        )}
+              <Box sx={{ marginTop: 3 }}>
+                <Button
+                  variant="contained"
+                  onClick={() => setActiveStep((prev) => Math.max(prev - 1, 0))}
+                  disabled={activeStep === 0}
+                  sx={{ marginRight: 2 }}
+                >
+                  Back to Cart
+                </Button>
+                <Button variant="contained" type="submit" disabled={loading} sx={{marginLeft:"70%"}}>
+                  {loading ? (
+                    <CircularProgress size={24} />
+                  ) : activeStep < steps.length - 1 ? (
+                    'Continue to Payment'
+                  ) : (
+                    'Place Order'
+                  )}
+                </Button>
+              </Box>
+            </Box>
+          </Box>
 
-        {activeStep === 2 && (
-          <ReviewOrder cartItems={cartItems} shippingDetails={shippingDetails} calculateTotal={calculateTotal} />
-        )}
-
-        {activeStep === 3 && <Typography variant="h6">Thank you for your order!</Typography>}
-
-        <Box sx={{ marginTop: 3 }}>
-          <Button variant="contained" onClick={handleBack} disabled={activeStep === 0} sx={{ marginRight: 2 }}>
-            Back to Cart
-          </Button>
-          {activeStep < steps.length - 1 ? (
-            <Button
-              variant="contained"
-              onClick={handleNext}
-            >
-              Continue to Payment
-            </Button>
-          ) : (
-            <Button
-              variant="contained"
-              onClick={handleNext}
-              disabled={!termsAgreed || !isPaymentDetailsValid()}
-            >
-              Place Order
-            </Button>
-          )}
-        </Box>
-      </Box>
-    </Box>
+          {/* Success Modal */}
+          <Dialog open={openModal} onClose={handleCloseModal}>
+            <DialogTitle>Order Successful</DialogTitle>
+            <DialogContent>
+              <Typography variant="body1">
+                Congratulations! Your order has been placed successfully.
+              </Typography>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleCloseModal} color="primary">
+                Close
+              </Button>
+            </DialogActions>
+          </Dialog>
+        </Form>
+      )}
+    </Formik>
   );
 };
 
 // Shipping Information Component
-const ShippingInformation = ({ shippingDetails, handleInputChange, handleShippingMethodChange }) => (
-  <Box component="form">
-    <Typography variant="h6">Shipping Information</Typography>
-    {Object.keys(shippingDetails).map((key) => (
-      key !== 'shippingMethod' ? (
-        <TextField
-          key={key}
-          label={key.charAt(0).toUpperCase() + key.slice(1)}
-          name={key}
-          value={shippingDetails[key]}
-          onChange={handleInputChange}
-          fullWidth
-          margin="normal"
-        />
-      ) : null
-    ))}
+const ShippingInformation = () => (
+  <Box sx={{width:'90%', textAlign:'center'}}>
+    <Typography variant="h6" sx={{textAlign:'center'}}>Shipping Information</Typography>
+    <Box sx={{textAlign:'center', marginLeft:'20%', marginRight:'10%'}}>
+       {Object.keys(initialValues.shipping).map((key) => (
+      <Field
+        key={key}
+        name={`shipping.${key}`}
+        as={TextField}
+        label={key.charAt(0).toUpperCase() + key.slice(1)}
+        fullWidth
+        margin="normal"
+        helperText={<ErrorMessage name={`shipping.${key}`} />}
+        error={!!<ErrorMessage name={`shipping.${key}`} />}
+        
+      />
+    ))}</Box>
     <FormControl component="fieldset">
-      <RadioGroup row name="shippingMethod" value={shippingDetails.shippingMethod} onChange={handleShippingMethodChange}>
-        <FormControlLabel value="standard" control={<Radio />} label="Standard Shipping" />
-        <FormControlLabel value="express" control={<Radio />} label="Express Shipping" />
-      </RadioGroup>
+      <Field name="shipping.shippingMethod">
+        {({ field }) => (
+          <RadioGroup row {...field}>
+            <FormControlLabel value="standard" control={<Radio />} label="Standard Shipping" />
+            <FormControlLabel value="express" control={<Radio />} label="Express Shipping" />
+          </RadioGroup>
+        )}
+      </Field>
     </FormControl>
   </Box>
 );
 
 // Payment Information Component
-const PaymentInformation = ({ paymentDetails, handleInputChange }) => (
-  <Box component="form">
+const PaymentInformation = () => (
+  <Box  sx={{width:'90%', textAlign:'center'}}>
     <Typography variant="h6">Payment Information</Typography>
-    {Object.keys(paymentDetails).map((key) => (
-      <TextField
+    <Box sx={{textAlign:'center', marginLeft:'20%', marginRight:'10%'}}>
+    {Object.keys(initialValues.payment).map((key) => (
+      <Field
         key={key}
+        name={`payment.${key}`}
+        as={TextField}
         label={key.charAt(0).toUpperCase() + key.slice(1)}
-        name={key}
-        value={paymentDetails[key]}
-        onChange={handleInputChange}
         fullWidth
         margin="normal"
+        helperText={<ErrorMessage name={`payment.${key}`} />}
+        error={!!<ErrorMessage name={`payment.${key}`} />}
       />
     ))}
-    <FormControlLabel
-      control={<Checkbox checked={paymentDetails.billingAddressSame} onChange={() => handleInputChange({ target: { name: 'billingAddressSame', value: !paymentDetails.billingAddressSame } })} />}
-      label="Billing address is the same as shipping"
-    />
+    </Box>
+    <Field name="payment.billingAddressSame">
+      {({ field }) => (
+        <FormControlLabel
+          control={<Checkbox {...field} checked={field.value} />}
+          label="Billing address is the same as shipping"
+        />
+      )}
+    </Field>
   </Box>
 );
 
-// Review Order Component
-const ReviewOrder = ({ datafrom, shippingDetails, calculateTotal }) => {
-  if (!Array.isArray(datafrom) || datafrom.length === 0) {
-    console.log('datafrom',datafrom)
-    return <Typography variant="h6">No items in the cart.</Typography>;
-  }
-
-  return (
-    <Box>
-      <Typography variant="h6">Review Order</Typography>
-      {cartItems.map((item, index) => (
-        <Card key={index} sx={{ marginBottom: 2 }}>
-          <CardContent>
-            <Typography variant="body1">{item.name}</Typography>
-            <Typography variant="body2">Quantity: {item.quantity}</Typography>
-            <Typography variant="body2">Price: {item.price.toFixed(2)} PKR</Typography>
-            <Typography variant="body2">Total: {(item.price * item.quantity).toFixed(2)} PKR</Typography>
-          </CardContent>
-        </Card>
-      ))}
-      <Divider />
-      <Typography variant="h6">Subtotal: {cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)} PKR</Typography>
-      <Typography variant="h6">Shipping: {shippingDetails.shippingMethod === 'express' ? '10.00' : '5.00'} PKR</Typography>
-      <Typography variant="h5">Total: {calculateTotal().toFixed(2)} PKR</Typography>
-    </Box>
-  );
-};
+// Confirmation Component
+const Confirmation = ({ values }) => (
+  <Box sx={{width:'90%', textAlign:'center'}}>
+    <Typography variant="h6">Confirmation</Typography>
+    <Typography variant="body1">Thank you for your order!</Typography>
+    <Typography variant="body2">
+      Shipping to: {values.shipping.name}, {values.shipping.address}, {values.shipping.city}, {values.shipping.state}, {values.shipping.postalCode}
+    </Typography>
+    <Typography variant="body2">
+      Payment Method: {values.payment.cardHolderName}
+    </Typography>
+  </Box>
+);
 
 export default Checkout;

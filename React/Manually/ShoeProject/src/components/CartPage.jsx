@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Box,
@@ -13,59 +13,58 @@ import {
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import VictoryIcon from '@mui/icons-material/EmojiEvents';
+import { CartContext } from './ReactContext';
 
 const CartPage = () => {
-  const location = useLocation();
   const navigate = useNavigate();
+  const { selectedProduct, cartItems, setCartItems } = useContext(CartContext);
+  const location = useLocation();
+  const data = location.state; // This is the passed data which should include quantity
+  console.log("quantity:", data)
+
+  if (!selectedProduct && cartItems.length === 0) {
+    return <Typography>No product selected and your cart is empty.</Typography>;
+  }
+
   const initialCart = JSON.parse(localStorage.getItem('cart')) || [];
-  
   const [cart, setCart] = useState(initialCart);
 
   useEffect(() => {
-    const productData = location.state;
+    if (selectedProduct) {
+      const {
+        id,
+        images = [], // default to an empty array if no images are available
+        price,
+        title,
+      } = selectedProduct;
 
-    if (productData) {
-      const { availableSizes, id, images = [], price, title } = productData;
       const newItem = {
         id,
-        image: images[0],
+        image: images[0] || '', // Handle missing image case
         title,
-        size: availableSizes[0],
         price,
-        quantity: 1,
+        quantity: data, // Use the quantity passed in the state
       };
 
       setCart((prevCart) => {
-        const itemExists = prevCart.find(item => item.id === id);
+        const itemExists = prevCart.find((item) => item.id === id);
         if (itemExists) {
-          return prevCart.map(item =>
+          // If the item already exists, update its quantity by adding the new one
+          return prevCart.map((item) =>
             item.id === id
-              ? { ...item, quantity: item.quantity + 1 }
+              ? { ...item, quantity: item.quantity } // Add to existing quantity
               : item
           );
         }
-        return [...prevCart, newItem];
+        return [...prevCart, newItem]; // Add the new item to the cart
       });
     }
-  }, [location.state]);
+  }, [selectedProduct]);
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
-
-  const handleQuantityChange = (id, action) => {
-    setCart((prevCart) =>
-      prevCart.map((item) =>
-        item.id === id
-          ? {
-              ...item,
-              quantity: action === 'increase' ? item.quantity + 1 : Math.max(1, item.quantity - 1),
-            }
-          : item
-      )
-    );
-  };
+    setCartItems(cart);
+  }, [cart, setCartItems]);
 
   const handleRemoveItem = (id) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
@@ -76,7 +75,7 @@ const CartPage = () => {
   };
 
   const getSubtotal = () => {
-    return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    return cart.reduce((acc, item) => acc + item.price * item.quantity, 0); // Use item.quantity here
   };
 
   return (
@@ -86,20 +85,22 @@ const CartPage = () => {
           <CloseIcon />
         </IconButton>
         <AddShoppingCartIcon sx={{ fontSize: 50 }} />
-        <Typography variant="h6">{cart.length} Cards</Typography>
-        <Typography variant="body2">
-          Congrats! You get free standard shipping <VictoryIcon />
+        <Typography variant="h3">{cart.length} Cards</Typography>
+        <Typography variant="h6">
+          Congratulations! You get free standard shipping 
         </Typography>
       </Box>
-      <Divider sx={{ marginBottom: 2, height: '2px', backgroundColor: '#ccc' }} />
+      <Divider sx={{ marginBottom: 2, height: '12px', backgroundColor: '#ccc' }} />
 
-      <Grid container spacing={2} sx={{ flexGrow: 1 }}>
+      <Grid container spacing={1} sx={{ flexGrow: 1, marginTop: "50px" }}>
         <Grid item xs={12} md={8}>
           {cart.length > 0 ? (
             cart.map((item) => (
               <Card
                 key={item.id}
                 sx={{
+                  textAlign: 'center',
+                  width: "70%",
                   display: 'flex',
                   marginBottom: 2,
                   padding: 2,
@@ -107,6 +108,7 @@ const CartPage = () => {
                   borderRadius: '8px',
                   boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
                   transition: '0.3s',
+                  marginLeft: "10%",
                   '&:hover': {
                     boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
                   },
@@ -115,42 +117,14 @@ const CartPage = () => {
                 <CardMedia
                   component="img"
                   alt={item.title}
-                  image={item.image}
+                  image={item.image || '/placeholder.png'} // Default image if not available
                   sx={{ width: 100, height: 100, objectFit: 'contain' }}
                 />
                 <CardContent sx={{ flex: 1 }}>
-                  <Typography variant="body1">{item.title}</Typography>
-                  <Typography variant="body2">Size: {item.size}</Typography>
-                  <Box sx={{ display: 'flex', alignItems: 'center', marginTop: 1 }}>
-                    <Button
-                      onClick={() => handleQuantityChange(item.id, 'decrease')}
-                      disabled={item.quantity === 1}
-                      sx={{
-                        minWidth: '30px',
-                        fontSize: '20px',
-                        borderRadius: '50%',
-                        backgroundColor: 'transparent',
-                        padding: '0px',
-                        '&:hover': { backgroundColor: '#f0f0f0' },
-                      }}
-                    >
-                      -
-                    </Button>
-                    <Typography sx={{ marginX: 1 }}>{item.quantity}</Typography>
-                    <Button
-                      onClick={() => handleQuantityChange(item.id, 'increase')}
-                      sx={{
-                        minWidth: '30px',
-                        fontSize: '20px',
-                        borderRadius: '50%',
-                        backgroundColor: 'transparent',
-                        padding: '0px',
-                        '&:hover': { backgroundColor: '#f0f0f0' },
-                      }}
-                    >
-                      +
-                    </Button>
-                  </Box>
+                  <Typography variant="body1">Title: {item.title}</Typography>
+                  <Typography variant="body1" sx={{ alignSelf: 'flex-end', margin: 1 }}>
+                    Price: {item.price * item.quantity} PKR
+                  </Typography>
                 </CardContent>
                 <IconButton
                   sx={{ position: 'absolute', right: 10, top: 10 }}
@@ -158,9 +132,6 @@ const CartPage = () => {
                 >
                   <CloseIcon />
                 </IconButton>
-                <Typography variant="body1" sx={{ alignSelf: 'flex-end', margin: 1 }}>
-                  {item.price * item.quantity} PKR
-                </Typography>
               </Card>
             ))
           ) : (
@@ -178,24 +149,24 @@ const CartPage = () => {
         </Grid>
 
         <Grid item xs={12} md={4}>
-          <Box sx={{ padding: 2, border: '1px solid #ccc', borderRadius: '4px' }}>
-            <Typography variant="h6">Cart Summary</Typography>
-            <Divider sx={{ marginY: 1 }} />
-            <Typography variant="body1">Total Items: {getTotalQuantity()}</Typography>
-            <Typography variant="body1">Subtotal: {getSubtotal()} PKR</Typography>
-            <Typography variant="body1">Shipping: Free</Typography>
-            <Typography variant="body1">Total Cards: {cart.length}</Typography> {/* Show total cards */}
-            {cart.length > 0 && (
-              <Button
-                variant="contained"
-                fullWidth
-                sx={{ marginTop: 2 }}
-                onClick={() => navigate('/checkout ',{state:location.state})}
-                
-              >
-                Proceed to Checkout
-              </Button>
-            )}
+          <Box sx={{ padding: 5, border: '2px solid #ccc', borderRadius: '4px' }}>
+            <Typography variant="h4">Cart Summary</Typography>
+            <Divider sx={{ marginY: 5 }} />
+                       <Typography variant="body1" sx={{ fontWeight: "500", fontSize: "20px", marginLeft: "10px" }}>
+              Total Quantity: {getTotalQuantity()}
+            </Typography>
+            <Typography variant="body1" sx={{ fontWeight: "500", fontSize: "20px", marginLeft: "10px" }}>
+              Subtotal: {getSubtotal()} PKR
+            </Typography>
+            <Divider sx={{ marginY: 5 }} />
+            <Button
+              variant="contained"
+              fullWidth
+              sx={{ marginTop: 2 }}
+              onClick={() => navigate('/checkout')} // Navigate to the checkout page
+            >
+              Proceed to Checkout
+            </Button>
           </Box>
         </Grid>
       </Grid>

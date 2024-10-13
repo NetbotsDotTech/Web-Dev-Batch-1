@@ -48,11 +48,11 @@ const ContactPage = () => {
   return (
     <Container maxWidth="md" sx={{ marginTop: '100px', marginBottom: '50px' }}>
       {/* Row 1: Header and Description */}
-      <Typography variant="h4" align="center" gutterBottom>
+      <Typography variant="h3" align="center" gutterBottom>
         Contact Us
       </Typography>
-      <Typography variant="body1" align="center" gutterBottom>
-        We’re here to help! Please fill out the form below and we’ll get back to you as soon as possible.
+      <Typography variant="h6" align="center" gutterBottom>
+        We’re here to help! Please fill out the form below and we’ll get back to you as soon as possible!
       </Typography>
       <br /><br />
 

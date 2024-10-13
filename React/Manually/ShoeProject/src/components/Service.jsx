@@ -80,8 +80,7 @@ const Service = () => {
   const [isMenSelected, setIsMenSelected] = useState(true);
   const [hoveredImage, setHoveredImage] = useState({}); // Tracks the hovered image for each card
   const [products, setProducts] = useState(dummyProducts);
-  const navigate = useNavigate();
-
+  const navigate = useNavigate()
 
 
   // URL Search Params (for filters)
@@ -93,7 +92,6 @@ const Service = () => {
     // Simulate fetching products and adding them to cart
     if (products.length > 0) {
       addToCart(products);
-      console.log(products); // Ensure products are logged
     }
   }, [products]);
 
@@ -124,8 +122,7 @@ const Service = () => {
   };
   const handleAddToCart = (product) => {
     addToCart(product); // Add individual product to cart when user clicks on the button
-    console.log(`Added to cart: ${product.title}`);
-    navigate("/service/product/:productId" )
+    navigate(`/service/product/${product.id}` )
   };
 
   return (
