@@ -20,7 +20,7 @@ app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(express.json());
 
-// Set endpoin
+// Set endpoint
 
 app.use("/api/user", authRoute);
 app.use("/api/product",productRoute );
@@ -29,10 +29,10 @@ app.use("/api/product",productRoute );
 
 const DatabaseConnection = async () => {
     try {
-      await mongoose.connect('mongodb://localhost:27017');
+      await mongoose.connect(process.env.MONGO_URI);
       console.log("Connected to mongoDB.");
-    } catch {
-      console.log("Connection Error");
+    } catch (error) {
+      console.log("Connection Error", error);
     }
   };
   
@@ -42,7 +42,7 @@ const DatabaseConnection = async () => {
   
 
 app.get("/", (req, res)=>{
-res.json({message:"Hello"})
+res.send("Hello From Backend")
 })
 
 const port = process.env.PORT || 5000;
