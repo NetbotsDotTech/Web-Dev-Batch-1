@@ -1,8 +1,19 @@
-import { Product } from "../models/productModel.js";
+import { Product , SubCategory} from "../models/productModel.js";
 
 // Add new product with image upload
 export const addProduct = async (req, res, next) => {
-  const { name, description, category, ...others } = req.body;
+  const {
+    name,
+    description,
+    category,
+    review,
+    brand,
+    color,
+    size,
+    stock,
+    price,
+    sku
+  } = req.body;
 
   try {
     // Handle image upload if present
@@ -11,8 +22,26 @@ export const addProduct = async (req, res, next) => {
       images = req.files.map(file => file.path); // Store file paths in images array
     }
 
+    const subCategory = new SubCategory({
+      brand,
+      color,
+      size,
+      stock,
+      price,
+      sku
+    });
+
+    // Save SubCategory
+    const savedSubCategory = await subCategory.save();
     // Create product
-    const product = new Product({ name, description, category, images, ...others });
+    const product = new Product({
+      name, 
+      description, 
+      category, 
+      images,
+      subCategory: savedSubCategory._id , 
+      review
+    });
     await product.save();
 
     res.status(201).json({
