@@ -1,0 +1,11 @@
+Function:
+    it used to avoid code repitition ,reusibility,and consice of code
+There many types of function in JavaScript
+i- nameing function
+ii-variable function
+iii-callback or anynomous or handler or higher order function
+iv-Arrow function
+v-IFFE function
+
+-->Parameter and Arrguments
+-->rest parameter

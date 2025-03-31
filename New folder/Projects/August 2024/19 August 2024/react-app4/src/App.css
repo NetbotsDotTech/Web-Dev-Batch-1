@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.mainBox{
+    /* border: 1px solid black ; */
+    background-color: rgba(0,0,0,0.2);
+    margin-top: 100px;
+    margin-left: 350px;
+    margin-right: 350px;
+
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: -2px -2px 15px  10px;
+   
+}
+.mainBox .childBox input   {
+  margin-top: 10px;
+   
+}

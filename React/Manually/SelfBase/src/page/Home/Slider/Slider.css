@@ -1,0 +1,70 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css");
+.homeSlider{
+    padding: 25px 0px;
+}
+.home_slider_main{
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    
+}
+.slick-arrow{
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    z-index: 1000;
+}
+.slick-arrow.slick-next{
+    background-color: gray;
+
+    right: 250em;
+}
+.slick-arrow.slick-prev{
+
+    left: 250em;
+    background-color: gray;
+  
+}
+.slick-arrow.slick-next:hover{
+    background-color: #3bb77e;
+}
+.slick-arrow.slick-prev:hover{
+    background-color: #3bb77e;
+}
+.home_slider_main .slick-dots{
+    position: absolute;
+    bottom: 30px;
+}
+.home_slider_main .slick-dots button::before{
+    width: 50px !important ;
+    height: 50px !important;
+    font-size: 16px;
+   
+}
+.slick-active button::before{
+     color: #3bb77e !important;
+}
+.home_slider_main .item{
+    position: relative;
+}
+.home_slider_main .item .info{
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    z-index: 100;
+}
+
+.home_slider_main .item .info h2{
+    font-size: 45px ;   
+    font-weight: bold; 
+    color: rgba(0,0,0,0.8);
+}
+.home_slider_main .item .info p{
+    font-size: 25px ;   
+    font-weight: 600; 
+    color:#100e0e;
+}

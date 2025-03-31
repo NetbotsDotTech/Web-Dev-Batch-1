@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+.container-fluid{
+    padding: 0px 40px;
+}
+.cursor{
+    cursor: pointer;
+
+}
+.bg-g ,.bg-success{
+    background: #3bb77e;
+}
+.text-g{
+    color: #3bb77e;
+
+}
+.hd{
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+.transition{
+    transition: all 0.3s ease-in-out;
+}
+.price{
+    font-size: 20px;
+    margin-right: 10px;
+}
+ .oldPrice{
+    font-size: 16px;
+    color: #000;
+    text-decoration: line-through;
+    opacity: 0.6;
+}

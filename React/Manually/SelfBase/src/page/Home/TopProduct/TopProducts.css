@@ -1,0 +1,54 @@
+.topSellingbox h4{
+    font-size: 20px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.topSellingbox h4::after{
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: rgba(255, 255, 98, 0.6);
+    position: absolute;
+    bottom: 0px;    
+    left: 0px;
+
+}
+.topSellingbox h4::before{
+    content: '';
+    width: 30%;
+    height: 3px;
+    background-color: lightgreen;
+    position: absolute;
+    bottom: 0px;    
+    left: 0px;
+    z-index: 10;
+}
+.topSellingbox .items{
+    padding: 15px 0px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+.topSellingbox .items .img{
+    width: 30%;
+    background-color: #fafafa;
+}
+.topSellingbox .items .info{
+    width: 70%;
+}
+
+.topSellingbox .items .info h6{
+    font-weight: 600;
+    opacity: 0.9;
+    font-size: 15px !important;
+
+}
+.topSellingbox .items .info a{
+    text-decoration: none;
+    color: rgba(0,0,0,0.8);
+}
+.topSellingbox .items:hover{
+    transform: translateY(-10px);
+}

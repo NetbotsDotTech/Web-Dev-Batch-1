@@ -1,0 +1,36 @@
+h1{
+    text-align: center;
+}
+
+
+.container{
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+.box{
+    border: 2px dashed black;
+    width: 150px;
+    height: 150px;
+    margin: 5px 5px;
+}
+#grey{
+    background: grey;
+}
+#yellow{
+    background: yellow;
+}
+#red{
+    background: red;
+}
+#pink{
+    background: pink;
+
+}
+#white{
+    background: white;
+}

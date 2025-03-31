@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+
+    background-color: gray;
+}
+#form h1{
+   position: absolute;
+   top: 10px;
+   left: 40px;
+}
+.form2{
+    position: absolute;
+    top: 80px;
+    left: 200px;
+    font-size: x-large;
+}
+.form2 input{
+    padding: 10px;
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+button{
+    margin-left: 120px;
+    font-size: x-large;
+    padding: 6px;
+    border-radius: 10px;
+}

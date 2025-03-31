@@ -1,0 +1,324 @@
+{
+	"info": {
+		"_postman_id": "a7856425-a55d-4cad-ace9-897553c621c7",
+		"name": "MERN Stack Batch 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38248199"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"abc\",\r\n  \"email\": \"abc.doe@example.com\",\r\n  \"password\": \"securepassword123\",\r\n  \"firstName\": \"a\",\r\n  \"lastName\": \"bDoe\",\r\n  \"address\": \"123 Elm Street, Springfield, IL, 62704\",\r\n  \"phone\": 1234567890,\r\n  \"dateOfBirth\": \"1990-05-15\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Path}}user/register",
+							"host": [
+								"{{Path}}user"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"john_doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"password\": \"securepassword123\",\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"address\": \"123 Elm Street, Springfield, IL, 62704\",\r\n  \"phone\": 1234567890,\r\n  \"dateOfBirth\": \"1990-05-15\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Path}}artifacts/all-qrcodes",
+							"host": [
+								"{{Path}}artifacts"
+							],
+							"path": [
+								"all-qrcodes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Add Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Classic White T-Shirt\",\r\n    \"description\": \"A comfortable and stylish classic white t-shirt.\",\r\n    \"category\": \"men\",\r\n    \"brand\": \"Brand A\",\r\n    \"color\": \"White\",\r\n    \"size\": \"M\",\r\n    \"stock\": 20,\r\n    \"price\": 19.99,\r\n    \"sku\": \"SKU001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Path}}product/",
+							"host": [
+								"{{Path}}product"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Classic White T-Shirt\",\r\n    \"description\": \"A comfortable and stylish classic white t-shirt.\",\r\n    \"category\": \"men\",\r\n    \"brand\": \"Brand A\",\r\n    \"color\": \"White\",\r\n    \"size\": \"M\",\r\n    \"stock\": 20,\r\n    \"price\": 19.99,\r\n    \"sku\": \"SKU001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Path}}product/",
+							"host": [
+								"{{Path}}product"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Classic White T-Shirt\",\r\n    \"description\": \"A comfortable and stylish classic white t-shirt.\",\r\n    \"category\": \"men\",\r\n    \"brand\": \"Brand A\",\r\n    \"color\": \"White\",\r\n    \"size\": \"M\",\r\n    \"stock\": 20,\r\n    \"price\": 19.99,\r\n    \"sku\": \"SKU001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Path}}product/:id",
+							"host": [
+								"{{Path}}product"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Prduct",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Classic White T-Shirt\",\r\n    \"description\": \"A comfortable and stylish classic white t-shirt.\",\r\n    \"category\": \"men\",\r\n    \"brand\": \"Brand A\",\r\n    \"color\": \"White\",\r\n    \"size\": \"M\",\r\n    \"stock\": 20,\r\n    \"price\": 19.99,\r\n    \"sku\": \"SKU001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Path}}product/:id",
+							"host": [
+								"{{Path}}product"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View All Product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Classic White T-Shirt\",\r\n    \"description\": \"A comfortable and stylish classic white t-shirt.\",\r\n    \"category\": \"men\",\r\n    \"brand\": \"Brand A\",\r\n    \"color\": \"White\",\r\n    \"size\": \"M\",\r\n    \"stock\": 20,\r\n    \"price\": 19.99,\r\n    \"sku\": \"SKU001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Path}}product/:id",
+							"host": [
+								"{{Path}}product"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "GetAllUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Path}}/user/",
+							"host": [
+								"{{Path}}"
+							],
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Path}}/user/:id",
+							"host": [
+								"{{Path}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{Path}}/user/:id",
+							"host": [
+								"{{Path}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Path}}/user/:id",
+							"host": [
+								"{{Path}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

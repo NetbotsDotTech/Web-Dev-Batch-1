@@ -1,0 +1,30 @@
+
+Operator,Conditional statement and Loop
+i-Operator
+    ->Arthmetic Operator:
+            ==,===,>=,<=,%
+    ->logial Operater
+            &&,||,!
+    ->Ternary Operator
+            ?:
+    ->Assignment Operater
+            +=,-=,*=,/=,%=
+    ->Increment and Decrement Operater:
+            ++,--
+    
+ii-Conditional statement are:
+if()
+if else()
+else if()
+switch()
+continue key word
+break key word
+
+
+iii-Loop
+    for Loop
+    while Loop
+    do while Loop
+    for of Loop 
+    for in Loop
+

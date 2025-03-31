@@ -1,0 +1,10 @@
+.Recommended-flex{
+    display: flex;
+    margin-left: 16rem;
+}
+h2{
+    margin-left: 16rem;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 20px;
+}

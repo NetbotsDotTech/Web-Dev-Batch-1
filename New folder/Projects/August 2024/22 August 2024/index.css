@@ -1,0 +1,74 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background:linear-gradient(126deg,#4203a9,#90bafc);
+    color: #ffffff;
+    padding: 10px;
+}
+.ageCalculator{
+    width: 100%;
+    max-width: 600px;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+.ageCalculator h1{
+    font-size: 60px;
+
+}
+.ageCalculator h1 span{
+    color: #ffff76;
+}
+.inputBox{
+    margin: 40px 0;
+    padding: 35px;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+
+}
+.inputBox input{
+    flex: 1;
+    margin-right: 20px;
+    padding: 14px 20px;
+    border: 0;
+    outline: 0;
+    border-radius: 5px;
+    position: relative;
+    
+}
+.inputBox button{
+    background-color: #ffff76;
+    border: 0;
+    outline: 0;
+    padding: 15px 30px;
+    font-weight: 500;
+    border-radius: 5px;
+    color: #333;
+    cursor: pointer;
+}
+.inputBox input::-webkit-calendar-picker-indicator{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: auto;
+    height: auto;
+    position: absolute;
+    background-size: 10px;
+    cursor: pointer;
+    background-position:    calc(100%-10px);
+}
+#result{
+    font-size: 30px;
+}
+#result span{
+    color: #ffff76;
+}

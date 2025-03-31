@@ -1,0 +1,41 @@
+Start Backened on 02 september
+Backend:
+**************************************************************************************************************
+ORM vs ODM :-
+   --> ORM stands for Object Relational Mapping and ODM stands for Object Document Mapping ,both are used to interact with database but the approach is different in both mean how to perform the CRUD operation
+   
+   -->ORM used for relational database or structured data where data are stored in the form of table (rows and coloum), examples SQL,MySQL
+   -->ODM used for Document-oriented database or un-structured data or semi-structure where data are stored in the form of Document ,example MongoDB
+**************************************************************************************************************
+
+To Start Backend we install node js then following these steps to make our entry file and package.json 
+i-	npm init
+    this command make a javascript file and package.json 
+**************************************************************************************************************
+
+
+The following packages install :
+i-Express js:
+    it is a web framework which is used to make a web application and APIs 
+**************************************************************************************************************
+ii-Express-Validator:
+    IExpress-Validator is the popular middleaware package or library  for Node.js and Express js that validate and sanitizes user input data. It helps to protect your application from harmful data .
+
+**************************************************************************************************************
+
+iii-nodemon:
+ This package helps you to run your server automatically or globally when we change any thing in program ,without nodemon we run our server mannully  when we changing anything in our code
+**************************************************************************************************************
+
+iv-Mongoose:
+    It is a popular MongoDB ORM(Object Relational Mapping) library for node js which helps to simplifies the MongoDB interactions means it making easier to perform the CRUD operation and also provide sechma validation 
+*************************************************************************************************************
+Install the following software:
+--->PostMan Agent :- 
+            The Postman agent overcomes the Cross-Origin Resource Sharing (CORS) limitations of browsers, and facilitates API request sending from your browser version of Postman(Testing APIs)
+---> Mongo Campase:-
+        MongoDB Compass is a powerful GUI for querying, aggregating, and analyzing your MongoDB data in a visual environmen
+--->Mongo Community version:-
+    The community version of our distributed document database provides powerful ways to query and analyze your data.
+
+  
